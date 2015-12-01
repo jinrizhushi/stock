@@ -37,3 +37,5 @@ this is a stock project which is most about of the stock information that contai
 
 通信库：eventbus
        https://github.com/bboyfeiyu/AndroidEventBus
+
+股票数据参考:http://ichart.yahoo.com/table.csv?s=601888.SS&g=d
