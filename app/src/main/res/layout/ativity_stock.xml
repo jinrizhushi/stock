@@ -2,16 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/stock_view_bg"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello stock project !" />
 
     <cn.com.jinrizhushi.stock.util.customstockview.StockView
+        android:id="@+id/sv_stock"
         android:layout_width="match_parent"
-        android:background="@android:color/black"
+        android:background="@color/stock_view_bg"
         android:layout_height="500dp" />
 
 
