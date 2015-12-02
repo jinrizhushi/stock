@@ -2,6 +2,8 @@ package cn.com.jinrizhushi.stock.stock.model;
 
 import android.graphics.Paint;
 
+import cn.com.jinrizhushi.stock.util.customstockview.StockView;
+
 /**
  * 描述: 画布上文字的模型
  * 作者: 刘倩
@@ -31,6 +33,13 @@ public class StockTextModel {
         this.tvX = tvX;
         this.tvY = tvY;
         this.paint = paint;
+    }
+
+    public StockTextModel() {
+    }
+
+    public StockTextModel(String content) {
+        this.content = content;
     }
 
     public String getContent() {
