@@ -35,6 +35,12 @@ public class StockTextModel {
         this.paint = paint;
     }
 
+    public StockTextModel(String content, float tvX, float tvY) {
+        this.content = content;
+        this.tvX = tvX;
+        this.tvY = tvY;
+    }
+
     public StockTextModel() {
     }
 

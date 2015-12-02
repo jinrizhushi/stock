@@ -7,20 +7,37 @@ package cn.com.jinrizhushi.stock.stock.model;
  */
 public class StockModel {
 
-    /** 日期 */
+    /**
+     * 日期
+     */
     private String date;
-    /** 开盘价 */
+    /**
+     * 开盘价
+     */
     private String open;
-    /** 最高价 */
+    /**
+     * 最高价
+     */
     private String high;
-    /** 最低价 */
+    /**
+     * 最低价
+     */
     private String low;
-    /** 收盘价 */
+    /**
+     * 收盘价
+     */
     private String close;
-    /** 成交量 */
+    /**
+     * 成交量
+     */
     private String volume;
-    /** 调整收市价 */
+    /**
+     * 调整收市价
+     */
     private String adjClose;
+
+    public StockModel() {
+    }
 
     public StockModel(String date, String open, String high, String low, String close, String volume, String adjClose) {
         this.date = date;
