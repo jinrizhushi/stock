@@ -128,7 +128,7 @@ public class StockActivity extends Activity {
         listKline.add(sm9);
 
         StockKLineViewModel model = new StockKLineViewModel(listKline);
-        stockView.setOrdinateData(model.getListKOrdinateData());
-        stockView.setAbscissaData(model.getListKAbscissaData());
+        stockView.setModel(model);
+
     }
 }

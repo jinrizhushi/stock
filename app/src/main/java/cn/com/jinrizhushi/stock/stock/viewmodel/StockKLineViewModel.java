@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
+import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 
 /**
  * 描述: k线的视图控制模型
@@ -25,14 +26,27 @@ public class StockKLineViewModel {
     /**
      * 纵坐标的数据
      */
-    private String[] listKOrdinateData = new String[7];
+    private String[] listKOrdinateData;
     /**
      * 橫坐标的数据
      */
     private String[] listKAbscissaData = new String[2];
-
+    /**
+     * 分割的数量
+     */
+    private int STOCK_VIEW_MODEL_ALL_DEVIDE;
+    /** 最高价格 */
+    public static float STOCK_VIEW_HIGHEST_PRICE;
+    /** 最小价格 */
+    public static float STOCK_VIEW_LOWEST_PRICE;
+    /** 最高成交量 */
+    public static float STOCK_VIEW_HIGHEST_VOLUME;
+    /** 最小成交量 */
+    public static float STOCK_VIEW_LOWEST_VOLUME;
     public StockKLineViewModel(List<StockModel> listKline) {
         this.listKline = listKline;
+        STOCK_VIEW_MODEL_ALL_DEVIDE = StockView.STOCK_VIEW_ALL_DEVIDE - 1;
+        listKOrdinateData = new String[STOCK_VIEW_MODEL_ALL_DEVIDE];
         if (listKline != null && listKline.size() > 0) {
             initData(listKline);
         }
@@ -99,21 +113,25 @@ public class StockKLineViewModel {
     private void countListKOrdinateData(float[] hightPrice, float[] lowPrice, float[] volumes) {
         java.util.Arrays.sort(hightPrice);//升序排列
         java.util.Arrays.sort(lowPrice);
-        float highest = hightPrice[listKline.size() - 1];
-        float lowest = lowPrice[0];
-        float distance = (highest - lowest) / 5;
+
+        float highest= STOCK_VIEW_HIGHEST_PRICE = hightPrice[listKline.size() - 1];
+        float lowest =STOCK_VIEW_LOWEST_PRICE= lowPrice[0];
+        float distance = (highest - lowest) / (STOCK_VIEW_MODEL_ALL_DEVIDE - 2);
         listKOrdinateData[0] = (getDecimalFormat(highest));
+
         listKOrdinateData[1] = (getDecimalFormat(lowest + distance * 4));
         listKOrdinateData[2] = (getDecimalFormat(lowest + distance * 3));
         listKOrdinateData[3] = (getDecimalFormat(lowest + distance * 2));
         listKOrdinateData[4] = (getDecimalFormat(lowest + distance));
-        listKOrdinateData[5] = (getDecimalFormat(lowest));
-        float sum = 0f;
-        for (int i = 0; i < volumes.length; i++) {
-            sum += volumes[i];
+        for (int i = (STOCK_VIEW_MODEL_ALL_DEVIDE - 3); i > 0; i--) {
+            listKOrdinateData[i] = (getDecimalFormat(lowest + distance * (STOCK_VIEW_MODEL_ALL_DEVIDE - i - 2)));
         }
-        float all = sum / (volumes.length);
-        listKOrdinateData[6] = (getDecimalFormatNone(all));
+        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 2] = (getDecimalFormat(lowest));
+        java.util.Arrays.sort(volumes);
+        float highestVolume=STOCK_VIEW_HIGHEST_VOLUME = volumes[listKline.size() - 1];
+        float lowestVolume=STOCK_VIEW_LOWEST_VOLUME = volumes[0];
+        float all = (highestVolume + lowestVolume) / 2;
+        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 1] = (getDecimalFormatNone(all));
     }
 
     /**
@@ -126,10 +144,31 @@ public class StockKLineViewModel {
         DecimalFormat decimalFormat = new DecimalFormat(".00");
         return decimalFormat.format(data);
     }
+
     private String getDecimalFormatNone(float data) {
         DecimalFormat decimalFormat = new DecimalFormat("");
         return decimalFormat.format(data);
+
+
     }
 
+    public List<StockModel> getListKline() {
+        return listKline;
+    }
 
+    public void setListKline(List<StockModel> listKline) {
+        this.listKline = listKline;
+    }
+
+    public void setListKColor(List<Integer> listKColor) {
+        this.listKColor = listKColor;
+    }
+
+    public void setListKOrdinateData(String[] listKOrdinateData) {
+        this.listKOrdinateData = listKOrdinateData;
+    }
+
+    public void setListKAbscissaData(String[] listKAbscissaData) {
+        this.listKAbscissaData = listKAbscissaData;
+    }
 }

@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.jinrizhushi.stock.R;
+import cn.com.jinrizhushi.stock.stock.model.StockKLineDetailModel;
 import cn.com.jinrizhushi.stock.stock.model.StockLineModel;
+import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.stock.model.StockPointModel;
 import cn.com.jinrizhushi.stock.stock.model.StockTextModel;
+import cn.com.jinrizhushi.stock.stock.viewmodel.StockKLineViewModel;
 
 /**
  * 描述: 股票的视图
@@ -57,7 +60,7 @@ public class StockView extends View {
     /**
      * 将视图分段
      */
-    private int STOCK_VIEW_ALL_DEVIDE = 8;
+    public static int STOCK_VIEW_ALL_DEVIDE = 7;
     /**
      * 视图左右的间距
      */
@@ -76,6 +79,13 @@ public class StockView extends View {
      * 横坐标的数据
      */
     private String[] abscissaData;
+    /** k线的视图模型 */
+    private StockKLineViewModel model;
+    /** k线所需要的所有坐标 */
+    private List<StockKLineDetailModel> listKModel = new ArrayList<>();
+    /** k线所需要的数据 */
+    private List<StockModel> listKline = new ArrayList<>();
+
 
 
     public StockView(Context context) {
@@ -88,6 +98,18 @@ public class StockView extends View {
 
     public StockView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public StockKLineViewModel getModel() {
+        return model;
+    }
+
+    public void setModel(StockKLineViewModel model) {
+        this.model = model;
+        listKline = model.getListKline();
+        setOrdinateData(model.getListKOrdinateData());
+        setAbscissaData(model.getListKAbscissaData());
+
     }
 
     /**
@@ -192,17 +214,6 @@ public class StockView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         realWidth = MeasureSpec.getSize(widthMeasureSpec);
         realHeight = MeasureSpec.getSize(heightMeasureSpec);
-//        ordinateData = new String[STOCK_VIEW_ALL_DEVIDE - 1];
-//        ordinateData[0] = "105.36";
-//        ordinateData[1] = "87.80";
-//        ordinateData[2] = "70.24";
-//        ordinateData[3] = "52.68";
-//        ordinateData[4] = "35.12";
-//        ordinateData[5] = "17.56";
-//        ordinateData[6] = "2.1亿";
-//        abscissaData = new String[2];
-//        abscissaData[0] = "20157023";
-//        abscissaData[1] = "20151201";
         ordinateData = getOrdinateData();
         abscissaData = getAbscissaData();
         initPoint();
@@ -233,6 +244,83 @@ public class StockView extends View {
      * @param canvas 画布
      */
     private void drawKline(Canvas canvas) {
+//        List<StockKLineDetailModel> listKModel;
+////        model
+        for (int i = 0;i<listKline.size();i++)
+        {
+            StockModel data = listKline.get(i);
+            StockKLineDetailModel skldm = getDrawKData(data,i);
+            listKModel.add(skldm);
+        }
+    }
+
+    /**
+     * 获取绘制图线的数据
+     * @param data
+     * @param i
+     * @return
+     */
+    private StockKLineDetailModel getDrawKData(StockModel data, int i) {
+        StockKLineDetailModel skdm = new StockKLineDetailModel();
+        skdm.setHighestStartY(getAboveY(data.getHigh()));
+        if(Float.parseFloat(data.getOpen())>Float.parseFloat(data.getClose())){
+            skdm.setHighestStopY(getAboveY(data.getOpen()));
+            skdm.setRectTop(getAboveY(data.getOpen()));
+            skdm.setRectBottom(getAboveY(data.getClose()));
+            skdm.setLowestStartY(getAboveY(data.getClose()));
+        }else{
+            skdm.setHighestStopY(getAboveY(data.getClose()));
+            skdm.setRectTop(getAboveY(data.getClose()));
+            skdm.setRectBottom(getAboveY(data.getOpen()));
+            skdm.setLowestStartY(getAboveY(data.getOpen()));
+        }
+        skdm.setLowestStopY(getAboveY(data.getLow()));
+        skdm.setColumnarTop(getBeLowY(data.getVolume()));
+        skdm.setColumnarBottom(getBeLowY(String.valueOf(StockKLineViewModel.STOCK_VIEW_LOWEST_VOLUME)));
+//        private float highestStartX;
+//        private float highestStartY;
+//        private float highestStopX;
+//        private float highestStopY;
+//        private float rectLeft;
+//        private float rectTop;
+//        private float rectRight;
+//        private float rectBottom;
+//        private float lowestStartX;
+//        private float lowestStartY;
+//        private float lowestStopX;
+//        private float lowestStopY;
+//        private float columnarLeft;
+//        private float columnarTop;
+//        private float columnarRight;
+//        private float columnarBottom;
+        return skdm;
+    }
+
+    /**
+     * 根据数据获取在view上的轴周坐标
+     * @param high
+     * @return
+     */
+    private float getAboveY(String high) {
+        float y = 0f;
+        float starty = STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
+        float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
+        float highestPrice=StockKLineViewModel.STOCK_VIEW_HIGHEST_PRICE;
+        float lowestPrice = StockKLineViewModel.STOCK_VIEW_LOWEST_PRICE;
+        y = (stopy-starty)/(highestPrice-lowestPrice)*Float.parseFloat(high);
+        return y;
+    }
+    /**
+     * 根据数据获取在view上的Y轴坐标
+     * @param high
+     * @return
+     */
+    private float getBeLowY(String high) {
+        float y = 0f;
+        float highestPrice = StockKLineViewModel.STOCK_VIEW_HIGHEST_PRICE;
+        float lowestPrice = StockKLineViewModel.STOCK_VIEW_LOWEST_PRICE;
+        y = 2 * STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN / (highestPrice - lowestPrice)*Float.parseFloat(high);
+        return y;
     }
 
     /**
