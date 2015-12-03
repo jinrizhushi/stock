@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
+import cn.com.jinrizhushi.stock.util.Tools;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 
 /**
@@ -117,40 +118,23 @@ public class StockKLineViewModel {
         float highest= STOCK_VIEW_HIGHEST_PRICE = hightPrice[listKline.size() - 1];
         float lowest =STOCK_VIEW_LOWEST_PRICE= lowPrice[0];
         float distance = (highest - lowest) / (STOCK_VIEW_MODEL_ALL_DEVIDE - 2);
-        listKOrdinateData[0] = (getDecimalFormat(highest));
+        listKOrdinateData[0] = (Tools.getDecimalFormat(highest));
 
-        listKOrdinateData[1] = (getDecimalFormat(lowest + distance * 4));
-        listKOrdinateData[2] = (getDecimalFormat(lowest + distance * 3));
-        listKOrdinateData[3] = (getDecimalFormat(lowest + distance * 2));
-        listKOrdinateData[4] = (getDecimalFormat(lowest + distance));
+        listKOrdinateData[1] = (Tools.getDecimalFormat(lowest + distance * 4));
+        listKOrdinateData[2] = (Tools.getDecimalFormat(lowest + distance * 3));
+        listKOrdinateData[3] = (Tools.getDecimalFormat(lowest + distance * 2));
+        listKOrdinateData[4] = (Tools.getDecimalFormat(lowest + distance));
         for (int i = (STOCK_VIEW_MODEL_ALL_DEVIDE - 3); i > 0; i--) {
-            listKOrdinateData[i] = (getDecimalFormat(lowest + distance * (STOCK_VIEW_MODEL_ALL_DEVIDE - i - 2)));
+            listKOrdinateData[i] = (Tools.getDecimalFormat(lowest + distance * (STOCK_VIEW_MODEL_ALL_DEVIDE - i - 2)));
         }
-        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 2] = (getDecimalFormat(lowest));
+        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 2] = (Tools.getDecimalFormat(lowest));
         java.util.Arrays.sort(volumes);
         float highestVolume=STOCK_VIEW_HIGHEST_VOLUME = volumes[listKline.size() - 1];
         float lowestVolume=STOCK_VIEW_LOWEST_VOLUME = volumes[0];
         float all = (highestVolume + lowestVolume) / 2;
-        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 1] = (getDecimalFormatNone(all));
+        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 1] = (Tools.getDecimalFormatNone(all));
     }
 
-    /**
-     * 格式化数据
-     *
-     * @param data 要格式化的数据
-     * @return
-     */
-    private String getDecimalFormat(float data) {
-        DecimalFormat decimalFormat = new DecimalFormat(".00");
-        return decimalFormat.format(data);
-    }
-
-    private String getDecimalFormatNone(float data) {
-        DecimalFormat decimalFormat = new DecimalFormat("");
-        return decimalFormat.format(data);
-
-
-    }
 
     public List<StockModel> getListKline() {
         return listKline;

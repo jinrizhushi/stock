@@ -39,8 +39,10 @@ public class StockKLineDetailModel {
     private float columnarRight;
     /** 柱状距离底部的距离 */
     private float columnarBottom;
+    /** 柱状图的颜色 */
+    private int color;
 
-    public StockKLineDetailModel(float highestStartX, float highestStartY, float highestStopX, float highestStopY, float rectLeft, float rectTop, float rectRight, float rectBottom, float lowestStartX, float lowestStartY, float lowestStopX, float lowestStopY, float columnarLeft, float columnarTop, float columnarRight, float columnarBottom) {
+    public StockKLineDetailModel(float highestStartX, float highestStartY, float highestStopX, float highestStopY, float rectLeft, float rectTop, float rectRight, float rectBottom, float lowestStartX, float lowestStartY, float lowestStopX, float lowestStopY, float columnarLeft, float columnarTop, float columnarRight, float columnarBottom, int color) {
         this.highestStartX = highestStartX;
         this.highestStartY = highestStartY;
         this.highestStopX = highestStopX;
@@ -57,6 +59,15 @@ public class StockKLineDetailModel {
         this.columnarTop = columnarTop;
         this.columnarRight = columnarRight;
         this.columnarBottom = columnarBottom;
+        this.color = color;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
     public StockKLineDetailModel() {
