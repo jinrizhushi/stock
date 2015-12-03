@@ -28,6 +28,9 @@ public class StockKLineViewModel {
      * 纵坐标的数据
      */
     private String[] listKOrdinateData;
+    /**
+     * 均线图的数据
+     */
     private List<float[]> listF;
     /**
      * 橫坐标的数据
@@ -37,13 +40,21 @@ public class StockKLineViewModel {
      * 分割的数量
      */
     private int STOCK_VIEW_MODEL_ALL_DEVIDE;
-    /** 最高价格 */
+    /**
+     * 最高价格
+     */
     public static float STOCK_VIEW_HIGHEST_PRICE;
-    /** 最小价格 */
+    /**
+     * 最小价格
+     */
     public static float STOCK_VIEW_LOWEST_PRICE;
-    /** 最高成交量 */
+    /**
+     * 最高成交量
+     */
     public static float STOCK_VIEW_HIGHEST_VOLUME;
-    /** 最小成交量 */
+    /**
+     * 最小成交量
+     */
     public static float STOCK_VIEW_LOWEST_VOLUME;
 
     public StockKLineViewModel(List<StockModel> listKline) {
@@ -94,7 +105,7 @@ public class StockKLineViewModel {
             closes[i] = Float.parseFloat(model.getClose());
 
         }
-        countListKOrdinateData(hightPrice, lowPrice, volumes,closes);
+        countListKOrdinateData(hightPrice, lowPrice, volumes, closes);
         countListKAbscissaData(dates);
 
     }
@@ -116,24 +127,24 @@ public class StockKLineViewModel {
      * @param lowPrice
      * @param volumes
      */
-    private void countListKOrdinateData(float[] hightPrice, float[] lowPrice, float[] volumes,float[] closes) {
+    private void countListKOrdinateData(float[] hightPrice, float[] lowPrice, float[] volumes, float[] closes) {
         java.util.Arrays.sort(hightPrice);//升序排列
         java.util.Arrays.sort(lowPrice);
 
-        float highest= STOCK_VIEW_HIGHEST_PRICE = hightPrice[listKline.size() - 1];
-        float lowest =STOCK_VIEW_LOWEST_PRICE= lowPrice[0];
+        float highest = STOCK_VIEW_HIGHEST_PRICE = hightPrice[listKline.size() - 1];
+        float lowest = STOCK_VIEW_LOWEST_PRICE = lowPrice[0];
         float distance = (highest - lowest) / (STOCK_VIEW_MODEL_ALL_DEVIDE - 2);
-        for (int i = 0;i<(listKOrdinateData.length-1);i++){
-            if(i==0){
+        for (int i = 0; i < (listKOrdinateData.length - 1); i++) {
+            if (i == 0) {
                 listKOrdinateData[0] = (Tools.getDecimalFormat(highest));
-            }else{
-                listKOrdinateData[i] = (Tools.getDecimalFormat(lowest+distance*(STOCK_VIEW_MODEL_ALL_DEVIDE-i-2)));
+            } else {
+                listKOrdinateData[i] = (Tools.getDecimalFormat(lowest + distance * (STOCK_VIEW_MODEL_ALL_DEVIDE - i - 2)));
             }
 
         }
         java.util.Arrays.sort(volumes);
-        float highestVolume=STOCK_VIEW_HIGHEST_VOLUME = volumes[listKline.size() - 1];
-        float lowestVolume=STOCK_VIEW_LOWEST_VOLUME = volumes[0];
+        float highestVolume = STOCK_VIEW_HIGHEST_VOLUME = volumes[listKline.size() - 1];
+        float lowestVolume = STOCK_VIEW_LOWEST_VOLUME = volumes[0];
         float all = (highestVolume + lowestVolume) / 2;
         listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 1] = (Tools.getDecimalFormatNone(all));
 
@@ -141,7 +152,7 @@ public class StockKLineViewModel {
 
         float[] MA5 = getMADayData(5, closes);
         float[] MA10 = getMADayData(10, closes);
-        float[] MA20= getMADayData(20, closes);
+        float[] MA20 = getMADayData(20, closes);
         listF.add(MA5);
         listF.add(MA10);
         listF.add(MA20);
@@ -149,15 +160,27 @@ public class StockKLineViewModel {
 
     /**
      * 返回均线数据
-     * @param day 表示几日的均线
+     *
+     * @param day    表示几日的均线
      * @param closes 所有的收盘价格
      * @return 返回日均线
      */
     private float[] getMADayData(int day, float[] closes) {
         float[] ma = new float[closes.length];
-        for (int i = 0;i< closes.length;i++){
-//            MA=（C1+C2+C3+...+Cn)/N C:某日收盘价 N:移动平均周期
-
+        for (int i = (closes.length - 1); i >= 0; i--) {
+            if (i < day) {
+                float sum = 0f;
+                for (int j = 0; j <= i; j++) {
+                    sum += closes[j];
+                }
+                ma[i] = sum / (i + 1);
+            } else {
+                float sum = 0f;
+                for (int k = i; k > (i - day); k--) {
+                    sum += closes[k];
+                }
+                ma[i] = sum / day;
+            }
         }
 
         return ma;
@@ -182,5 +205,13 @@ public class StockKLineViewModel {
 
     public void setListKAbscissaData(String[] listKAbscissaData) {
         this.listKAbscissaData = listKAbscissaData;
+    }
+
+    public List<float[]> getListF() {
+        return listF;
+    }
+
+    public void setListF(List<float[]> listF) {
+        this.listF = listF;
     }
 }

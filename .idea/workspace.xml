@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TAG" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="error" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -41,38 +41,42 @@
       <file leaf-file-name="StockView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3703704">
-              <caret line="348" column="46" selection-start-line="348" selection-start-column="46" selection-end-line="348" selection-end-column="46" />
+            <state vertical-scroll-proportion="-5.3333335">
+              <caret line="202" column="17" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#2443#2444#0" expanded="true" />
-                <element signature="e#2504#2505#0" expanded="true" />
-                <element signature="e#2541#2542#0" expanded="true" />
-                <element signature="e#2716#2717#0" expanded="true" />
-                <element signature="e#2744#2745#0" expanded="true" />
-                <element signature="e#16168#16169#0" expanded="true" />
-                <element signature="e#16203#16204#0" expanded="true" />
-                <element signature="e#16261#16262#0" expanded="true" />
-                <element signature="e#16309#16310#0" expanded="true" />
-                <element signature="e#16350#16351#0" expanded="true" />
-                <element signature="e#16385#16386#0" expanded="true" />
-                <element signature="e#16443#16444#0" expanded="true" />
-                <element signature="e#16491#16492#0" expanded="true" />
-                <element signature="e#16537#16538#0" expanded="true" />
-                <element signature="e#16569#16570#0" expanded="true" />
-                <element signature="e#16629#16630#0" expanded="true" />
-                <element signature="e#16671#16672#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
+                <element signature="e#2567#2568#0" expanded="true" />
+                <element signature="e#2628#2629#0" expanded="true" />
+                <element signature="e#2665#2666#0" expanded="true" />
+                <element signature="e#2840#2841#0" expanded="true" />
+                <element signature="e#2868#2869#0" expanded="true" />
+                <element signature="e#16926#16927#0" expanded="true" />
+                <element signature="e#16961#16962#0" expanded="true" />
+                <element signature="e#17019#17020#0" expanded="true" />
+                <element signature="e#17067#17068#0" expanded="true" />
+                <element signature="e#17108#17109#0" expanded="true" />
+                <element signature="e#17143#17144#0" expanded="true" />
+                <element signature="e#17201#17202#0" expanded="true" />
+                <element signature="e#17249#17250#0" expanded="true" />
+                <element signature="e#17295#17296#0" expanded="true" />
+                <element signature="e#17327#17328#0" expanded="true" />
+                <element signature="e#17387#17388#0" expanded="true" />
+                <element signature="e#17429#17430#0" expanded="true" />
+                <element signature="e#17468#17469#0" expanded="true" />
+                <element signature="e#17496#17497#0" expanded="true" />
+                <element signature="e#17545#17546#0" expanded="true" />
+                <element signature="e#17579#17580#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StockActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.037037">
-              <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.52506596">
+              <caret line="139" column="29" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,23 +84,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockKLineViewModel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockKLineViewModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockKLineViewModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69970846">
-              <caret line="158" column="39" selection-start-line="158" selection-start-column="39" selection-end-line="158" selection-end-column="39" />
+            <state vertical-scroll-proportion="-5.5555553">
+              <caret line="33" column="32" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1518#1519#0" expanded="true" />
-                <element signature="e#1551#1552#0" expanded="true" />
-                <element signature="e#1683#1684#0" expanded="true" />
-                <element signature="e#1723#1724#0" expanded="true" />
-                <element signature="e#5069#5070#0" expanded="true" />
-                <element signature="e#5101#5102#0" expanded="true" />
-                <element signature="e#5161#5162#0" expanded="true" />
-                <element signature="e#5203#5204#0" expanded="true" />
-                <element signature="e#5262#5263#0" expanded="true" />
-                <element signature="e#5306#5307#0" expanded="true" />
+                <element signature="e#1596#1597#0" expanded="true" />
+                <element signature="e#1629#1630#0" expanded="true" />
+                <element signature="e#1675#1676#0" expanded="true" />
+                <element signature="e#1715#1716#0" expanded="true" />
+                <element signature="e#5557#5558#0" expanded="true" />
+                <element signature="e#5589#5590#0" expanded="true" />
+                <element signature="e#5649#5650#0" expanded="true" />
+                <element signature="e#5691#5692#0" expanded="true" />
+                <element signature="e#5750#5751#0" expanded="true" />
+                <element signature="e#5794#5795#0" expanded="true" />
+                <element signature="e#6085#6086#0" expanded="true" />
+                <element signature="e#6113#6114#0" expanded="true" />
+                <element signature="e#6162#6163#0" expanded="true" />
+                <element signature="e#6196#6197#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1674,10 +1682,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockKLineAllInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockKLineViewModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java" />
       </list>
     </option>
   </component>
@@ -2079,6 +2087,10 @@
               <option name="myItemId" value="stock" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="viewmodel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2434,15 +2446,15 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28382838" sideWeight="0.67447495" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28382838" sideWeight="0.6704362" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.641357" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28382838" sideWeight="0.58239096" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34323433" sideWeight="0.6066236" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28382838" sideWeight="0.32956383" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34323433" sideWeight="0.3933764" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34323433" sideWeight="0.39095315" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2474,24 +2486,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java</url>
-          <line>275</line>
+          <line>301</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java</url>
-          <line>276</line>
+          <line>302</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java</url>
-          <line>299</line>
+          <line>326</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java</url>
-          <line>343</line>
+          <line>371</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -2530,24 +2542,28 @@
           <caret line="114" column="51" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2443#2444#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2716#2717#0" expanded="true" />
-            <element signature="e#2744#2745#0" expanded="true" />
-            <element signature="e#16168#16169#0" expanded="true" />
-            <element signature="e#16203#16204#0" expanded="true" />
-            <element signature="e#16261#16262#0" expanded="true" />
-            <element signature="e#16309#16310#0" expanded="true" />
-            <element signature="e#16350#16351#0" expanded="true" />
-            <element signature="e#16385#16386#0" expanded="true" />
-            <element signature="e#16443#16444#0" expanded="true" />
-            <element signature="e#16491#16492#0" expanded="true" />
-            <element signature="e#16537#16538#0" expanded="true" />
-            <element signature="e#16569#16570#0" expanded="true" />
-            <element signature="e#16629#16630#0" expanded="true" />
-            <element signature="e#16671#16672#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2567#2568#0" expanded="true" />
+            <element signature="e#2628#2629#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="e#16926#16927#0" expanded="true" />
+            <element signature="e#16961#16962#0" expanded="true" />
+            <element signature="e#17019#17020#0" expanded="true" />
+            <element signature="e#17067#17068#0" expanded="true" />
+            <element signature="e#17108#17109#0" expanded="true" />
+            <element signature="e#17143#17144#0" expanded="true" />
+            <element signature="e#17201#17202#0" expanded="true" />
+            <element signature="e#17249#17250#0" expanded="true" />
+            <element signature="e#17295#17296#0" expanded="true" />
+            <element signature="e#17327#17328#0" expanded="true" />
+            <element signature="e#17387#17388#0" expanded="true" />
+            <element signature="e#17429#17430#0" expanded="true" />
+            <element signature="e#17468#17469#0" expanded="true" />
+            <element signature="e#17496#17497#0" expanded="true" />
+            <element signature="e#17545#17546#0" expanded="true" />
+            <element signature="e#17579#17580#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2786,14 +2802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockLineModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73803526">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockTextModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56675065">
@@ -2916,34 +2924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3703704">
-          <caret line="348" column="46" selection-start-line="348" selection-start-column="46" selection-end-line="348" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2443#2444#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2716#2717#0" expanded="true" />
-            <element signature="e#2744#2745#0" expanded="true" />
-            <element signature="e#16168#16169#0" expanded="true" />
-            <element signature="e#16203#16204#0" expanded="true" />
-            <element signature="e#16261#16262#0" expanded="true" />
-            <element signature="e#16309#16310#0" expanded="true" />
-            <element signature="e#16350#16351#0" expanded="true" />
-            <element signature="e#16385#16386#0" expanded="true" />
-            <element signature="e#16443#16444#0" expanded="true" />
-            <element signature="e#16491#16492#0" expanded="true" />
-            <element signature="e#16537#16538#0" expanded="true" />
-            <element signature="e#16569#16570#0" expanded="true" />
-            <element signature="e#16629#16630#0" expanded="true" />
-            <element signature="e#16671#16672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2955,32 +2935,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockLineModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.037037">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.12162162">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockKLineViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69970846">
-          <caret line="158" column="39" selection-start-line="158" selection-start-column="39" selection-end-line="158" selection-end-column="39" />
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="33" column="32" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-            <element signature="e#1683#1684#0" expanded="true" />
-            <element signature="e#1723#1724#0" expanded="true" />
-            <element signature="e#5069#5070#0" expanded="true" />
-            <element signature="e#5101#5102#0" expanded="true" />
-            <element signature="e#5161#5162#0" expanded="true" />
-            <element signature="e#5203#5204#0" expanded="true" />
-            <element signature="e#5262#5263#0" expanded="true" />
-            <element signature="e#5306#5307#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+            <element signature="e#1629#1630#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1715#1716#0" expanded="true" />
+            <element signature="e#5557#5558#0" expanded="true" />
+            <element signature="e#5589#5590#0" expanded="true" />
+            <element signature="e#5649#5650#0" expanded="true" />
+            <element signature="e#5691#5692#0" expanded="true" />
+            <element signature="e#5750#5751#0" expanded="true" />
+            <element signature="e#5794#5795#0" expanded="true" />
+            <element signature="e#6085#6086#0" expanded="true" />
+            <element signature="e#6113#6114#0" expanded="true" />
+            <element signature="e#6162#6163#0" expanded="true" />
+            <element signature="e#6196#6197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="202" column="17" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2567#2568#0" expanded="true" />
+            <element signature="e#2628#2629#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="e#16926#16927#0" expanded="true" />
+            <element signature="e#16961#16962#0" expanded="true" />
+            <element signature="e#17019#17020#0" expanded="true" />
+            <element signature="e#17067#17068#0" expanded="true" />
+            <element signature="e#17108#17109#0" expanded="true" />
+            <element signature="e#17143#17144#0" expanded="true" />
+            <element signature="e#17201#17202#0" expanded="true" />
+            <element signature="e#17249#17250#0" expanded="true" />
+            <element signature="e#17295#17296#0" expanded="true" />
+            <element signature="e#17327#17328#0" expanded="true" />
+            <element signature="e#17387#17388#0" expanded="true" />
+            <element signature="e#17429#17430#0" expanded="true" />
+            <element signature="e#17468#17469#0" expanded="true" />
+            <element signature="e#17496#17497#0" expanded="true" />
+            <element signature="e#17545#17546#0" expanded="true" />
+            <element signature="e#17579#17580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52506596">
+          <caret line="139" column="29" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
