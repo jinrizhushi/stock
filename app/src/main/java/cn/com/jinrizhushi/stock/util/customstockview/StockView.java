@@ -14,6 +14,7 @@ import java.util.List;
 import cn.com.jinrizhushi.stock.R;
 import cn.com.jinrizhushi.stock.stock.model.StockKLineDetailModel;
 import cn.com.jinrizhushi.stock.stock.model.StockLineModel;
+import cn.com.jinrizhushi.stock.stock.model.StockMALineModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.stock.model.StockPointModel;
 import cn.com.jinrizhushi.stock.stock.model.StockTextModel;
@@ -87,7 +88,7 @@ public class StockView extends View {
     /**
      * 均线图的数据
      */
-    private List<float[]> listF;
+    private List<StockMALineModel> listF;
     /**
      * k线的视图模型
      */
@@ -268,8 +269,31 @@ public class StockView extends View {
             drawAbscissaText(canvas);
             drawKline(canvas);
         }
+        if(listF!=null&&listF.size()>1){
+            for(int k = 0;k<listF.size();k++){
+                StockMALineModel model =listF.get(k);
+                float[] list = model.getMa();
+                int color = model.getColor();
+                for (int i = (list.length-1);i>=0;i--){
+                    if(i>0){
+                        int j =i-1;
+                        float closeHeader = list[j];
+                        float closeFooter = list[i];
+                        float startx = Tools.getDecimalFormatFloat(STOCK_VIEW_START_X + j * dis) + realDis / 2;
+                        float starty=getAboveY(String.valueOf(closeHeader));
+                        float stopx= Tools.getDecimalFormatFloat(STOCK_VIEW_START_X + i * dis) + realDis / 2;
+                        float stopy=getAboveY(String.valueOf(closeFooter));
+                        Paint paint = new Paint();
+                        paint.setColor(color);
+                        canvas.drawLine(startx,starty,stopx,stopy,paint);
+                    }
+                }
+            }
+
+        }
 
     }
+
 
     float startx;
     float stopx;
@@ -475,11 +499,11 @@ public class StockView extends View {
         this.listKline = listKline;
     }
 
-    public List<float[]> getListF() {
+    public List<StockMALineModel> getListF() {
         return listF;
     }
 
-    public void setListF(List<float[]> listF) {
+    public void setListF(List<StockMALineModel> listF) {
         this.listF = listF;
     }
 }

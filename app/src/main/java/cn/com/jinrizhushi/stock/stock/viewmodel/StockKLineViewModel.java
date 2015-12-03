@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.com.jinrizhushi.stock.stock.model.StockMALineModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.util.Tools;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
@@ -31,7 +32,7 @@ public class StockKLineViewModel {
     /**
      * 均线图的数据
      */
-    private List<float[]> listF;
+    private List<StockMALineModel> listF;
     /**
      * 橫坐标的数据
      */
@@ -153,9 +154,12 @@ public class StockKLineViewModel {
         float[] MA5 = getMADayData(5, closes);
         float[] MA10 = getMADayData(10, closes);
         float[] MA20 = getMADayData(20, closes);
-        listF.add(MA5);
-        listF.add(MA10);
-        listF.add(MA20);
+        StockMALineModel ma5Model = new StockMALineModel(MA5,Color.BLUE);
+        StockMALineModel ma10Model = new StockMALineModel(MA10,Color.YELLOW);
+        StockMALineModel ma20Model = new StockMALineModel(MA20,Color.BLACK);
+        listF.add(ma5Model);
+        listF.add(ma10Model);
+        listF.add(ma20Model);
     }
 
     /**
@@ -207,11 +211,11 @@ public class StockKLineViewModel {
         this.listKAbscissaData = listKAbscissaData;
     }
 
-    public List<float[]> getListF() {
+    public List<StockMALineModel> getListF() {
         return listF;
     }
 
-    public void setListF(List<float[]> listF) {
+    public void setListF(List<StockMALineModel> listF) {
         this.listF = listF;
     }
 }
