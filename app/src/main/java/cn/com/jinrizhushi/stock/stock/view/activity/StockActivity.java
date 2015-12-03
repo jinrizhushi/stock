@@ -2,15 +2,24 @@ package cn.com.jinrizhushi.stock.stock.view.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.jinrizhushi.stock.R;
+import cn.com.jinrizhushi.stock.container.StockApplication;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockKLineViewModel;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
-
 /**
  * 描述: 股票的界面
  * 作者: 刘倩
@@ -18,6 +27,7 @@ import cn.com.jinrizhushi.stock.util.customstockview.StockView;
  */
 public class StockActivity extends Activity {
     private StockView stockView;
+    private String URL = "http://192.168.1.8:3000/stocks/klines";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +35,13 @@ public class StockActivity extends Activity {
         setContentView(R.layout.ativity_stock);
         stockView = (StockView)findViewById(R.id.sv_stock);
         List<StockModel> listKline = new ArrayList<>();
-
         StockModel sm = new StockModel();
 
         sm.setDate("2015-12-01");
         sm.setOpen("50.80");
         sm.setHigh("51.48");
         sm.setLow("50.01");
-        sm.setClose("50.84");
+        sm.setClose("53.84");
         sm.setVolume("4910600");
         sm.setAdjClose("50.84");
         listKline.add(sm);
@@ -80,7 +89,7 @@ public class StockActivity extends Activity {
         StockModel sm5 = new StockModel();
         sm5.setDate("2015-11-24");
         sm5.setOpen("53.61");
-        sm5.setHigh("53.79");
+        sm5.setHigh("52.79");
         sm5.setLow("52.50");
         sm5.setClose("52.98");
         sm5.setVolume("4255800");
@@ -129,6 +138,62 @@ public class StockActivity extends Activity {
 
         StockKLineViewModel model = new StockKLineViewModel(listKline);
         stockView.setModel(model);
+//        JsonObjectRequest request = new JsonObjectRequest(URL, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        Log.d("TAG", response.toString());
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("TAG", error.getMessage(), error);
+//            }
+//        });
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            parseJSON(response);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                    }
+//                }
+//        );
+//        StockApplication.getInstance().getRequestQueue().add(request);
+    }
+
+    /**
+     * 解析数据
+     * @param response
+     */
+    private void parseJSON(JSONObject response) throws Exception{
+        JSONArray list = response.getJSONArray("payload");
+        List<StockModel> listKline = new ArrayList<>();
+        for (int i = 0;i<list.length();i++)
+        {
+            JSONObject item = list.getJSONObject(i);
+            StockModel sm = new StockModel();
+            sm.setDate(item.optString("date"));
+            sm.setOpen(item.optString("open"));
+            sm.setHigh(item.optString("high"));
+            sm.setLow(item.optString("low"));
+            sm.setClose(item.optString("close"));
+            sm.setVolume(item.optString("volume"));
+            sm.setAdjClose(item.optString("adjClose"));
+            listKline.add(sm);
+        }
+
+        StockKLineViewModel model = new StockKLineViewModel(listKline);
+        stockView.setModel(model);
 
     }
+
 }

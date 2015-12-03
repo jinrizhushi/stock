@@ -221,7 +221,9 @@ public class StockView extends View {
         ordinateData = getOrdinateData();
         abscissaData = getAbscissaData();
         listKline = getListKline();
-        initPoint();
+        if(listKline!=null&&listKline.size()>0){
+            initPoint();
+        }
     }
 
 
@@ -344,7 +346,7 @@ public class StockView extends View {
         float starty=STOCK_VIEW_START_X;
         float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
         float per = Tools.getDecimalFormatFloat((stopy-starty)/(highestPrice-lowestPrice));
-        y = Tools.getDecimalFormatFloat(stopy-(per-lowestPrice)*(Float.parseFloat(high)-lowestPrice));
+        y = Tools.getDecimalFormatFloat(stopy-per*(Float.parseFloat(high)-lowestPrice));
         return y;
     }
     /**

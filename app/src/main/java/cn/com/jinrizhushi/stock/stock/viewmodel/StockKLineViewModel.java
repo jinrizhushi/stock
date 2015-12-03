@@ -118,16 +118,14 @@ public class StockKLineViewModel {
         float highest= STOCK_VIEW_HIGHEST_PRICE = hightPrice[listKline.size() - 1];
         float lowest =STOCK_VIEW_LOWEST_PRICE= lowPrice[0];
         float distance = (highest - lowest) / (STOCK_VIEW_MODEL_ALL_DEVIDE - 2);
-        listKOrdinateData[0] = (Tools.getDecimalFormat(highest));
+        for (int i = 0;i<(listKOrdinateData.length-1);i++){
+            if(i==0){
+                listKOrdinateData[0] = (Tools.getDecimalFormat(highest));
+            }else{
+                listKOrdinateData[i] = (Tools.getDecimalFormat(lowest+distance*(STOCK_VIEW_MODEL_ALL_DEVIDE-i-2)));
+            }
 
-        listKOrdinateData[1] = (Tools.getDecimalFormat(lowest + distance * 4));
-        listKOrdinateData[2] = (Tools.getDecimalFormat(lowest + distance * 3));
-        listKOrdinateData[3] = (Tools.getDecimalFormat(lowest + distance * 2));
-        listKOrdinateData[4] = (Tools.getDecimalFormat(lowest + distance));
-        for (int i = (STOCK_VIEW_MODEL_ALL_DEVIDE - 3); i > 0; i--) {
-            listKOrdinateData[i] = (Tools.getDecimalFormat(lowest + distance * (STOCK_VIEW_MODEL_ALL_DEVIDE - i - 2)));
         }
-        listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 2] = (Tools.getDecimalFormat(lowest));
         java.util.Arrays.sort(volumes);
         float highestVolume=STOCK_VIEW_HIGHEST_VOLUME = volumes[listKline.size() - 1];
         float lowestVolume=STOCK_VIEW_LOWEST_VOLUME = volumes[0];
