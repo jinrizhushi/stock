@@ -271,14 +271,15 @@ public class StockView extends View {
                 Paint paint = new Paint();
                 paint.setColor(sk.getColor());
                 paint.setStyle(Paint.Style.FILL);
-                //绘制最高线
-                canvas.drawLine(sk.getHighestStartX(),sk.getHighestStartY(),sk.getHighestStopX(),sk.getHighestStopY(),paint);
-                //绘制柱状图
-                canvas.drawRect(new RectF(sk.getRectLeft(),sk.getRectTop(),sk.getRectRight(),sk.getRectBottom()),paint);
-                //绘制最低线
-                canvas.drawLine(sk.getLowestStartX(),sk.getLowestStartY(),sk.getLowestStopX(),sk.getLowestStopY(),paint);
+                 //绘制柱状图
+                canvas.drawRect(new RectF(sk.getRectLeft(), sk.getRectTop(), sk.getRectRight(), sk.getRectBottom()), paint);
                 //绘制成交量的图
                 canvas.drawRect(new RectF(sk.getColumnarLeft(),sk.getColumnarTop(),sk.getColumnarRight(),sk.getColumnarBottom()),paint);
+                paint.setStrokeWidth((float)(sk.getColumnarRight()-sk.getColumnarLeft())/10);
+                //绘制最高线
+                canvas.drawLine(sk.getHighestStartX(), sk.getHighestStartY(), sk.getHighestStopX(), sk.getHighestStopY(), paint);
+                //绘制最低线
+                canvas.drawLine(sk.getLowestStartX(),sk.getLowestStartY(),sk.getLowestStopX(),sk.getLowestStopY(),paint);
             }
         }
 
@@ -307,6 +308,8 @@ public class StockView extends View {
             skdm.setLowestStartY(getAboveY(data.getOpen()));
         }
         skdm.setLowestStopY(getAboveY(data.getLow()));
+
+
         skdm.setColumnarTop(getBeLowY(data.getVolume()));
         skdm.setColumnarBottom(realHeight - STOCK_VIEW_LEFT_DISTANCE);
         /* x坐标 */
@@ -336,11 +339,12 @@ public class StockView extends View {
      */
     private float getAboveY(String high) {
         float y = 0f;
-        float starty = STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
-        float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
         float highestPrice=StockKLineViewModel.STOCK_VIEW_HIGHEST_PRICE;
         float lowestPrice = StockKLineViewModel.STOCK_VIEW_LOWEST_PRICE;
-        y = Tools.getDecimalFormatFloat((stopy-starty)/(highestPrice-lowestPrice)*Float.parseFloat(high));
+        float starty=STOCK_VIEW_START_X;
+        float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
+        float per = Tools.getDecimalFormatFloat((stopy-starty)/(highestPrice-lowestPrice));
+        y = Tools.getDecimalFormatFloat(stopy-(per-lowestPrice)*(Float.parseFloat(high)-lowestPrice));
         return y;
     }
     /**
