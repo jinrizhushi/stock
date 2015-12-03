@@ -28,6 +28,7 @@ public class StockKLineViewModel {
      * 纵坐标的数据
      */
     private String[] listKOrdinateData;
+    private List<float[]> listF;
     /**
      * 橫坐标的数据
      */
@@ -44,6 +45,7 @@ public class StockKLineViewModel {
     public static float STOCK_VIEW_HIGHEST_VOLUME;
     /** 最小成交量 */
     public static float STOCK_VIEW_LOWEST_VOLUME;
+
     public StockKLineViewModel(List<StockModel> listKline) {
         this.listKline = listKline;
         STOCK_VIEW_MODEL_ALL_DEVIDE = StockView.STOCK_VIEW_ALL_DEVIDE - 1;
@@ -75,6 +77,7 @@ public class StockKLineViewModel {
         float[] lowPrice = new float[listKline.size()];
         float[] volumes = new float[listKline.size()];
         String[] dates = new String[listKline.size()];
+        float[] closes = new float[listKline.size()];
         for (int i = 0; i < listKline.size(); i++) {
             /**如果收盘价格高于开盘价格，则k线被称为阳线，用空心的实体表示。反之称为阴线用黑色实体或白色实体表示。
              * 很多软件都可以用彩色实体来表示阴线和阳线，在国内股票和期货市场 ，通常用红色表示阳线，绿色表示阴线。*/
@@ -88,8 +91,10 @@ public class StockKLineViewModel {
             lowPrice[i] = Float.parseFloat(model.getLow());
             volumes[i] = Float.parseFloat(model.getVolume());
             dates[i] = model.getDate();
+            closes[i] = Float.parseFloat(model.getClose());
+
         }
-        countListKOrdinateData(hightPrice, lowPrice, volumes);
+        countListKOrdinateData(hightPrice, lowPrice, volumes,closes);
         countListKAbscissaData(dates);
 
     }
@@ -111,7 +116,7 @@ public class StockKLineViewModel {
      * @param lowPrice
      * @param volumes
      */
-    private void countListKOrdinateData(float[] hightPrice, float[] lowPrice, float[] volumes) {
+    private void countListKOrdinateData(float[] hightPrice, float[] lowPrice, float[] volumes,float[] closes) {
         java.util.Arrays.sort(hightPrice);//升序排列
         java.util.Arrays.sort(lowPrice);
 
@@ -131,6 +136,31 @@ public class StockKLineViewModel {
         float lowestVolume=STOCK_VIEW_LOWEST_VOLUME = volumes[0];
         float all = (highestVolume + lowestVolume) / 2;
         listKOrdinateData[STOCK_VIEW_MODEL_ALL_DEVIDE - 1] = (Tools.getDecimalFormatNone(all));
+
+        listF = new ArrayList<>();
+
+        float[] MA5 = getMADayData(5, closes);
+        float[] MA10 = getMADayData(10, closes);
+        float[] MA20= getMADayData(20, closes);
+        listF.add(MA5);
+        listF.add(MA10);
+        listF.add(MA20);
+    }
+
+    /**
+     * 返回均线数据
+     * @param day 表示几日的均线
+     * @param closes 所有的收盘价格
+     * @return 返回日均线
+     */
+    private float[] getMADayData(int day, float[] closes) {
+        float[] ma = new float[closes.length];
+        for (int i = 0;i< closes.length;i++){
+//            MA=（C1+C2+C3+...+Cn)/N C:某日收盘价 N:移动平均周期
+
+        }
+
+        return ma;
     }
 
 
