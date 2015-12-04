@@ -302,7 +302,7 @@ public class StockView extends View {
                 float tvx = STOCK_VIEW_START_X*(k+1)+k*dis;
                 float tvy = (float)(STOCK_VIEW_START_X*0.9);
                 paint.setTextSize(30);
-                canvas.drawText("MA"+model.getDays()+":--",tvx,tvy,paint);
+                canvas.drawText("MA" + model.getDays() + ":--", tvx, tvy, paint);
             }
 
         }
@@ -409,8 +409,8 @@ public class StockView extends View {
         float y = 0f;
         float highestPrice = StockKLineViewModel.STOCK_VIEW_HIGHEST_PRICE;
         float lowestPrice = StockKLineViewModel.STOCK_VIEW_LOWEST_PRICE;
-        float starty = STOCK_VIEW_START_X;
-        float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
+        float starty = (float)(STOCK_VIEW_START_X*1.2);
+        float stopy = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE-(float)(STOCK_VIEW_START_X*0.1);
         float per = Tools.getDecimalFormatFloat((stopy - starty) / (highestPrice - lowestPrice));
         y = Tools.getDecimalFormatFloat(stopy - per * (Float.parseFloat(high) - lowestPrice));
         return y;
@@ -427,8 +427,7 @@ public class StockView extends View {
         float highestVolume = StockKLineViewModel.STOCK_VIEW_HIGHEST_VOLUME;
         float lowestVolume = StockKLineViewModel.STOCK_VIEW_LOWEST_VOLUME;
         float bottomY = realHeight - STOCK_VIEW_LEFT_DISTANCE;
-        float bottomHighY = (realHeight - STOCK_VIEW_LEFT_DISTANCE) - (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * STOCK_VIEW_LEFT_RIGHT_MARGIN / STOCK_VIEW_ALL_DEVIDE * STOCK_VIEW_BOTTOM_LINE_PERCENT;
-        ;
+        float bottomHighY = (realHeight - STOCK_VIEW_LEFT_DISTANCE) - (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * STOCK_VIEW_LEFT_RIGHT_MARGIN / STOCK_VIEW_ALL_DEVIDE * STOCK_VIEW_BOTTOM_LINE_PERCENT+(float)(STOCK_VIEW_START_X*0.1);
         y = Tools.getDecimalFormatFloat(bottomY - (((bottomY - bottomHighY) / highestVolume) * Float.parseFloat(high)));
         return y;
     }

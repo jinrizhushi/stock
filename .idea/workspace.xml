@@ -41,8 +41,8 @@
       <file leaf-file-name="StockView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.540897">
-              <caret line="301" column="59" selection-start-line="301" selection-start-column="59" selection-end-line="301" selection-end-column="59" />
+            <state vertical-scroll-proportion="-2.9525065">
+              <caret line="429" column="226" selection-start-line="429" selection-start-column="226" selection-end-line="429" selection-end-column="226" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2608#2609#0" expanded="true" />
@@ -51,22 +51,22 @@
                 <element signature="e#2736#2737#0" expanded="true" />
                 <element signature="e#2911#2912#0" expanded="true" />
                 <element signature="e#2939#2940#0" expanded="true" />
-                <element signature="e#18463#18464#0" expanded="true" />
-                <element signature="e#18498#18499#0" expanded="true" />
-                <element signature="e#18556#18557#0" expanded="true" />
-                <element signature="e#18604#18605#0" expanded="true" />
-                <element signature="e#18645#18646#0" expanded="true" />
-                <element signature="e#18680#18681#0" expanded="true" />
-                <element signature="e#18738#18739#0" expanded="true" />
-                <element signature="e#18786#18787#0" expanded="true" />
-                <element signature="e#18832#18833#0" expanded="true" />
-                <element signature="e#18864#18865#0" expanded="true" />
-                <element signature="e#18924#18925#0" expanded="true" />
-                <element signature="e#18966#18967#0" expanded="true" />
-                <element signature="e#19014#19015#0" expanded="true" />
-                <element signature="e#19042#19043#0" expanded="true" />
-                <element signature="e#19100#19101#0" expanded="true" />
-                <element signature="e#19134#19135#0" expanded="true" />
+                <element signature="e#18537#18538#0" expanded="true" />
+                <element signature="e#18572#18573#0" expanded="true" />
+                <element signature="e#18630#18631#0" expanded="true" />
+                <element signature="e#18678#18679#0" expanded="true" />
+                <element signature="e#18719#18720#0" expanded="true" />
+                <element signature="e#18754#18755#0" expanded="true" />
+                <element signature="e#18812#18813#0" expanded="true" />
+                <element signature="e#18860#18861#0" expanded="true" />
+                <element signature="e#18906#18907#0" expanded="true" />
+                <element signature="e#18938#18939#0" expanded="true" />
+                <element signature="e#18998#18999#0" expanded="true" />
+                <element signature="e#19040#19041#0" expanded="true" />
+                <element signature="e#19088#19089#0" expanded="true" />
+                <element signature="e#19116#19117#0" expanded="true" />
+                <element signature="e#19174#19175#0" expanded="true" />
+                <element signature="e#19208#19209#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,10 +109,23 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="139" column="34" selection-start-line="36" selection-start-column="7" selection-end-line="139" selection-end-column="34" />
+              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ativity_stock.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.206897">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,18 +153,6 @@
                 <element signature="e#6741#6742#0" expanded="true" />
                 <element signature="e#6799#6800#0" expanded="true" />
                 <element signature="e#6833#6834#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#409#427#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1694,10 +1695,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockKLineAllInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockMALineModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockKLineViewModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java" />
       </list>
     </option>
@@ -2522,19 +2523,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java</url>
-          <line>181</line>
+          <line>183</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java</url>
-          <line>157</line>
+          <line>159</line>
           <properties />
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java</url>
-          <line>152</line>
+          <line>154</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
@@ -2561,22 +2562,22 @@
             <element signature="e#2736#2737#0" expanded="true" />
             <element signature="e#2911#2912#0" expanded="true" />
             <element signature="e#2939#2940#0" expanded="true" />
-            <element signature="e#18463#18464#0" expanded="true" />
-            <element signature="e#18498#18499#0" expanded="true" />
-            <element signature="e#18556#18557#0" expanded="true" />
-            <element signature="e#18604#18605#0" expanded="true" />
-            <element signature="e#18645#18646#0" expanded="true" />
-            <element signature="e#18680#18681#0" expanded="true" />
-            <element signature="e#18738#18739#0" expanded="true" />
-            <element signature="e#18786#18787#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#18864#18865#0" expanded="true" />
-            <element signature="e#18924#18925#0" expanded="true" />
-            <element signature="e#18966#18967#0" expanded="true" />
-            <element signature="e#19014#19015#0" expanded="true" />
-            <element signature="e#19042#19043#0" expanded="true" />
-            <element signature="e#19100#19101#0" expanded="true" />
-            <element signature="e#19134#19135#0" expanded="true" />
+            <element signature="e#18537#18538#0" expanded="true" />
+            <element signature="e#18572#18573#0" expanded="true" />
+            <element signature="e#18630#18631#0" expanded="true" />
+            <element signature="e#18678#18679#0" expanded="true" />
+            <element signature="e#18719#18720#0" expanded="true" />
+            <element signature="e#18754#18755#0" expanded="true" />
+            <element signature="e#18812#18813#0" expanded="true" />
+            <element signature="e#18860#18861#0" expanded="true" />
+            <element signature="e#18906#18907#0" expanded="true" />
+            <element signature="e#18938#18939#0" expanded="true" />
+            <element signature="e#18998#18999#0" expanded="true" />
+            <element signature="e#19040#19041#0" expanded="true" />
+            <element signature="e#19088#19089#0" expanded="true" />
+            <element signature="e#19116#19117#0" expanded="true" />
+            <element signature="e#19174#19175#0" expanded="true" />
+            <element signature="e#19208#19209#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2937,35 +2938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4774536">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="34" selection-start-line="36" selection-start-column="7" selection-end-line="139" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockLineModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockMALineModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3013,10 +2985,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockLineModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ativity_stock.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.540897">
-          <caret line="301" column="59" selection-start-line="301" selection-start-column="59" selection-end-line="301" selection-end-column="59" />
+        <state vertical-scroll-proportion="-2.9525065">
+          <caret line="429" column="226" selection-start-line="429" selection-start-column="226" selection-end-line="429" selection-end-column="226" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2608#2609#0" expanded="true" />
@@ -3025,22 +3026,22 @@
             <element signature="e#2736#2737#0" expanded="true" />
             <element signature="e#2911#2912#0" expanded="true" />
             <element signature="e#2939#2940#0" expanded="true" />
-            <element signature="e#18463#18464#0" expanded="true" />
-            <element signature="e#18498#18499#0" expanded="true" />
-            <element signature="e#18556#18557#0" expanded="true" />
-            <element signature="e#18604#18605#0" expanded="true" />
-            <element signature="e#18645#18646#0" expanded="true" />
-            <element signature="e#18680#18681#0" expanded="true" />
-            <element signature="e#18738#18739#0" expanded="true" />
-            <element signature="e#18786#18787#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#18864#18865#0" expanded="true" />
-            <element signature="e#18924#18925#0" expanded="true" />
-            <element signature="e#18966#18967#0" expanded="true" />
-            <element signature="e#19014#19015#0" expanded="true" />
-            <element signature="e#19042#19043#0" expanded="true" />
-            <element signature="e#19100#19101#0" expanded="true" />
-            <element signature="e#19134#19135#0" expanded="true" />
+            <element signature="e#18537#18538#0" expanded="true" />
+            <element signature="e#18572#18573#0" expanded="true" />
+            <element signature="e#18630#18631#0" expanded="true" />
+            <element signature="e#18678#18679#0" expanded="true" />
+            <element signature="e#18719#18720#0" expanded="true" />
+            <element signature="e#18754#18755#0" expanded="true" />
+            <element signature="e#18812#18813#0" expanded="true" />
+            <element signature="e#18860#18861#0" expanded="true" />
+            <element signature="e#18906#18907#0" expanded="true" />
+            <element signature="e#18938#18939#0" expanded="true" />
+            <element signature="e#18998#18999#0" expanded="true" />
+            <element signature="e#19040#19041#0" expanded="true" />
+            <element signature="e#19088#19089#0" expanded="true" />
+            <element signature="e#19116#19117#0" expanded="true" />
+            <element signature="e#19174#19175#0" expanded="true" />
+            <element signature="e#19208#19209#0" expanded="true" />
           </folding>
         </state>
       </provider>
