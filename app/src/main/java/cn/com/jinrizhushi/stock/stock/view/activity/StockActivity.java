@@ -17,8 +17,13 @@ import java.util.List;
 
 import cn.com.jinrizhushi.stock.R;
 import cn.com.jinrizhushi.stock.container.StockApplication;
+import cn.com.jinrizhushi.stock.stock.model.StockMarketIndexItemModel;
+import cn.com.jinrizhushi.stock.stock.model.StockMarketIndexModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockKLineViewModel;
+import cn.com.jinrizhushi.stock.stock.viewmodel.StockMarketIndexViewModel;
+import cn.com.jinrizhushi.stock.util.Tools;
+import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 /**
  * 描述: 股票的界面
@@ -28,15 +33,16 @@ import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 public class StockActivity extends Activity {
     private StockView stockView;
     private String URL = "http://192.168.1.8:3000/stocks/klines";
+    private StockTimeSharingView stockTimeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ativity_stock);
         stockView = (StockView)findViewById(R.id.sv_stock);
+        stockTimeView = (StockTimeSharingView)findViewById(R.id.sv_stock_time);
         List<StockModel> listKline = new ArrayList<>();
         StockModel sm = new StockModel();
-
         for (int i =0;i<1;i++){
             sm.setDate("2015-12-01");
             sm.setOpen("50.80");
@@ -170,6 +176,26 @@ public class StockActivity extends Activity {
 //                }
 //        );
 //        StockApplication.getInstance().getRequestQueue().add(request);
+        StockMarketIndexModel marketInfo = new StockMarketIndexModel();
+        marketInfo.setMarketIndexHigh("3319");
+        marketInfo.setMarketIndexCenter("3183");
+        marketInfo.setMarketIndexLow("3080");
+        marketInfo.setQuoteChangeHigh("3");
+        List<StockMarketIndexItemModel> listMarketIndex = new ArrayList<>();
+        for (int i = 3080;i<3319;i++)
+        {
+            String data = "";
+            if(i<3183){
+                data = Tools.getDecimalFormat(i);
+            }else {
+                data = Tools.getDecimalFormat(i);
+            }
+            StockMarketIndexItemModel index = new StockMarketIndexItemModel(data);
+            listMarketIndex.add(index);
+        }
+        marketInfo.setListMarketIndex(listMarketIndex);
+        StockMarketIndexViewModel indexViewModel = new StockMarketIndexViewModel(marketInfo);
+        stockTimeView.setModel(indexViewModel);
     }
 
     /**

@@ -9,8 +9,16 @@
     <cn.com.jinrizhushi.stock.util.customstockview.StockView
         android:id="@+id/sv_stock"
         android:layout_width="match_parent"
-        android:background="@color/stock_view_bg"
-        android:layout_height="500dp" />
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/stock_view_bg" />
+
+    <cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView
+        android:id="@+id/sv_stock_time"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@color/stock_time_view_bg" />
 
 
 </LinearLayout>

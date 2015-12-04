@@ -27,6 +27,9 @@ public class StockLineModel {
         this.paint = paint;
     }
 
+    public StockLineModel() {
+    }
+
     public float getStartX() {
         return startX;
     }

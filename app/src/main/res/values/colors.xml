@@ -6,4 +6,7 @@
     <color name="white">#FFFFFF</color>
     <color name="line_bg">#B8B8B8</color>
     <color name="stock_view_bg">#F5F5F5</color>
+    <color name="stock_time_view_bg">#343542</color>
+    <color name="stock_view_line_color">#494a5d</color>
+    <color name="stock_view_text_color">#A0A0A3</color>
 </resources>

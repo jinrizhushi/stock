@@ -9,7 +9,7 @@ import com.android.volley.toolbox.Volley;
  * 日期: 15/12/3 18:00
  */
 public class StockApplication extends Application{
-    private static StockApplication sInstance;
+    public static StockApplication sInstance;
 
     private RequestQueue mRequestQueue;
 
