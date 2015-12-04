@@ -10,8 +10,24 @@ public class StockMALineModel {
     private  float[] ma;
     /** 均线的颜色 */
     private int color;
+    /** 几日均线 */
+    private String days;
+
+    public StockMALineModel(float[] ma, int color, String days) {
+        this.ma = ma;
+        this.color = color;
+        this.days = days;
+    }
 
     public StockMALineModel() {
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
     }
 
     public StockMALineModel(float[] ma, int color) {

@@ -269,11 +269,23 @@ public class StockView extends View {
             drawAbscissaText(canvas);
             drawKline(canvas);
         }
+        drawMALine(canvas);
+
+    }
+
+    /**
+     * 画日均线
+     * @param canvas
+     */
+    private void drawMALine(Canvas canvas) {
         if(listF!=null&&listF.size()>1){
             for(int k = 0;k<listF.size();k++){
                 StockMALineModel model =listF.get(k);
                 float[] list = model.getMa();
                 int color = model.getColor();
+                Paint paint = new Paint();
+                paint.setColor(color);
+
                 for (int i = (list.length-1);i>=0;i--){
                     if(i>0){
                         int j =i-1;
@@ -283,15 +295,17 @@ public class StockView extends View {
                         float starty=getAboveY(String.valueOf(closeHeader));
                         float stopx= Tools.getDecimalFormatFloat(STOCK_VIEW_START_X + i * dis) + realDis / 2;
                         float stopy=getAboveY(String.valueOf(closeFooter));
-                        Paint paint = new Paint();
-                        paint.setColor(color);
                         canvas.drawLine(startx,starty,stopx,stopy,paint);
                     }
                 }
+                /*  均线提示,例如:5日,10日,20日  */
+                float tvx = STOCK_VIEW_START_X*(k+1)+k*dis;
+                float tvy = (float)(STOCK_VIEW_START_X*0.9);
+                paint.setTextSize(30);
+                canvas.drawText("MA"+model.getDays()+":--",tvx,tvy,paint);
             }
 
         }
-
     }
 
 

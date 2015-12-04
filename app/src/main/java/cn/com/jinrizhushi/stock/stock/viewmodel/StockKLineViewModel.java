@@ -57,6 +57,10 @@ public class StockKLineViewModel {
      * 最小成交量
      */
     public static float STOCK_VIEW_LOWEST_VOLUME;
+    /** 均线 */
+    public static String STOCK_VIEW_MA_5 ="5";
+    public static String STOCK_VIEW_MA_10 ="10";
+    public static String STOCK_VIEW_MA_20 ="20";
 
     public StockKLineViewModel(List<StockModel> listKline) {
         this.listKline = listKline;
@@ -151,12 +155,12 @@ public class StockKLineViewModel {
 
         listF = new ArrayList<>();
 
-        float[] MA5 = getMADayData(5, closes);
-        float[] MA10 = getMADayData(10, closes);
-        float[] MA20 = getMADayData(20, closes);
-        StockMALineModel ma5Model = new StockMALineModel(MA5,Color.BLUE);
-        StockMALineModel ma10Model = new StockMALineModel(MA10,Color.YELLOW);
-        StockMALineModel ma20Model = new StockMALineModel(MA20,Color.BLACK);
+        float[] MA5 = getMADayData(Integer.parseInt(STOCK_VIEW_MA_5), closes);
+        float[] MA10 = getMADayData(Integer.parseInt(STOCK_VIEW_MA_10), closes);
+        float[] MA20 = getMADayData(Integer.parseInt(STOCK_VIEW_MA_20), closes);
+        StockMALineModel ma5Model = new StockMALineModel(MA5,Color.BLUE,STOCK_VIEW_MA_5);
+        StockMALineModel ma10Model = new StockMALineModel(MA10,Color.GREEN,STOCK_VIEW_MA_10);
+        StockMALineModel ma20Model = new StockMALineModel(MA20,Color.BLACK,STOCK_VIEW_MA_20);
         listF.add(ma5Model);
         listF.add(ma10Model);
         listF.add(ma20Model);
