@@ -182,17 +182,12 @@ public class StockActivity extends Activity {
         marketInfo.setMarketIndexLow("3080");
         marketInfo.setQuoteChangeHigh("3");
         List<StockMarketIndexItemModel> listMarketIndex = new ArrayList<>();
-        for (int i = 3080;i<3319;i++)
-        {
-            String data = "";
-            if(i<3183){
-                data = Tools.getDecimalFormat(i);
-            }else {
-                data = Tools.getDecimalFormat(i);
-            }
-            StockMarketIndexItemModel index = new StockMarketIndexItemModel(data);
-            listMarketIndex.add(index);
-        }
+        StockMarketIndexItemModel index = new StockMarketIndexItemModel("3080","09:30");
+        StockMarketIndexItemModel index1 = new StockMarketIndexItemModel("3183","11:30");
+        StockMarketIndexItemModel index2 = new StockMarketIndexItemModel("3319","15:00");
+        listMarketIndex.add(index);
+        listMarketIndex.add(index1);
+        listMarketIndex.add(index2);
         marketInfo.setListMarketIndex(listMarketIndex);
         StockMarketIndexViewModel indexViewModel = new StockMarketIndexViewModel(marketInfo);
         stockTimeView.setModel(indexViewModel);
