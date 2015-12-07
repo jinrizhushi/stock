@@ -144,12 +144,12 @@ public class StockActivity extends Activity {
         marketInfo.setMarketIndexLow("3080");
         marketInfo.setQuoteChangeHigh("3");
         List<StockMarketIndexItemModel> listMarketIndex = new ArrayList<>();
-        StockMarketIndexItemModel index0 = new StockMarketIndexItemModel("3080","09:30");
-        StockMarketIndexItemModel index1 = new StockMarketIndexItemModel("3143","10:30");
-        StockMarketIndexItemModel index2 = new StockMarketIndexItemModel("3183","11:30");
-        StockMarketIndexItemModel index3 = new StockMarketIndexItemModel("3220","13:50");
-        StockMarketIndexItemModel index4 = new StockMarketIndexItemModel("3290","14:00");
-        StockMarketIndexItemModel index5 = new StockMarketIndexItemModel("3319","15:00");
+        StockMarketIndexItemModel index0 = new StockMarketIndexItemModel("3145","09:30");
+        StockMarketIndexItemModel index1 = new StockMarketIndexItemModel("3183","10:30");
+        StockMarketIndexItemModel index2 = new StockMarketIndexItemModel("3173","11:30");
+        StockMarketIndexItemModel index3 = new StockMarketIndexItemModel("3180","13:50");
+        StockMarketIndexItemModel index4 = new StockMarketIndexItemModel("3190","14:00");
+        StockMarketIndexItemModel index5 = new StockMarketIndexItemModel("3210","15:00");
         listMarketIndex.add(index0);
         listMarketIndex.add(index1);
         listMarketIndex.add(index2);
