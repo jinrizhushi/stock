@@ -2,12 +2,6 @@ package cn.com.jinrizhushi.stock.stock.view.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,13 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.jinrizhushi.stock.R;
-import cn.com.jinrizhushi.stock.container.StockApplication;
 import cn.com.jinrizhushi.stock.stock.model.StockMarketIndexItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockMarketIndexModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockKLineViewModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockMarketIndexViewModel;
-import cn.com.jinrizhushi.stock.util.Tools;
 import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 /**
@@ -146,48 +138,24 @@ public class StockActivity extends Activity {
 
         StockKLineViewModel model = new StockKLineViewModel(listKline);
         stockView.setModel(model);
-//        JsonObjectRequest request = new JsonObjectRequest(URL, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.d("TAG", response.toString());
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.e("TAG", error.getMessage(), error);
-//            }
-//        });
-//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            parseJSON(response);
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                    }
-//                }
-//        );
-//        StockApplication.getInstance().getRequestQueue().add(request);
         StockMarketIndexModel marketInfo = new StockMarketIndexModel();
         marketInfo.setMarketIndexHigh("3319");
         marketInfo.setMarketIndexCenter("3183");
         marketInfo.setMarketIndexLow("3080");
         marketInfo.setQuoteChangeHigh("3");
         List<StockMarketIndexItemModel> listMarketIndex = new ArrayList<>();
-        StockMarketIndexItemModel index = new StockMarketIndexItemModel("3080","09:30");
-        StockMarketIndexItemModel index1 = new StockMarketIndexItemModel("3183","11:30");
-        StockMarketIndexItemModel index2 = new StockMarketIndexItemModel("3319","15:00");
-        listMarketIndex.add(index);
+        StockMarketIndexItemModel index0 = new StockMarketIndexItemModel("3080","09:30");
+        StockMarketIndexItemModel index1 = new StockMarketIndexItemModel("3143","10:30");
+        StockMarketIndexItemModel index2 = new StockMarketIndexItemModel("3183","11:30");
+        StockMarketIndexItemModel index3 = new StockMarketIndexItemModel("3220","13:50");
+        StockMarketIndexItemModel index4 = new StockMarketIndexItemModel("3290","14:00");
+        StockMarketIndexItemModel index5 = new StockMarketIndexItemModel("3319","15:00");
+        listMarketIndex.add(index0);
         listMarketIndex.add(index1);
         listMarketIndex.add(index2);
+        listMarketIndex.add(index3);
+        listMarketIndex.add(index4);
+        listMarketIndex.add(index5);
         marketInfo.setListMarketIndex(listMarketIndex);
         StockMarketIndexViewModel indexViewModel = new StockMarketIndexViewModel(marketInfo);
         stockTimeView.setModel(indexViewModel);

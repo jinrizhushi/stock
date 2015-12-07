@@ -17,6 +17,7 @@ import cn.com.jinrizhushi.stock.stock.model.StockMarketIndexModel;
 import cn.com.jinrizhushi.stock.stock.model.StockPointModel;
 import cn.com.jinrizhushi.stock.stock.model.StockTextModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockMarketIndexViewModel;
+import cn.com.jinrizhushi.stock.util.Tools;
 
 /**
  * 描述: 分时图
@@ -108,7 +109,9 @@ public class StockTimeSharingView extends View {
      * 初试化指数线
      */
     private void initShownPoint() {
-
+        if(listPoint!=null){
+            listPoint.clear();
+        }
         float highest = Float.parseFloat(indexModel.getMarketIndexHigh());
         float lowest = Float.parseFloat(indexModel.getMarketIndexLow());
         if (indexModel != null && indexModel.getListMarketIndex() != null && indexModel.getListMarketIndex().size() > 0) {
@@ -133,17 +136,18 @@ public class StockTimeSharingView extends View {
                     float xDistance = (realWidth - STOCK_VIEW_STARTX * 2)/2/(2*60);
                     if (all <= centerLeft) {
                         startX = STOCK_VIEW_STARTX + (all - startTime) * xDistance;
-                    }else if(all>=centerRight&&all<stopRight){
-                        startX = (realWidth-STOCK_VIEW_STARTX * 2 )/2+(realWidth-STOCK_VIEW_STARTX * 2 )/4/(stopRight-centerRight)*(all-centerRight);
+                    }else if(all>=centerRight&&all<=stopRight){
+                        startX = (realWidth-STOCK_VIEW_STARTX * 2 )/4/30*(all-centerRight)+(realWidth-STOCK_VIEW_STARTX * 2 )/2+STOCK_VIEW_STARTX;
                     }else if(all>stopRight&&all<=stopTime){
-                        startX =realWidth-STOCK_VIEW_STARTX-(realWidth-STOCK_VIEW_STARTX * 2 )/4/(stopTime-stopRight)*(stopTime-all);
+                        startX = STOCK_VIEW_STARTX+(realWidth-STOCK_VIEW_STARTX * 2)/4*3+(realWidth-STOCK_VIEW_STARTX * 2)/4/60*(all-stopRight);
                     }
-                    pointModel.setStartX(startX);
+                    pointModel.setStartX(Tools.getDecimalFormatFloat(startX));
                     float startY = 0F;
                     startY = realHeight - distance - (index-lowest)*yDistance;
-                    pointModel.setStartY(startY);
+                    pointModel.setStartY(Tools.getDecimalFormatFloat(startY));
                     Paint paint = new Paint();
                     paint.setColor(marketIndexViewModel.getColor());
+                    paint.setStrokeWidth(2);
                     pointModel.setPaint(paint);
                     listPoint.add(pointModel);
                 }
@@ -256,7 +260,7 @@ public class StockTimeSharingView extends View {
      * @param canvas
      */
     private void initLine(Canvas canvas) {
-        for (int i = (indexModel.getListMarketIndex().size() - 1); i > 0; i--) {
+        for (int i = (listPoint.size() - 1); i > 0; i--) {
             if (i > 0) {
                 StockPointModel modelBehind = listPoint.get(i);
                 StockPointModel modelAHead = listPoint.get(i - 1);
