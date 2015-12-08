@@ -7,6 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Shader;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -84,6 +85,10 @@ public class StockTimeSharingView extends View {
      * 点的List
      */
     private static List<StockPointModel> listPoint = new ArrayList<>();
+    /** 绿色的阴影 */
+    private int STOCK_TIME_SHARING_VIEW_SHADOW_GREEN_COLOR = 0x4700B285;
+    /**红色的阴影*/
+    private int STOCK_TIME_SHARING_VIEW_SHADOW_RED_COLOR = 0x47CD3557;
 
     public StockTimeSharingView(Context context) {
         super(context);
@@ -109,15 +114,20 @@ public class StockTimeSharingView extends View {
         initShownPoint();
     }
 
+    float highest;
+    float lowest;
+    float center;
+
     /**
      * 初试化指数线
      */
     private void initShownPoint() {
-        if(listPoint!=null){
+        if (listPoint != null) {
             listPoint.clear();
         }
-        float highest = Float.parseFloat(indexModel.getMarketIndexHigh());
-        float lowest = Float.parseFloat(indexModel.getMarketIndexLow());
+        highest = Float.parseFloat(indexModel.getMarketIndexHigh());
+        lowest = Float.parseFloat(indexModel.getMarketIndexLow());
+        center = Float.parseFloat(indexModel.getMarketIndexCenter());
         if (indexModel != null && indexModel.getListMarketIndex() != null && indexModel.getListMarketIndex().size() > 0) {
             List<StockMarketIndexItemModel> list = indexModel.getListMarketIndex();
             if (list != null && list.size() > 0) {
@@ -126,7 +136,7 @@ public class StockTimeSharingView extends View {
                     float index = Float.parseFloat(model.getIndex());
                     String time = model.getTime();
                     StockPointModel pointModel = new StockPointModel();
-                    float yDistance = distance*2 / (highest - lowest);
+                    float yDistance = distance * 2 / (highest - lowest);
                     String s1 = time.substring(0, 2);
                     String s2 = time.substring(3, 5);
                     Float all = Float.parseFloat(s1) * 60 + Float.parseFloat(s2);
@@ -134,20 +144,20 @@ public class StockTimeSharingView extends View {
                     float startTime = 9 * 60 + 30;
                     float centerLeft = 11 * 60 + 30;
                     float centerRight = 13 * 60 + 30;
-                    float stopRight = 14*60;
+                    float stopRight = 14 * 60;
                     float stopTime = 15 * 60;
                     float startX = 0f;
-                    float xDistance = (realWidth - STOCK_VIEW_STARTX * 2)/2/(2*60);
+                    float xDistance = (realWidth - STOCK_VIEW_STARTX * 2) / 2 / (2 * 60);
                     if (all <= centerLeft) {
                         startX = STOCK_VIEW_STARTX + (all - startTime) * xDistance;
-                    }else if(all>=centerRight&&all<=stopRight){
-                        startX = (realWidth-STOCK_VIEW_STARTX * 2 )/4/30*(all-centerRight)+(realWidth-STOCK_VIEW_STARTX * 2 )/2+STOCK_VIEW_STARTX;
-                    }else if(all>stopRight&&all<=stopTime){
-                        startX = STOCK_VIEW_STARTX+(realWidth-STOCK_VIEW_STARTX * 2)/4*3+(realWidth-STOCK_VIEW_STARTX * 2)/4/60*(all-stopRight);
+                    } else if (all >= centerRight && all <= stopRight) {
+                        startX = (realWidth - STOCK_VIEW_STARTX * 2) / 4 / 30 * (all - centerRight) + (realWidth - STOCK_VIEW_STARTX * 2) / 2 + STOCK_VIEW_STARTX;
+                    } else if (all > stopRight && all <= stopTime) {
+                        startX = STOCK_VIEW_STARTX + (realWidth - STOCK_VIEW_STARTX * 2) / 4 * 3 + (realWidth - STOCK_VIEW_STARTX * 2) / 4 / 60 * (all - stopRight);
                     }
                     pointModel.setStartX(Tools.getDecimalFormatFloat(startX));
                     float startY = 0F;
-                    startY = realHeight - distance - (index-lowest)*yDistance;
+                    startY = realHeight - distance - (index - lowest) * yDistance;
                     pointModel.setStartY(Tools.getDecimalFormatFloat(startY));
                     Paint paint = new Paint();
                     paint.setColor(marketIndexViewModel.getColor());
@@ -164,6 +174,7 @@ public class StockTimeSharingView extends View {
 
     float distanceX;
     float timeY;
+
     /**
      * 初始化坐标
      */
@@ -257,7 +268,9 @@ public class StockTimeSharingView extends View {
         initText(canvas);
         initLine(canvas);
     }
-    Path path= new Path();
+
+    Path path = new Path();
+
     /**
      * 画曲线
      *
@@ -270,30 +283,69 @@ public class StockTimeSharingView extends View {
                 StockPointModel modelAHead = listPoint.get(i - 1);
                 Paint paint = modelAHead.getPaint();
                 paint.setStrokeWidth(3);
-                if(i ==(listPoint.size()-1)){
-                    path.moveTo(modelBehind.getStartX(),modelBehind.getStartY());
-                }else{
-                    path.lineTo(modelBehind.getStartX(),modelBehind.getStartY());
-                    path.lineTo(modelAHead.getStartX(),modelAHead.getStartY());
+                if (i == (listPoint.size() - 1)) {
+                    path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
+                } else {
+                    path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
+                    path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
                 }
-                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(),paint );
-
+                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
             }
         }
+        /* 画渐变的阴影 */
         Paint paint = new Paint();
-        path.lineTo(STOCK_VIEW_STARTX, (float)(timeY*0.8));
-        path.lineTo(listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8));
+        path.lineTo(STOCK_VIEW_STARTX, (float) (timeY * 0.8));
+        path.lineTo(listPoint.get(listPoint.size() - 1).getStartX(), (float) (timeY * 0.8));
         path.lineTo(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY());
         path.close();
         Shader mShasder;
-        if(listPoint.get(0).getPaint().getColor()==Color.RED){
-            mShasder = new LinearGradient(listPoint.get(listPoint.size()-1).getStartX(),listPoint.get(listPoint.size()-1).getStartY(), listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8), new int[]{0xFF493546,0xFF343542}, null, Shader.TileMode.CLAMP);
-        }else{
-            mShasder = new LinearGradient(listPoint.get(listPoint.size()-1).getStartX(),listPoint.get(listPoint.size()-1).getStartY(), listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8), new int[]{0xFF275956,0xFF343542}, null, Shader.TileMode.CLAMP);
+        if (listPoint.get(0).getPaint().getColor() == StockMarketIndexViewModel.STOCK_MARKET_IDNEX_VIEW_RED_COLOR) {
+            mShasder = new LinearGradient(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY(), listPoint.get(listPoint.size() - 1).getStartX(), (float) (timeY * 0.8), new int[]{0xFF493546, 0xFF343542}, null, Shader.TileMode.CLAMP);
+        } else {
+            mShasder = new LinearGradient(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY(), listPoint.get(listPoint.size() - 1).getStartX(), (float) (timeY * 0.8), new int[]{0xFF275956, 0xFF343542}, null, Shader.TileMode.CLAMP);
 
         }
         paint.setShader(mShasder);
-        canvas.drawPath(path,paint);
+        canvas.drawPath(path, paint);
+        /* 画最近的点 */
+        paint = new Paint();
+        paint.setStrokeJoin(Paint.Join.ROUND);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint.setStrokeWidth(3);
+
+        if (listPoint.get(0).getPaint().getColor() == StockMarketIndexViewModel.STOCK_MARKET_IDNEX_VIEW_RED_COLOR) {
+            paint.setColor(STOCK_TIME_SHARING_VIEW_SHADOW_RED_COLOR);
+        } else {
+            paint.setColor(STOCK_TIME_SHARING_VIEW_SHADOW_GREEN_COLOR);
+        }
+        canvas.drawCircle(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY(), 10, paint);
+        paint.setColor(listPoint.get(0).getPaint().getColor());
+        canvas.drawCircle(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY(), 5, paint);
+
+        /* 标记指数和幅度 */
+        String range;
+        String index = marketIndexViewModel.getMarketInfo().getListMarketIndex().get(listPoint.size() - 1).getIndex();
+        float dis = Float.parseFloat(indexModel.getQuoteChangeHigh()) * 2 / (highest - lowest);
+        float ra = Float.parseFloat(index) - center;
+        range = String.valueOf(Tools.getDecimalFormatFloat(dis * ra)) + "%";
+        float indexY=0F;
+        float rangeY=0F;
+        if(ra>0){
+            indexY =  listPoint.get(listPoint.size() - 1).getStartY() + 50;
+            rangeY = listPoint.get(listPoint.size() - 1).getStartY() - 20;
+        }else{
+            rangeY =  listPoint.get(listPoint.size() - 1).getStartY() + 50;
+            indexY = listPoint.get(listPoint.size() - 1).getStartY() - 20;
+        }
+
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(22);
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
+        canvas.drawText(index, listPoint.get(listPoint.size() - 1).getStartX() - 30,indexY, paint);
+        paint.setColor(listPoint.get(listPoint.size() - 1).getPaint().getColor());
+        canvas.drawText(range, listPoint.get(listPoint.size() - 1).getStartX() - 27,rangeY , paint);
+
+
     }
 
     /**

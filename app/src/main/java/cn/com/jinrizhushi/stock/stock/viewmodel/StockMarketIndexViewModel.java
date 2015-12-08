@@ -29,6 +29,10 @@ public class StockMarketIndexViewModel {
     private StockMarketIndexModel marketInfo;
     /**分割线的颜色 */
     private int lineColor;
+    /** 红色 */
+    public static int STOCK_MARKET_IDNEX_VIEW_RED_COLOR =0xFFCD3557;
+    /** 绿色 */
+    public static int STOCK_MARKET_IDNEX_VIEW_GREEN_COLOR = 0xFF00B285;
 
     public StockMarketIndexViewModel(StockMarketIndexModel marketInfo) {
         this.marketInfo = marketInfo;
@@ -45,9 +49,9 @@ public class StockMarketIndexViewModel {
         List<StockMarketIndexItemModel> listMarketIndex = marketInfo.getListMarketIndex();
         if(listMarketIndex!=null&&listMarketIndex.size()>0){
             if(Float.parseFloat((listMarketIndex.get(listMarketIndex.size()-1).getIndex()))>Float.parseFloat(marketInfo.getMarketIndexCenter())){
-                setColor(Color.RED);
+                setColor(STOCK_MARKET_IDNEX_VIEW_RED_COLOR);
             }else{
-                setColor(Color.GREEN);
+                setColor(STOCK_MARKET_IDNEX_VIEW_GREEN_COLOR);
             }
         }
         setLineColor(StockApplication.sInstance.getResources().getColor(R.color.stock_view_line_color));
