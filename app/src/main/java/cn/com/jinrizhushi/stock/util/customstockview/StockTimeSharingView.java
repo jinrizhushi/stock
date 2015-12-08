@@ -111,7 +111,9 @@ public class StockTimeSharingView extends View {
         realHeight = MeasureSpec.getSize(heightMeasureSpec);
         initDefaultPoint();
         initTextPoint();
-        initShownPoint();
+        if(indexModel!=null){
+            initShownPoint();
+        }
     }
 
     float highest;
@@ -197,9 +199,9 @@ public class StockTimeSharingView extends View {
             hight = "0 ";
             center = "0 ";
             low = "0";
-            rightLow = " 0";
-            zero = " 0";
-            rightHight = " 0";
+            rightLow = " 0%";
+            zero = " 0%";
+            rightHight = " 0%";
         } else {
             indexModel = marketIndexViewModel.getMarketInfo();
             hight = indexModel.getMarketIndexHigh() + " ";
@@ -266,7 +268,9 @@ public class StockTimeSharingView extends View {
         super.onDraw(canvas);
         initThreeLine(canvas);
         initText(canvas);
-        initLine(canvas);
+        if(listPoint!=null&&listPoint.size()>0){
+            initLine(canvas);
+        }
     }
 
     Path path = new Path();
