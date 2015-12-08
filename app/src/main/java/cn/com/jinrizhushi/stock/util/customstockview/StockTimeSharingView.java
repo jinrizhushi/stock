@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
@@ -256,7 +257,7 @@ public class StockTimeSharingView extends View {
         initText(canvas);
         initLine(canvas);
     }
-
+    Path path= new Path();
     /**
      * 画曲线
      *
@@ -267,32 +268,32 @@ public class StockTimeSharingView extends View {
             if (i > 0) {
                 StockPointModel modelBehind = listPoint.get(i);
                 StockPointModel modelAHead = listPoint.get(i - 1);
-                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), modelAHead.getPaint());
+                Paint paint = modelAHead.getPaint();
+                paint.setStrokeWidth(3);
+                if(i ==(listPoint.size()-1)){
+                    path.moveTo(modelBehind.getStartX(),modelBehind.getStartY());
+                }else{
+                    path.lineTo(modelBehind.getStartX(),modelBehind.getStartY());
+                    path.lineTo(modelAHead.getStartX(),modelAHead.getStartY());
+                }
+                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(),paint );
 
             }
         }
-//        for(int i = 0;i<listPoint.size();i++){
-//            StockPointModel modelBehind = listPoint.get(i);
-//            int a = (int)modelBehind.getStartX();
-//            int c = (int)modelBehind.getStartY();
-//            if(i<(listPoint.size()-1)){
-//                StockPointModel aheadBehind = listPoint.get(i+1);
-//                int b = (int)aheadBehind.getStartX();
-//                int d = (int)aheadBehind.getStartY();
-//                for(int j = a;j<b;j++){
-//                    float startx = j;
-//                    float starty = timeY-20;
-//                    float stopx = startx;
-//                    float stopy = c+(d-c)/(b-a)*j;
-//                    Paint paint = modelBehind.getPaint();
-//                    LinearGradient lg=new LinearGradient(stopx,stopy,startx,starty, marketIndexViewModel.getColor(),StockApplication.sInstance.getResources().getColor(R.color.stock_time_view_bg), Shader.TileMode.MIRROR);
-//                    paint.setShader(lg);
-//                    canvas.drawLine(startx, starty, stopx,stopy,paint);
-//
-//                }
-//            }
-//        }
+        Paint paint = new Paint();
+        path.lineTo(STOCK_VIEW_STARTX, (float)(timeY*0.8));
+        path.lineTo(listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8));
+        path.lineTo(listPoint.get(listPoint.size() - 1).getStartX(), listPoint.get(listPoint.size() - 1).getStartY());
+        path.close();
+        Shader mShasder;
+        if(listPoint.get(0).getPaint().getColor()==Color.RED){
+            mShasder = new LinearGradient(listPoint.get(listPoint.size()-1).getStartX(),listPoint.get(listPoint.size()-1).getStartY(), listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8), new int[]{0xFF493546,0xFF343542}, null, Shader.TileMode.CLAMP);
+        }else{
+            mShasder = new LinearGradient(listPoint.get(listPoint.size()-1).getStartX(),listPoint.get(listPoint.size()-1).getStartY(), listPoint.get(listPoint.size()-1).getStartX(),(float)(timeY*0.8), new int[]{0xFF275956,0xFF343542}, null, Shader.TileMode.CLAMP);
 
+        }
+        paint.setShader(mShasder);
+        canvas.drawPath(path,paint);
     }
 
     /**
