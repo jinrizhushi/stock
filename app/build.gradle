@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+def AAVersion = '3.3.2'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "cn.com.jinrizhushi.stock"
-        minSdkVersion 18
+        minSdkVersion 8
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -16,6 +18,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        disable 'HardcodedText', 'TextFields', 'OnClick'
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -28,21 +33,44 @@ android {
         exclude 'META-INF/ASL2.0'
     }
 }
-
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName "cn.com.jinrizhushi.stock"
+    }
+}
+repositories {
+    maven() {
+        name 'RoboBinding Framework Maven Repository'
+        url "file://D:/git/RoboBinding/framework/mavenRepo"
+    }
+    mavenCentral()
+    maven() {
+        name 'SonaType snapshot repository'
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+ext {
+    robobindingVersion = 'latest.integration'
+    //robobindingVersion = '0.8.6-SNAPSHOT'
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
-
-
     compile 'com.android.support:recyclerview-v7:23.+'
     compile 'org.apache.httpcomponents:httpmime:4.5.1'
     compile 'com.hynnet:httpclient:4.5.1'
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'org.simple:androideventbus:1.0.5'
-
+    testCompile 'junit:junit:4.12'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'com.google.code.gson:gson:2.4'
-
+    compile 'com.alibaba:fastjson:1.2.7'
+    compile("org.robobinding:robobinding:$robobindingVersion:with-dependencies") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+    apt "org.robobinding:codegen:$robobindingVersion"
+//    compile 'com.nineoldandroids:library:2.4.0'
+//    compile 'com.daimajia.easing:library:1.0.0@aar'
+//    compile 'com.daimajia.androidanimations:library:1.1.2@aar'
 }

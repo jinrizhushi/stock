@@ -54,7 +54,7 @@ public class StockMarketIndexViewModel {
                 setColor(STOCK_MARKET_IDNEX_VIEW_GREEN_COLOR);
             }
         }
-        setLineColor(StockApplication.sInstance.getResources().getColor(R.color.stock_view_line_color));
+        setLineColor(StockApplication.globalContext.getResources().getColor(R.color.stock_view_line_color));
     }
 
 

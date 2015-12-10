@@ -42,11 +42,11 @@ public class StockTimeSharingView extends View {
     /**
      * 图形的边距
      */
-    private float STOCK_VIEW_MARGIN = 60;
+    private float STOCK_VIEW_MARGIN = 40;
     /**
      * 图形的上边距
      */
-    private float STOCK_VIEW_MARGIN_TOP = 40;
+    private float STOCK_VIEW_MARGIN_TOP = 1;
     /**
      * 距顶部的距离
      */
@@ -109,8 +109,10 @@ public class StockTimeSharingView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         realWidth = MeasureSpec.getSize(widthMeasureSpec);
         realHeight = MeasureSpec.getSize(heightMeasureSpec);
-        initDefaultPoint();
-        initTextPoint();
+        if(marketIndexViewModel!=null){
+            initDefaultPoint();
+            initTextPoint();
+        }
         if(indexModel!=null){
             initShownPoint();
         }
@@ -183,7 +185,7 @@ public class StockTimeSharingView extends View {
     private void initTextPoint() {
         Paint paint = new Paint();
         paint.setTextSize(STOCK_VIEW_FONT_SIZE);
-        paint.setColor(StockApplication.sInstance.getResources().getColor(R.color.stock_view_text_color));
+        paint.setColor(StockApplication.globalContext.getResources().getColor(R.color.stock_view_text_color));
         float tvX = STOCK_VIEW_MARGIN;
         float tvY = STOCK_VIEW_FINAL_MARGIN_TOP;
         if (distance <= 0f) {
@@ -217,11 +219,11 @@ public class StockTimeSharingView extends View {
         StockTextModel modelLow = new StockTextModel(low, tvX - STOCK_VIEW_FONT_SIZE, tvY + distance * 2 + STOCK_VIEW_FONT_SIZE / 3, paint);
         timeY = tvY + distance * 2 + distance / 3;
         distanceX = (realWidth - 2 * STOCK_VIEW_STARTX) / 4;
-        StockTextModel modelNine = new StockTextModel("09:30", STOCK_VIEW_STARTX, timeY, paint);
-        StockTextModel modelTen = new StockTextModel("10:30", STOCK_VIEW_STARTX + distanceX - STOCK_VIEW_FONT_WIDTH, timeY, paint);
-        StockTextModel modelEleven = new StockTextModel("11:30/13:30", STOCK_VIEW_STARTX + distanceX * 2 - STOCK_VIEW_FONT_WIDTH, timeY, paint);
-        StockTextModel modelForth = new StockTextModel("14:00", STOCK_VIEW_STARTX + distanceX * 3 + STOCK_VIEW_FONT_WIDTH, timeY, paint);
-        StockTextModel modelFifth = new StockTextModel("15:00", STOCK_VIEW_STARTX + distanceX * 4, timeY, paint);
+        StockTextModel modelNine = new StockTextModel("09:30", STOCK_VIEW_STARTX, timeY+STOCK_VIEW_MARGIN/2, paint);
+        StockTextModel modelTen = new StockTextModel("10:30", STOCK_VIEW_STARTX + distanceX - STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
+        StockTextModel modelEleven = new StockTextModel("11:30/13:30", STOCK_VIEW_STARTX + distanceX * 2 - STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
+        StockTextModel modelForth = new StockTextModel("14:00", STOCK_VIEW_STARTX + distanceX * 3 + STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
+        StockTextModel modelFifth = new StockTextModel("15:00", STOCK_VIEW_STARTX + distanceX * 4, timeY+STOCK_VIEW_MARGIN/2, paint);
         float timeX = realWidth - STOCK_VIEW_STARTX;
         StockTextModel modelQuoteChangeLow = new StockTextModel(rightLow, timeX, tvY + distance * 2 + STOCK_VIEW_FONT_SIZE / 3, paint);
         StockTextModel modelQuoteChangeZero = new StockTextModel(zero, timeX, tvY + STOCK_VIEW_FONT_SIZE / 3 + distance, paint);
@@ -250,7 +252,7 @@ public class StockTimeSharingView extends View {
         distance = (realHeight - STOCK_VIEW_MARGIN - STOCK_VIEW_MARGIN_TOP) / 3;
         Paint paint = new Paint();
         if (marketIndexViewModel == null) {
-            paint.setColor(StockApplication.sInstance.getResources().getColor(R.color.stock_view_line_color));
+            paint.setColor(StockApplication.globalContext.getResources().getColor(R.color.stock_view_line_color));
         } else {
             paint.setColor(marketIndexViewModel.getLineColor());
         }

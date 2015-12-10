@@ -2,22 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/stock_view_bg"
+    xmlns:bind="http://robobinding.org/android"
     android:orientation="vertical">
 
 
-    <cn.com.jinrizhushi.stock.util.customstockview.StockView
-        android:id="@+id/sv_stock"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        android:background="@color/stock_view_bg" />
+    <!--<cn.com.jinrizhushi.stock.util.customstockview.StockView-->
+    <!--android:id="@+id/sv_stock"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="200dp"-->
+    <!--android:background="@color/stock_view_bg" />-->
 
     <cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView
         android:id="@+id/sv_stock_time"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_height="100dp"
+        bind:stock="{stockTime}"
         android:background="@color/stock_time_view_bg" />
 
 
