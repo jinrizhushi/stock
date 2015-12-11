@@ -23,7 +23,7 @@ public class StockViewModel implements HasPresentationModelChangeSupport {
 
     private PresentationModelChangeSupport changeSupport;
 
-    private StockMarketIndexViewModel getStockTime(){
+    public StockMarketIndexViewModel getStockTime(){
         StockMarketIndexModel marketInfo = new StockMarketIndexModel();
         marketInfo.setMarketIndexHigh("3319");
         marketInfo.setMarketIndexCenter("3183");

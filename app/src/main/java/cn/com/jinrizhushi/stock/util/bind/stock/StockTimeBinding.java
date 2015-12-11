@@ -12,8 +12,8 @@ import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
  */
 public class StockTimeBinding implements ViewBinding<StockTimeSharingView> {
     @Override
-    public void mapBindingAttributes(BindingAttributeMappings mappings) {
-        mappings.mapOneWayMultiTypeProperty(StockTimeAttribute.class, "stock");
+    public void mapBindingAttributes(BindingAttributeMappings<StockTimeSharingView> mappings) {
+        mappings.mapOneWayProperty(StockTimeAttribute.class, "stock");
     }
 
 

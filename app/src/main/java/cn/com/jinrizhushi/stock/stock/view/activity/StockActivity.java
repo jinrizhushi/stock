@@ -34,8 +34,8 @@ public class StockActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        initMVVMView();
-        initView();
+        initMVVMView();
+//        initView();
     }
     public void initMVVMView(){
         viewModel = new StockViewModel(this);
