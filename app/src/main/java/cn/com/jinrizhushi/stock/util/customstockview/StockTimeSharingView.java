@@ -140,7 +140,8 @@ public class StockTimeSharingView extends View {
                     float index = Float.parseFloat(model.getIndex());
                     String time = model.getTime();
                     StockPointModel pointModel = new StockPointModel();
-                    float yDistance = distance * 2 / (highest - lowest);
+                    float yHighDistance = distance/(highest-center);
+                    float yLowDistance = distance/(center-lowest);
                     String s1 = time.substring(0, 2);
                     String s2 = time.substring(3, 5);
                     Float all = Float.parseFloat(s1) * 60 + Float.parseFloat(s2);
@@ -158,7 +159,11 @@ public class StockTimeSharingView extends View {
                     }
                     pointModel.setStartX(Tools.getDecimalFormatFloat(startX));
                     float startY = 0F;
-                    startY = realHeight - distance - (index - lowest) * yDistance;
+                    if(index>center){
+                        startY = STOCK_VIEW_MARGIN + STOCK_VIEW_MARGIN_TOP+(distance-(index-center)*yHighDistance);
+                    }else{
+                        startY = realHeight -distance-(index-lowest)*yLowDistance;
+                    }
                     pointModel.setStartY(Tools.getDecimalFormatFloat(startY));
                     Paint paint = new Paint();
                     paint.setColor(marketIndexViewModel.getColor());

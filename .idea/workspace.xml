@@ -30,15 +30,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StockTimeSharingView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockTimeSharingView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockTimeSharingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4207317">
-              <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+            <state vertical-scroll-proportion="-8.333333">
+              <caret line="162" column="114" selection-start-line="162" selection-start-column="114" selection-end-line="162" selection-end-column="114" />
               <folding>
-                <element signature="e#15761#15762#0" expanded="true" />
-                <element signature="e#15810#15811#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#16027#16028#0" expanded="true" />
+                <element signature="e#16076#16077#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockMarketIndexItemModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockMarketIndexItemModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockTimeBinding.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stocktime/StockTimeBinding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockMarketIndexViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockMarketIndexViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockViewModel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7549296">
+              <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1530,7 +1583,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockViewModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stocktime/StockTimeAttribute.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stocktime/StockTimeBinding.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stockkline/StockKLineAttribute.java" />
@@ -1539,6 +1591,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/container/StockApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockTimeSharingView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockViewModel.java" />
       </list>
     </option>
   </component>
@@ -2331,7 +2384,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34529915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34529915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2473,14 +2526,6 @@
             <element signature="e#580#581#0" expanded="false" />
             <element signature="e#617#618#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockMarketIndexViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18108109">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2630,22 +2675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6760564">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1971831">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stockkline/StockKLineBinding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5070422">
@@ -2672,16 +2701,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#512#513#0" expanded="true" />
             <element signature="e#548#549#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stocktime/StockTimeBinding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6760563">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2715,14 +2734,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stocktime/StockTimeBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockMarketIndexItemModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockTimeSharingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4207317">
-          <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+        <state vertical-scroll-proportion="-8.333333">
+          <caret line="162" column="114" selection-start-line="162" selection-start-column="114" selection-end-line="162" selection-end-column="114" />
           <folding>
-            <element signature="e#15761#15762#0" expanded="true" />
-            <element signature="e#15810#15811#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#16027#16028#0" expanded="true" />
+            <element signature="e#16076#16077#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockMarketIndexViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7549296">
+          <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
