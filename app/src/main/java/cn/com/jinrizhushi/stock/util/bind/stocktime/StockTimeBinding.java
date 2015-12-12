@@ -1,4 +1,4 @@
-package cn.com.jinrizhushi.stock.util.bind.stock;
+package cn.com.jinrizhushi.stock.util.bind.stocktime;
 
 import org.robobinding.viewbinding.BindingAttributeMappings;
 import org.robobinding.viewbinding.ViewBinding;

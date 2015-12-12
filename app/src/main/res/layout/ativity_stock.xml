@@ -7,19 +7,17 @@
 
 
     <cn.com.jinrizhushi.stock.util.customstockview.StockView
-    android:id="@+id/sv_stock"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@color/stock_view_bg" />
+        android:id="@+id/sv_stock"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/stock_view_bg"
+        bind:stockkline="{stockKLine}" />
 
     <cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView
         android:id="@+id/sv_stock_time"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        bind:stock="{stockTime}"
         android:background="@color/stock_time_view_bg"
-        />
-    <!--bind:stock="{stockTime}"-->
-
+        bind:stock="{stockTime}" />
 
 </LinearLayout>

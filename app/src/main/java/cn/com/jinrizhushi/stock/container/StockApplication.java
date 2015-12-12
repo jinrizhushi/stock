@@ -6,8 +6,10 @@ import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
 import org.robobinding.customviewbinding.CustomViewBinding;
 
-import cn.com.jinrizhushi.stock.util.bind.stock.StockTimeBinding;
+import cn.com.jinrizhushi.stock.util.bind.stockkline.StockKLineBinding;
+import cn.com.jinrizhushi.stock.util.bind.stocktime.StockTimeBinding;
 import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
+import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 import cn.com.jinrizhushi.stock.util.service.volley.RequestManager;
 
 /**
@@ -25,6 +27,7 @@ public class StockApplication extends Application{
         globalContext = this;
         reusableBinderFactory = new BinderFactoryBuilder()
                 .add(CustomViewBinding.forView(StockTimeSharingView.class, new StockTimeBinding()))
+                .add(CustomViewBinding.forView(StockView.class,new StockKLineBinding()))
                 .build();
         RequestManager.init(this);
     }

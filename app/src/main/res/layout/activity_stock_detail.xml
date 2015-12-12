@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:bind="http://robobinding.org/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/stock_detial_bg"
+    android:orientation="vertical">
+    <!-- 头部 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/stock_detial_top_bg"
+        android:gravity="center_vertical">
 
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/ic_launcher"
+            bind:onClick="goback" />
+        <!-- 标题 -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_stock_name_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_middle"
+                android:textStyle="bold"
+                bind:text="{stockNameAndCode}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_stock_name_code"
+                android:layout_marginTop="@dimen/margin_top_distance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_small"
+                bind:text="{isOpenAndDate}"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>

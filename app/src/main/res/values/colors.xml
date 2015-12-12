@@ -9,4 +9,6 @@
     <color name="stock_time_view_bg">#343542</color>
     <color name="stock_view_line_color">#494a5d</color>
     <color name="stock_view_text_color">#A0A0A3</color>
+    <color name="stock_detial_top_bg">#343542</color>
+    <color name="stock_detial_bg">#EDF0F5</color>
 </resources>
