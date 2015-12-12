@@ -144,20 +144,17 @@ public class StockTimeSharingView extends View {
                     String s1 = time.substring(0, 2);
                     String s2 = time.substring(3, 5);
                     Float all = Float.parseFloat(s1) * 60 + Float.parseFloat(s2);
-                    /* 9:30 ,11:30,13:30,14:0015:00*/
+                    /* 9:30 ,11:30,13:00,14:0015:00*/
                     float startTime = 9 * 60 + 30;
                     float centerLeft = 11 * 60 + 30;
-                    float centerRight = 13 * 60 + 30;
-                    float stopRight = 14 * 60;
+                    float centerRight = 13 * 60;
                     float stopTime = 15 * 60;
                     float startX = 0f;
                     float xDistance = (realWidth - STOCK_VIEW_STARTX * 2) / 2 / (2 * 60);
                     if (all <= centerLeft) {
                         startX = STOCK_VIEW_STARTX + (all - startTime) * xDistance;
-                    } else if (all >= centerRight && all <= stopRight) {
-                        startX = (realWidth - STOCK_VIEW_STARTX * 2) / 4 / 30 * (all - centerRight) + (realWidth - STOCK_VIEW_STARTX * 2) / 2 + STOCK_VIEW_STARTX;
-                    } else if (all > stopRight && all <= stopTime) {
-                        startX = STOCK_VIEW_STARTX + (realWidth - STOCK_VIEW_STARTX * 2) / 4 * 3 + (realWidth - STOCK_VIEW_STARTX * 2) / 4 / 60 * (all - stopRight);
+                    } else if (all >= centerRight  && all <= stopTime) {
+                        startX = STOCK_VIEW_STARTX + (realWidth - STOCK_VIEW_STARTX * 2) / 4 * 2 + (realWidth - STOCK_VIEW_STARTX * 2) / 4 / 60 * (all - centerRight);
                     }
                     pointModel.setStartX(Tools.getDecimalFormatFloat(startX));
                     float startY = 0F;
@@ -221,7 +218,7 @@ public class StockTimeSharingView extends View {
         distanceX = (realWidth - 2 * STOCK_VIEW_STARTX) / 4;
         StockTextModel modelNine = new StockTextModel("09:30", STOCK_VIEW_STARTX, timeY+STOCK_VIEW_MARGIN/2, paint);
         StockTextModel modelTen = new StockTextModel("10:30", STOCK_VIEW_STARTX + distanceX - STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
-        StockTextModel modelEleven = new StockTextModel("11:30/13:30", STOCK_VIEW_STARTX + distanceX * 2 - STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
+        StockTextModel modelEleven = new StockTextModel("11:30/13:00", STOCK_VIEW_STARTX + distanceX * 2 - STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
         StockTextModel modelForth = new StockTextModel("14:00", STOCK_VIEW_STARTX + distanceX * 3 + STOCK_VIEW_FONT_WIDTH, timeY+STOCK_VIEW_MARGIN/2, paint);
         StockTextModel modelFifth = new StockTextModel("15:00", STOCK_VIEW_STARTX + distanceX * 4, timeY+STOCK_VIEW_MARGIN/2, paint);
         float timeX = realWidth - STOCK_VIEW_STARTX;
