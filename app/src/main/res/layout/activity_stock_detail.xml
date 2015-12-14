@@ -853,7 +853,8 @@
                 <!-- 新闻的具体内容 -->
                 <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="1000dp"/>
+                    android:layout_height="1000dp"
+                    android:background="@color/white"/>
                 <!-- 公告的具体内容 -->
                 <!-- 研报的具体内容 -->
                 <!-- 公司简介的具体内容 -->
