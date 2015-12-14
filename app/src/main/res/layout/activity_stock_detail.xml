@@ -49,8 +49,12 @@
     </RelativeLayout>
 
     <cn.com.jinrizhushi.stock.util.customnormalview.CustomScrollView
+        android:id="@+id/sv_custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -721,6 +725,7 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_news_middle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ll_height_of_stock_deltail"
                 android:layout_marginTop="@dimen/margin_top"
@@ -855,6 +860,127 @@
             </LinearLayout>
 
         </LinearLayout>
+       <!-- 新闻等标题栏 -->
+        <LinearLayout
+            android:id="@+id/ll_news_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ll_height_of_stock_deltail"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                <!-- 新闻 -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stock_detail_middle_heights"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="新闻"
+                        bind:onClick="onClickNews"
+                        android:textColor="@color/stock_detail_bottom_font_color"
+                        android:textSize="@dimen/font_size_bigger_small"
+                        />
+
+                    <TextView
+                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        bind:visibility="{newsVisibility}"
+                        android:background="@color/stock_detail_middle_line_bg"
+                        />
+                </RelativeLayout>
+
+                <!-- 公告 -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stock_detail_middle_heights"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="公告"
+                        bind:onClick="onClickNotice"
+                        android:textColor="@color/stock_detail_bottom_font_color"
+                        android:textSize="@dimen/font_size_bigger_small"
+                        />
+
+                    <TextView
+                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        bind:visibility="{noticeVisibility}"
+                        android:background="@color/stock_detail_middle_line_bg"
+                        />
+                </RelativeLayout>
+                <!-- 研报 -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stock_detail_middle_heights"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="研报"
+                        bind:onClick="onClickStudy"
+                        android:textColor="@color/stock_detail_bottom_font_color"
+                        android:textSize="@dimen/font_size_bigger_small"
+                        />
+
+                    <TextView
+                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        bind:visibility="{studyVisibility}"
+                        android:background="@color/stock_detail_middle_line_bg"
+                        />
+                </RelativeLayout>
+                <!-- 公司简介 -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stock_detail_middle_heights"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="公司简介"
+                        bind:onClick="onClickCompany"
+                        android:textColor="@color/stock_detail_bottom_font_color"
+                        android:textSize="@dimen/font_size_bigger_small"
+                        />
+
+                    <TextView
+                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        bind:visibility="{companyVisibility}"
+                        android:background="@color/stock_detail_middle_line_bg"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/stock_detail_news_line"
+                android:layout_gravity="bottom"
+                />
+        </LinearLayout>
+        </FrameLayout>
     </cn.com.jinrizhushi.stock.util.customnormalview.CustomScrollView>
 
 
