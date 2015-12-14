@@ -6,6 +6,7 @@ import org.androidannotations.annotations.EActivity;
 
 import cn.com.jinrizhushi.stock.R;
 import cn.com.jinrizhushi.stock.container.BaseActivity;
+import cn.com.jinrizhushi.stock.container.Constant;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockDetailViewModel;
 
 /**
@@ -19,7 +20,10 @@ public class StockDetialActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new StockDetailViewModel(this);
+//        Bundle bundle = this.getIntent().getExtras();
+//        String stockId = bundle.getString(Constant.STOCK_ID);
+        String stockId = "111";
+        model = new StockDetailViewModel(this,stockId);
         initializeContentView(R.layout.activity_stock_detail,model);
     }
 }

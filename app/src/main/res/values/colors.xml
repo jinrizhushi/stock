@@ -9,6 +9,14 @@
     <color name="stock_time_view_bg">#343542</color>
     <color name="stock_view_line_color">#494a5d</color>
     <color name="stock_view_text_color">#A0A0A3</color>
-    <color name="stock_detial_top_bg">#343542</color>
+    <!--<color name="stock_detial_top_bg">#343542</color>-->
+    <color name="stock_detial_top_bg">#18171F</color>
     <color name="stock_detial_bg">#EDF0F5</color>
+    <color name="font_red_color">#ff3b30</color>
+    <color name="horizontal_line_color">#E9E9E9</color>
+    <color name="font_gray_color">#aaaaaa</color>
+    <color name="font_gray_black_color">#333333</color>
+    <color name="stock_deatial_middle_bg">#F8F8F8</color>
+    <color name="stock_detail_middle_font_color">#646464</color>
+    <color name="stock_detail_middle_line_bg">#000000</color>
 </resources>

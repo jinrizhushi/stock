@@ -5,5 +5,18 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="font_size_middle">15sp</dimen>
     <dimen name="font_size_small">10sp</dimen>
+    <dimen name="font_size_little_small">11sp</dimen>
+    <dimen name="font_size_littles_small">12sp</dimen>
+    <dimen name="font_size_biggest">48sp</dimen>
     <dimen name="margin_top_distance">4dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="margin_left">17dp</dimen>
+    <dimen name="margin_left_view">19dp</dimen>
+    <dimen name="margin_stock_detail_top">11dp</dimen>
+    <dimen name="margin_top_tv">5dp</dimen>
+    <dimen name="ll_height_of_stock_deltail">36dp</dimen>
+    <dimen name="margin_top_left">12dp</dimen>
+    <dimen name="line_width_of_stock_detail">40dp</dimen>
+    <dimen name="stock_detail_middle_height">16.75dp</dimen>
+    <dimen name="stock_detail_kview_height">175dp</dimen>
 </resources>
