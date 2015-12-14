@@ -682,10 +682,11 @@
             android:layout_height="match_parent"
             bind:visibility="{llDayKVisibility}"
             android:orientation="horizontal">
-            <TextView
+            <cn.com.jinrizhushi.stock.util.customstockview.StockView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="日K"/>
+                android:background="@color/white"
+                bind:stockkline="{stockKLine}" />
         </LinearLayout>
         <!-- 周K -->
         <LinearLayout
@@ -693,10 +694,11 @@
             android:layout_height="match_parent"
             bind:visibility="{llWeekendKVisibility}"
             android:orientation="horizontal">
-            <TextView
+            <cn.com.jinrizhushi.stock.util.customstockview.StockView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="周K"/>
+                android:background="@color/white"
+                bind:stockkline="{stockWeekedKLine}" />
         </LinearLayout>
         <!-- 月K -->
         <LinearLayout
@@ -704,11 +706,13 @@
             android:layout_height="match_parent"
             bind:visibility="{llMonthKVisibility}"
             android:orientation="horizontal">
-            <TextView
+            <cn.com.jinrizhushi.stock.util.customstockview.StockView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="月K"/>
+                android:background="@color/white"
+                bind:stockkline="{stockMonthKLine}" />
         </LinearLayout>
     </LinearLayout>
+
 
 </LinearLayout>

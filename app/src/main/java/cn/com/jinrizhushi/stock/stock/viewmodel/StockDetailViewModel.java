@@ -8,9 +8,12 @@ import org.robobinding.annotation.PresentationModel;
 import org.robobinding.presentationmodel.HasPresentationModelChangeSupport;
 import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.SimpleTimeZone;
 
 import cn.com.jinrizhushi.stock.stock.model.StockBaseInfoModel;
+import cn.com.jinrizhushi.stock.stock.model.StockModel;
 
 /**
  * 描述: 股票详情的视图模型类
@@ -243,11 +246,11 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
         baseInfoModel.setStockName("乐视");
         baseInfoModel.setStockCode("321113");
         baseInfoModel.setIsClose(true);
-        baseInfoModel.setCurrentTime("08-07 15:00:00");
+        baseInfoModel.setCurrentTime("08-07 15::");
         baseInfoModel.setStockPrice("57.5");
         baseInfoModel.setStockAddPrice("+1.59");
         baseInfoModel.setStockAddRange("+3.49%");
-        baseInfoModel.setOpen("47.00");
+        baseInfoModel.setOpen("47.");
         baseInfoModel.setClose("45.60");
         baseInfoModel.setVolume("40.51万手");
         baseInfoModel.setSwichRate("3.72%");
@@ -259,6 +262,328 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
         baseInfoModel.setOutside("20.26万");
         baseInfoModel.setRatio("233.69");
         baseInfoModel.setSwing("5.29%");
+    }
+
+    public StockKLineViewModel getStockKLine() {
+        List<StockModel> listKline = new ArrayList<>();
+        StockModel sm = new StockModel();
+        for (int i = 0; i < 5; i++) {
+            StockModel sm3 = new StockModel();
+            sm3.setDate("2015-11-26");
+            sm3.setOpen("53.51");
+            sm3.setHigh("53.78");
+            sm3.setLow("52.65");
+            sm3.setClose("52.82");
+            sm3.setVolume("59515");
+            sm3.setAdjClose("52.82");
+            listKline.add(sm3);
+
+            StockModel sm4 = new StockModel();
+            sm4.setDate("2015-11-25");
+            sm4.setOpen("52.80");
+            sm4.setHigh("53.56");
+            sm4.setLow("52.60");
+            sm4.setClose("53.42");
+            sm4.setVolume("41963");
+            sm4.setAdjClose("53.42");
+            listKline.add(sm4);
+
+            StockModel sm5 = new StockModel();
+            sm5.setDate("2015-11-24");
+            sm5.setOpen("53.61");
+            sm5.setHigh("52.79");
+            sm5.setLow("52.50");
+            sm5.setClose("52.98");
+            sm5.setVolume("42558");
+            sm5.setAdjClose("52.98");
+            listKline.add(sm5);
+            sm.setDate("2015-12-01");
+            sm.setOpen("50.80");
+            sm.setHigh("51.48");
+            sm.setLow("50.01");
+            sm.setClose("53.84");
+            sm.setVolume("49106");
+            sm.setAdjClose("50.84");
+            listKline.add(sm);
+
+            StockModel sm1 = new StockModel();
+            sm1.setDate("2015-11-30");
+            sm1.setOpen("51.30");
+            sm1.setHigh("51.54");
+            sm1.setLow("48.80");
+            sm1.setClose("49.99");
+            sm1.setVolume("89669");
+            sm1.setAdjClose("49.99");
+            listKline.add(sm1);
+
+            StockModel sm2 = new StockModel();
+            sm2.setDate("2015-11-27");
+            sm2.setOpen("52.85");
+            sm2.setHigh("52.85");
+            sm2.setLow("50.38");
+            sm2.setClose("51.28");
+            sm2.setVolume("89669");
+            sm2.setAdjClose("51.28");
+            listKline.add(sm2);
+
+
+            StockModel sm6 = new StockModel();
+            sm6.setDate("2015-11-23");
+            sm6.setOpen("55.");
+            sm6.setHigh("53.80");
+            sm6.setLow("53.88");
+            sm6.setClose("53.88");
+            sm6.setVolume("32523");
+            sm6.setAdjClose("53.88");
+            listKline.add(sm6);
+
+            StockModel sm7 = new StockModel();
+            sm7.setDate("2015-11-20");
+            sm7.setOpen("54.65");
+            sm7.setHigh("55.26");
+            sm7.setLow("54.20");
+            sm7.setClose("54.93");
+            sm7.setVolume("36738");
+            sm7.setAdjClose("54.93");
+            listKline.add(sm7);
+
+            StockModel sm8 = new StockModel();
+            sm8.setDate("2015-11-19");
+            sm8.setOpen("53.84");
+            sm8.setHigh("54.70");
+            sm8.setLow("53.51");
+            sm8.setClose("54.60");
+            sm8.setVolume("29893");
+            sm8.setAdjClose("54.60");
+            listKline.add(sm8);
+
+            StockModel sm9 = new StockModel();
+            sm9.setDate("2015-11-18");
+            sm9.setOpen("53.39");
+            sm9.setHigh("54.34");
+            sm9.setLow("54.20");
+            sm9.setClose("53.73");
+            sm9.setVolume("37370");
+            sm9.setAdjClose("53.75");
+            listKline.add(sm9);
+        }
+        StockKLineViewModel model = new StockKLineViewModel(listKline);
+        return model;
+    }
+
+    public StockKLineViewModel getStockWeekedKLine() {
+        List<StockModel> listKline = new ArrayList<>();
+        StockModel sm = new StockModel();
+        for (int i = 0; i < 4; i++) {
+            StockModel sm3 = new StockModel();
+            sm3.setDate("2015-11-26");
+            sm3.setOpen("53.51");
+            sm3.setHigh("53.78");
+            sm3.setLow("52.65");
+            sm3.setClose("52.82");
+            sm3.setVolume("59515");
+            sm3.setAdjClose("52.82");
+            listKline.add(sm3);
+
+            StockModel sm4 = new StockModel();
+            sm4.setDate("2015-11-25");
+            sm4.setOpen("52.80");
+            sm4.setHigh("53.56");
+            sm4.setLow("52.60");
+            sm4.setClose("53.42");
+            sm4.setVolume("41963");
+            sm4.setAdjClose("53.42");
+            listKline.add(sm4);
+
+            StockModel sm5 = new StockModel();
+            sm5.setDate("2015-11-24");
+            sm5.setOpen("53.61");
+            sm5.setHigh("52.79");
+            sm5.setLow("52.50");
+            sm5.setClose("52.98");
+            sm5.setVolume("42558");
+            sm5.setAdjClose("52.98");
+            listKline.add(sm5);
+
+            sm.setDate("2015-12-01");
+            sm.setOpen("50.80");
+            sm.setHigh("51.48");
+            sm.setLow("50.01");
+            sm.setClose("53.84");
+            sm.setVolume("49106");
+            sm.setAdjClose("50.84");
+            listKline.add(sm);
+
+            StockModel sm1 = new StockModel();
+            sm1.setDate("2015-11-30");
+            sm1.setOpen("51.30");
+            sm1.setHigh("51.54");
+            sm1.setLow("48.80");
+            sm1.setClose("49.99");
+            sm1.setVolume("89669");
+            sm1.setAdjClose("49.99");
+            listKline.add(sm1);
+
+            StockModel sm2 = new StockModel();
+            sm2.setDate("2015-11-27");
+            sm2.setOpen("52.85");
+            sm2.setHigh("52.85");
+            sm2.setLow("50.38");
+            sm2.setClose("51.28");
+            sm2.setVolume("89669");
+            sm2.setAdjClose("51.28");
+            listKline.add(sm2);
+
+
+            StockModel sm6 = new StockModel();
+            sm6.setDate("2015-11-23");
+            sm6.setOpen("55.");
+            sm6.setHigh("53.80");
+            sm6.setLow("53.88");
+            sm6.setClose("53.88");
+            sm6.setVolume("32523");
+            sm6.setAdjClose("53.88");
+            listKline.add(sm6);
+
+            StockModel sm7 = new StockModel();
+            sm7.setDate("2015-11-20");
+            sm7.setOpen("54.65");
+            sm7.setHigh("55.26");
+            sm7.setLow("54.20");
+            sm7.setClose("54.93");
+            sm7.setVolume("36738");
+            sm7.setAdjClose("54.93");
+            listKline.add(sm7);
+
+            StockModel sm8 = new StockModel();
+            sm8.setDate("2015-11-19");
+            sm8.setOpen("53.84");
+            sm8.setHigh("54.70");
+            sm8.setLow("53.51");
+            sm8.setClose("54.60");
+            sm8.setVolume("29893");
+            sm8.setAdjClose("54.60");
+            listKline.add(sm8);
+
+            StockModel sm9 = new StockModel();
+            sm9.setDate("2015-11-18");
+            sm9.setOpen("53.39");
+            sm9.setHigh("54.34");
+            sm9.setLow("54.20");
+            sm9.setClose("53.73");
+            sm9.setVolume("37370");
+            sm9.setAdjClose("53.75");
+            listKline.add(sm9);
+        }
+        StockKLineViewModel model = new StockKLineViewModel(listKline);
+        return model;
+    }
+
+    public StockKLineViewModel getStockMonthKLine() {
+        List<StockModel> listKline = new ArrayList<>();
+        StockModel sm = new StockModel();
+        for (int i = 0; i < 3; i++) {
+            StockModel sm3 = new StockModel();
+            sm3.setDate("2015-11-26");
+            sm3.setOpen("53.51");
+            sm3.setHigh("53.78");
+            sm3.setLow("52.65");
+            sm3.setClose("52.82");
+            sm3.setVolume("59515");
+            sm3.setAdjClose("52.82");
+            listKline.add(sm3);
+
+            StockModel sm4 = new StockModel();
+            sm4.setDate("2015-11-25");
+            sm4.setOpen("52.80");
+            sm4.setHigh("53.56");
+            sm4.setLow("52.60");
+            sm4.setClose("53.42");
+            sm4.setVolume("41963");
+            sm4.setAdjClose("53.42");
+            listKline.add(sm4);
+
+            StockModel sm5 = new StockModel();
+            sm5.setDate("2015-11-24");
+            sm5.setOpen("53.61");
+            sm5.setHigh("52.79");
+            sm5.setLow("52.50");
+            sm5.setClose("52.98");
+            sm5.setVolume("42558");
+            sm5.setAdjClose("52.98");
+            listKline.add(sm5);
+            sm.setDate("2015-12-01");
+            sm.setOpen("50.80");
+            sm.setHigh("51.48");
+            sm.setLow("50.01");
+            sm.setClose("53.84");
+            sm.setVolume("49106");
+            sm.setAdjClose("50.84");
+            listKline.add(sm);
+
+            StockModel sm1 = new StockModel();
+            sm1.setDate("2015-11-30");
+            sm1.setOpen("51.30");
+            sm1.setHigh("51.54");
+            sm1.setLow("48.80");
+            sm1.setClose("49.99");
+            sm1.setVolume("89669");
+            sm1.setAdjClose("49.99");
+            listKline.add(sm1);
+
+            StockModel sm2 = new StockModel();
+            sm2.setDate("2015-11-27");
+            sm2.setOpen("52.85");
+            sm2.setHigh("52.85");
+            sm2.setLow("50.38");
+            sm2.setClose("51.28");
+            sm2.setVolume("89669");
+            sm2.setAdjClose("51.28");
+            listKline.add(sm2);
+
+
+            StockModel sm6 = new StockModel();
+            sm6.setDate("2015-11-23");
+            sm6.setOpen("55.");
+            sm6.setHigh("53.80");
+            sm6.setLow("53.88");
+            sm6.setClose("53.88");
+            sm6.setVolume("32523");
+            sm6.setAdjClose("53.88");
+            listKline.add(sm6);
+
+            StockModel sm7 = new StockModel();
+            sm7.setDate("2015-11-20");
+            sm7.setOpen("54.65");
+            sm7.setHigh("55.26");
+            sm7.setLow("54.20");
+            sm7.setClose("54.93");
+            sm7.setVolume("36738");
+            sm7.setAdjClose("54.93");
+            listKline.add(sm7);
+
+            StockModel sm8 = new StockModel();
+            sm8.setDate("2015-11-19");
+            sm8.setOpen("53.84");
+            sm8.setHigh("54.70");
+            sm8.setLow("53.51");
+            sm8.setClose("54.60");
+            sm8.setVolume("29893");
+            sm8.setAdjClose("54.60");
+            listKline.add(sm8);
+
+            StockModel sm9 = new StockModel();
+            sm9.setDate("2015-11-18");
+            sm9.setOpen("53.39");
+            sm9.setHigh("54.34");
+            sm9.setLow("54.20");
+            sm9.setClose("53.73");
+            sm9.setVolume("37370");
+            sm9.setAdjClose("53.75");
+            listKline.add(sm9);
+        }
+        StockKLineViewModel model = new StockKLineViewModel(listKline);
+        return model;
     }
 
     public boolean isTimeVisibility() {
