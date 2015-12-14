@@ -72,6 +72,23 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
      * 是否显示月K图
      */
     private boolean llMonthKVisibility = false;
+    /**
+     * 是否显示新闻
+     */
+    private boolean newsVisibility = true;
+    /**
+     * 是否显示公告
+     */
+    private boolean noticeVisibility = false;
+    /**
+     * 是否显示研报
+     */
+    private boolean studyVisibility = false;
+    /**
+     * 是否显示公司简介
+     */
+    private boolean companyVisibility = false;
+
 
     /**
      * 返回按钮的设置
@@ -224,6 +241,34 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
         setLlMonthKVisibility(true);
     }
 
+    public void onClickNews() {
+        setNewsVisibility(true);
+        setNoticeVisibility(false);
+        setStudyVisibility(false);
+        setCompanyVisibility(false);
+    }
+
+    public void onClickNotice() {
+        setNewsVisibility(false);
+        setNoticeVisibility(true);
+        setStudyVisibility(false);
+        setCompanyVisibility(false);
+    }
+
+    public void onClickStudy() {
+        setNewsVisibility(false);
+        setNoticeVisibility(false);
+        setStudyVisibility(true);
+        setCompanyVisibility(false);
+    }
+
+    public void onClickCompany() {
+        setNewsVisibility(false);
+        setNoticeVisibility(false);
+        setStudyVisibility(false);
+        setCompanyVisibility(true);
+    }
+
     @Override
     public PresentationModelChangeSupport getPresentationModelChangeSupport() {
         return changeSupport;
@@ -246,7 +291,7 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
         baseInfoModel.setStockName("乐视");
         baseInfoModel.setStockCode("321113");
         baseInfoModel.setIsClose(true);
-        baseInfoModel.setCurrentTime("08-07 15::");
+        baseInfoModel.setCurrentTime("08-07 15:00:00");
         baseInfoModel.setStockPrice("57.5");
         baseInfoModel.setStockAddPrice("+1.59");
         baseInfoModel.setStockAddRange("+3.49%");
@@ -675,5 +720,44 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
     public void setLlMonthKVisibility(boolean llMonthKVisibility) {
         this.llMonthKVisibility = llMonthKVisibility;
         changeSupport.firePropertyChange("llMonthKVisibility");
+    }
+
+    public boolean isNewsVisibility() {
+        return newsVisibility;
+    }
+
+    public void setNewsVisibility(boolean newsVisibility) {
+        this.newsVisibility = newsVisibility;
+        changeSupport.firePropertyChange("newsVisibility");
+
+    }
+
+    public boolean isNoticeVisibility() {
+        return noticeVisibility;
+    }
+
+    public void setNoticeVisibility(boolean noticeVisibility) {
+        this.noticeVisibility = noticeVisibility;
+        changeSupport.firePropertyChange("noticeVisibility");
+
+    }
+
+    public boolean isStudyVisibility() {
+        return studyVisibility;
+    }
+
+    public void setStudyVisibility(boolean studyVisibility) {
+        this.studyVisibility = studyVisibility;
+        changeSupport.firePropertyChange("studyVisibility");
+
+    }
+
+    public boolean isCompanyVisibility() {
+        return companyVisibility;
+    }
+
+    public void setCompanyVisibility(boolean companyVisibility) {
+        this.companyVisibility = companyVisibility;
+        changeSupport.firePropertyChange("companyVisibility");
     }
 }

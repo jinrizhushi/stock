@@ -18,5 +18,6 @@
     <color name="font_gray_black_color">#333333</color>
     <color name="stock_deatial_middle_bg">#F8F8F8</color>
     <color name="stock_detail_middle_font_color">#646464</color>
+    <color name="stock_detail_bottom_font_color">#8b8b8b</color>
     <color name="stock_detail_middle_line_bg">#000000</color>
 </resources>
