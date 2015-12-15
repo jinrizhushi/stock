@@ -683,10 +683,11 @@
                     android:layout_height="match_parent"
                     bind:visibility="{llFiveDayVisibility}"
                     android:orientation="horizontal">
-                    <TextView
+                    <cn.com.jinrizhushi.stock.util.customstockview.StockFiveDayView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="5时"/>
+                        android:background="@color/white"
+                        />
                 </LinearLayout>
                 <!-- 日K -->
                 <LinearLayout

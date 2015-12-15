@@ -150,7 +150,7 @@ public class StockView extends View {
             if (i == 0) {
                 startX = STOCK_VIEW_START_X;
                 startY = STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
-                point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, paint);
+                point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, paint);
                 listLine.add(point);
                 if (ordinateData != null && ordinateData.length > 0) {
 
@@ -170,7 +170,7 @@ public class StockView extends View {
                 } else {
                     startY = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * i / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
                     startX = STOCK_VIEW_START_X;
-                    point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, startY, paint);
+                    point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN, startY, paint);
                     listLine.add(point);
                     if (i != STOCK_VIEW_ALL_DEVIDE) {
                         if (ordinateData != null && ordinateData.length > 0) {
@@ -182,7 +182,7 @@ public class StockView extends View {
                     if (i == (STOCK_VIEW_ALL_DEVIDE - 3)) {
                         StockLineModel lineLeft = new StockLineModel(STOCK_VIEW_START_X, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, STOCK_VIEW_START_X, startY, paint);
                         listLine.add(lineLeft);
-                        StockLineModel lineRight = new StockLineModel(realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, startY, paint);
+                        StockLineModel lineRight = new StockLineModel(realWidth - STOCK_VIEW_MARGIN, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, realWidth - STOCK_VIEW_MARGIN, startY, paint);
                         listLine.add(lineRight);
                     }
                 }
@@ -190,7 +190,7 @@ public class StockView extends View {
             } else if (i == (STOCK_VIEW_ALL_DEVIDE - 2)) {
                 startX = STOCK_VIEW_START_X;
                 startY = (realHeight - STOCK_VIEW_LEFT_DISTANCE) - (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * STOCK_VIEW_LEFT_RIGHT_MARGIN / STOCK_VIEW_ALL_DEVIDE * STOCK_VIEW_BOTTOM_LINE_PERCENT;
-                point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, startY, paint);
+                point = new StockLineModel(startX, startY, realWidth - STOCK_VIEW_MARGIN, startY, paint);
                 listLine.add(point);
 
             } else if (i == (STOCK_VIEW_ALL_DEVIDE - 1)) {
@@ -209,7 +209,7 @@ public class StockView extends View {
         float yPointRight = realHeight - STOCK_VIEW_LEFT_DISTANCE;
         point = new StockLineModel(STOCK_VIEW_START_X, yPointRight, STOCK_VIEW_START_X, yPointLeft, paint);
         listLine.add(point);
-        point = new StockLineModel(realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, yPointRight, realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, yPointLeft, paint);
+        point = new StockLineModel(realWidth - STOCK_VIEW_MARGIN, yPointRight, realWidth - STOCK_VIEW_MARGIN, yPointLeft, paint);
         listLine.add(point);
     }
 
@@ -228,7 +228,7 @@ public class StockView extends View {
             sum = sum + 10;
             Paint paintPoint = new Paint();
             paintPoint.setColor(getResources().getColor(R.color.line_bg));
-            if (sum < (realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN)) {
+            if (sum < (realWidth - STOCK_VIEW_MARGIN)) {
                 paintPoint.setStrokeWidth(width);
                 StockPointModel newPoint = new StockPointModel(sum, startY, paintPoint);
                 listPoint.add(newPoint);
@@ -322,7 +322,7 @@ public class StockView extends View {
     private void drawKline(Canvas canvas) {
         /* 获取坐标数据 */
         startx = STOCK_VIEW_START_X;
-        stopx = realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN;
+        stopx = realWidth - STOCK_VIEW_MARGIN;
         dis = Float.valueOf(Tools.getDecimalFormat((stopx - startx) / listKline.size()));
         realDis = Float.valueOf(Tools.getDecimalFormat((float) (dis * 0.9)));
         for (int i = 0; i < listKline.size(); i++) {
@@ -441,7 +441,7 @@ public class StockView extends View {
         float startY = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * (STOCK_VIEW_ALL_DEVIDE - 3) / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
         float startX = STOCK_VIEW_START_X;
         listTextAbscissa.add(new StockTextModel(abscissaData[0], startX, startY));
-        listTextAbscissa.add(new StockTextModel(abscissaData[1], realWidth - STOCK_VIEW_MARGIN*STOCK_VIEW_LEFT_RIGHT_MARGIN, startY));
+        listTextAbscissa.add(new StockTextModel(abscissaData[1], realWidth - STOCK_VIEW_MARGIN, startY));
         for (int i = 0; i < listTextAbscissa.size(); i++) {
             StockTextModel model = listTextAbscissa.get(i);
             Paint paint = new Paint();
