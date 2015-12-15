@@ -33,10 +33,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
+              <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
               <folding>
-                <element signature="e#1432#1433#0" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
+                <element signature="e#1642#1876#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,11 +45,24 @@
       <file leaf-file-name="activity_stock_detail.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0529246">
-              <caret line="864" column="21" selection-start-line="864" selection-start-column="9" selection-end-line="864" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.6239554">
+              <caret line="858" column="52" selection-start-line="858" selection-start-column="52" selection-end-line="858" selection-end-column="52" />
               <folding>
-                <element signature="e#42520#42555#0" expanded="true" />
-                <element signature="e#43003#43039#0" expanded="true" />
+                <element signature="e#35882#35917#0" expanded="true" />
+                <element signature="e#42630#42665#0" expanded="true" />
+                <element signature="e#43113#43149#0" expanded="true" />
+                <element signature="e#43476#43507#0" expanded="true" />
+                <element signature="e#43611#43653#0" expanded="true" />
+                <element signature="e#44383#44419#0" expanded="true" />
+                <element signature="e#44748#44779#0" expanded="true" />
+                <element signature="e#44883#44925#0" expanded="true" />
+                <element signature="e#45656#45692#0" expanded="true" />
+                <element signature="e#46020#46051#0" expanded="true" />
+                <element signature="e#46155#46197#0" expanded="true" />
+                <element signature="e#46929#46965#0" expanded="true" />
+                <element signature="e#47297#47328#0" expanded="true" />
+                <element signature="e#47432#47474#0" expanded="true" />
+                <element signature="e#48000#48031#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1743,6 +1756,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2322,14 +2365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7108434">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customnormalview/CustomTextView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7108434">
@@ -2409,21 +2444,42 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
+          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
           <folding>
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1642#1876#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67469877">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0529246">
-          <caret line="864" column="21" selection-start-line="864" selection-start-column="9" selection-end-line="864" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.6239554">
+          <caret line="858" column="52" selection-start-line="858" selection-start-column="52" selection-end-line="858" selection-end-column="52" />
           <folding>
-            <element signature="e#42520#42555#0" expanded="true" />
-            <element signature="e#43003#43039#0" expanded="true" />
+            <element signature="e#35882#35917#0" expanded="true" />
+            <element signature="e#42630#42665#0" expanded="true" />
+            <element signature="e#43113#43149#0" expanded="true" />
+            <element signature="e#43476#43507#0" expanded="true" />
+            <element signature="e#43611#43653#0" expanded="true" />
+            <element signature="e#44383#44419#0" expanded="true" />
+            <element signature="e#44748#44779#0" expanded="true" />
+            <element signature="e#44883#44925#0" expanded="true" />
+            <element signature="e#45656#45692#0" expanded="true" />
+            <element signature="e#46020#46051#0" expanded="true" />
+            <element signature="e#46155#46197#0" expanded="true" />
+            <element signature="e#46929#46965#0" expanded="true" />
+            <element signature="e#47297#47328#0" expanded="true" />
+            <element signature="e#47432#47474#0" expanded="true" />
+            <element signature="e#48000#48031#0" expanded="true" />
           </folding>
         </state>
       </provider>
