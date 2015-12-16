@@ -569,14 +569,14 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
        
         List<StockFiveDayItemModel> listFiveDayItemModel=new ArrayList<>();
         
-        StockFiveDayItemModel index0 = new StockFiveDayItemModel("6.00","09:30","298");
-        StockFiveDayItemModel index1 = new StockFiveDayItemModel("9.00","10:00","234");
-        StockFiveDayItemModel index2 = new StockFiveDayItemModel("8.00","10:30","345");
-        StockFiveDayItemModel index3 = new StockFiveDayItemModel("7.00","11:00","332");
-        StockFiveDayItemModel index4 = new StockFiveDayItemModel("10.00","13:30","123");
-        StockFiveDayItemModel index5 = new StockFiveDayItemModel("9.00","14:00","344");
-        StockFiveDayItemModel index6 = new StockFiveDayItemModel("8.00","14:30","323");
-        StockFiveDayItemModel index7 = new StockFiveDayItemModel("6.00","15:00","321");
+        StockFiveDayItemModel index0 = new StockFiveDayItemModel("4.00","09:30","298");
+        StockFiveDayItemModel index1 = new StockFiveDayItemModel("7.00","10:00","234");
+        StockFiveDayItemModel index2 = new StockFiveDayItemModel("6.00","10:30","345");
+        StockFiveDayItemModel index3 = new StockFiveDayItemModel("5.00","11:00","332");
+        StockFiveDayItemModel index4 = new StockFiveDayItemModel("8.00","13:30","123");
+        StockFiveDayItemModel index5 = new StockFiveDayItemModel("7.00","14:00","344");
+        StockFiveDayItemModel index6 = new StockFiveDayItemModel("6.00","14:30","323");
+        StockFiveDayItemModel index7 = new StockFiveDayItemModel("4.00","15:00","321");
         listFiveDayItemModel.add(index0);
         listFiveDayItemModel.add(index1);
         listFiveDayItemModel.add(index2);

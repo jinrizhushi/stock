@@ -673,11 +673,18 @@
                     bind:visibility="{llTimeVisibility}"
                     android:orientation="horizontal">
                     <cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         bind:stockMinute="{stockMinute}"
                         />
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/black"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        ></ListView>
                 </LinearLayout>
                 <!-- 5日图 -->
                 <LinearLayout

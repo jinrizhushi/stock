@@ -32,8 +32,8 @@
       <file leaf-file-name="StockMinuteView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockMinuteView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.111111">
-              <caret line="256" column="46" selection-start-line="256" selection-start-column="46" selection-end-line="256" selection-end-column="46" />
+            <state vertical-scroll-proportion="-0.7777778">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding>
                 <element signature="e#3381#3382#0" expanded="true" />
                 <element signature="e#3411#3412#0" expanded="true" />
@@ -58,19 +58,32 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockDetailViewModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="577" column="70" selection-start-line="577" selection-start-column="70" selection-end-line="577" selection-end-column="70" />
+              <caret line="578" column="67" selection-start-line="578" selection-start-column="67" selection-end-line="578" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockDetialActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockDetialActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19164619">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_stock_detail.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5952381">
+              <caret line="686" column="33" selection-start-line="686" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -1620,12 +1633,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/model/StockRectModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockFiveDayView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stockminute/StockMinuteAttribute.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stockminute/StockMinuteBinding.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/container/StockApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockMinuteView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockDetailViewModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml" />
       </list>
     </option>
   </component>
@@ -2441,10 +2454,10 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17689823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17689823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25641027" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25641027" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61196584" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -2795,111 +2808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.793103">
-          <caret line="678" column="40" selection-start-line="678" selection-start-column="29" selection-end-line="678" selection-end-column="40" />
-          <folding>
-            <element signature="e#788#812#0" expanded="true" />
-            <element signature="e#1396#1421#0" expanded="true" />
-            <element signature="e#1744#1772#0" expanded="true" />
-            <element signature="e#1855#1879#0" expanded="true" />
-            <element signature="e#2703#2722#0" expanded="true" />
-            <element signature="e#3311#3331#0" expanded="true" />
-            <element signature="e#3439#3465#0" expanded="true" />
-            <element signature="e#3773#3798#0" expanded="true" />
-            <element signature="e#4267#4292#0" expanded="true" />
-            <element signature="e#4679#4704#0" expanded="true" />
-            <element signature="e#5835#5867#0" expanded="true" />
-            <element signature="e#6083#6114#0" expanded="true" />
-            <element signature="e#6579#6610#0" expanded="true" />
-            <element signature="e#7541#7573#0" expanded="true" />
-            <element signature="e#7789#7820#0" expanded="true" />
-            <element signature="e#8289#8320#0" expanded="true" />
-            <element signature="e#9247#9279#0" expanded="true" />
-            <element signature="e#9496#9527#0" expanded="true" />
-            <element signature="e#9988#10019#0" expanded="true" />
-            <element signature="e#10938#10970#0" expanded="true" />
-            <element signature="e#11187#11218#0" expanded="true" />
-            <element signature="e#11678#11709#0" expanded="true" />
-            <element signature="e#12785#12817#0" expanded="true" />
-            <element signature="e#13033#13064#0" expanded="true" />
-            <element signature="e#13526#13557#0" expanded="true" />
-            <element signature="e#14478#14510#0" expanded="true" />
-            <element signature="e#14726#14757#0" expanded="true" />
-            <element signature="e#15218#15249#0" expanded="true" />
-            <element signature="e#16175#16207#0" expanded="true" />
-            <element signature="e#16424#16455#0" expanded="true" />
-            <element signature="e#16922#16953#0" expanded="true" />
-            <element signature="e#17875#17907#0" expanded="true" />
-            <element signature="e#18124#18155#0" expanded="true" />
-            <element signature="e#18613#18644#0" expanded="true" />
-            <element signature="e#19722#19754#0" expanded="true" />
-            <element signature="e#19970#20001#0" expanded="true" />
-            <element signature="e#20462#20493#0" expanded="true" />
-            <element signature="e#21414#21446#0" expanded="true" />
-            <element signature="e#21662#21693#0" expanded="true" />
-            <element signature="e#22155#22186#0" expanded="true" />
-            <element signature="e#23409#23441#0" expanded="true" />
-            <element signature="e#23658#23689#0" expanded="true" />
-            <element signature="e#24149#24180#0" expanded="true" />
-            <element signature="e#25097#25129#0" expanded="true" />
-            <element signature="e#25345#25376#0" expanded="true" />
-            <element signature="e#25835#25866#0" expanded="true" />
-            <element signature="e#26228#26263#0" expanded="true" />
-            <element signature="e#26305#26324#0" expanded="true" />
-            <element signature="e#26791#26826#0" expanded="true" />
-            <element signature="e#27102#27134#0" expanded="true" />
-            <element signature="e#27265#27300#0" expanded="true" />
-            <element signature="e#28006#28041#0" expanded="true" />
-            <element signature="e#28317#28349#0" expanded="true" />
-            <element signature="e#28483#28518#0" expanded="true" />
-            <element signature="e#29227#29262#0" expanded="true" />
-            <element signature="e#29538#29570#0" expanded="true" />
-            <element signature="e#29701#29736#0" expanded="true" />
-            <element signature="e#30442#30477#0" expanded="true" />
-            <element signature="e#30753#30785#0" expanded="true" />
-            <element signature="e#30919#30954#0" expanded="true" />
-            <element signature="e#31664#31699#0" expanded="true" />
-            <element signature="e#31975#32007#0" expanded="true" />
-            <element signature="e#32139#32174#0" expanded="true" />
-            <element signature="e#32679#32713#0" expanded="true" />
-            <element signature="e#36187#36222#0" expanded="true" />
-            <element signature="e#36264#36283#0" expanded="true" />
-            <element signature="e#36731#36767#0" expanded="true" />
-            <element signature="e#37094#37125#0" expanded="true" />
-            <element signature="e#37229#37271#0" expanded="true" />
-            <element signature="e#38001#38037#0" expanded="true" />
-            <element signature="e#38366#38397#0" expanded="true" />
-            <element signature="e#38501#38543#0" expanded="true" />
-            <element signature="e#39274#39310#0" expanded="true" />
-            <element signature="e#39638#39669#0" expanded="true" />
-            <element signature="e#39773#39815#0" expanded="true" />
-            <element signature="e#40547#40583#0" expanded="true" />
-            <element signature="e#40915#40946#0" expanded="true" />
-            <element signature="e#41050#41092#0" expanded="true" />
-            <element signature="e#41618#41649#0" expanded="true" />
-            <element signature="e#42935#42970#0" expanded="true" />
-            <element signature="e#43418#43454#0" expanded="true" />
-            <element signature="e#43781#43812#0" expanded="true" />
-            <element signature="e#43916#43958#0" expanded="true" />
-            <element signature="e#44688#44724#0" expanded="true" />
-            <element signature="e#45053#45084#0" expanded="true" />
-            <element signature="e#45188#45230#0" expanded="true" />
-            <element signature="e#45961#45997#0" expanded="true" />
-            <element signature="e#46325#46356#0" expanded="true" />
-            <element signature="e#46460#46502#0" expanded="true" />
-            <element signature="e#47234#47270#0" expanded="true" />
-            <element signature="e#47602#47633#0" expanded="true" />
-            <element signature="e#47737#47779#0" expanded="true" />
-            <element signature="e#48305#48336#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/bind/stockfiveday/StockFiveDayAttribute.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2962,29 +2870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockMinuteView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.111111">
-          <caret line="256" column="46" selection-start-line="256" selection-start-column="46" selection-end-line="256" selection-end-column="46" />
-          <folding>
-            <element signature="e#3381#3382#0" expanded="true" />
-            <element signature="e#3411#3412#0" expanded="true" />
-            <element signature="e#3478#3479#0" expanded="true" />
-            <element signature="e#3515#3516#0" expanded="true" />
-            <element signature="e#3702#3703#0" expanded="true" />
-            <element signature="e#3734#3735#0" expanded="true" />
-            <element signature="e#3989#3990#0" expanded="true" />
-            <element signature="e#4029#4030#0" expanded="true" />
-            <element signature="e#4232#4233#0" expanded="true" />
-            <element signature="e#4275#4276#0" expanded="true" />
-            <element signature="e#4470#4471#0" expanded="true" />
-            <element signature="e#4506#4507#0" expanded="true" />
-            <element signature="e#4565#4566#0" expanded="true" />
-            <element signature="e#4615#4616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockFiveDayViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3007,20 +2892,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockDetailViewModel.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="577" column="70" selection-start-line="577" selection-start-column="70" selection-end-line="577" selection-end-column="70" />
+          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/view/activity/StockDetialActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/stock/viewmodel/StockDetailViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19164619">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="578" column="67" selection-start-line="578" selection-start-column="67" selection-end-line="578" selection-end-column="67" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cn/com/jinrizhushi/stock/util/customstockview/StockMinuteView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7777778">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="e#3381#3382#0" expanded="true" />
+            <element signature="e#3411#3412#0" expanded="true" />
+            <element signature="e#3478#3479#0" expanded="true" />
+            <element signature="e#3515#3516#0" expanded="true" />
+            <element signature="e#3702#3703#0" expanded="true" />
+            <element signature="e#3734#3735#0" expanded="true" />
+            <element signature="e#3989#3990#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#4232#4233#0" expanded="true" />
+            <element signature="e#4275#4276#0" expanded="true" />
+            <element signature="e#4470#4471#0" expanded="true" />
+            <element signature="e#4506#4507#0" expanded="true" />
+            <element signature="e#4565#4566#0" expanded="true" />
+            <element signature="e#4615#4616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stock_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5952381">
+          <caret line="686" column="33" selection-start-line="686" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>
