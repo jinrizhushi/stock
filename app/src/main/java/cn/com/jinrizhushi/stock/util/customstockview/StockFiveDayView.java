@@ -2,8 +2,11 @@ package cn.com.jinrizhushi.stock.util.customstockview;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,8 +18,10 @@ import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockFiveDayModel;
 import cn.com.jinrizhushi.stock.stock.model.StockLineModel;
 import cn.com.jinrizhushi.stock.stock.model.StockPointModel;
+import cn.com.jinrizhushi.stock.stock.model.StockRectModel;
 import cn.com.jinrizhushi.stock.stock.model.StockTextModel;
 import cn.com.jinrizhushi.stock.stock.viewmodel.StockFiveDayViewModel;
+import cn.com.jinrizhushi.stock.stock.viewmodel.StockMarketIndexViewModel;
 import cn.com.jinrizhushi.stock.util.Tools;
 
 /**
@@ -120,6 +125,10 @@ public class StockFiveDayView extends View {
      * 曲线的点
      */
     private static List<StockPointModel> listLinePoint = new ArrayList<>();
+    /** 长方形的数组 */
+    private List<StockRectModel> listRectPoint = new ArrayList<>();
+    /** 成交量的数组 */
+    private List<String> listVolume = new ArrayList<>();
 
 
     public StockFiveDayView(Context context) {
@@ -183,6 +192,43 @@ public class StockFiveDayView extends View {
         realHeight = MeasureSpec.getSize(heightMeasureSpec);
         initPoint();
         initLinePoint();
+        initBarPoint();
+    }
+
+    /**
+     * 初始化柱状图的坐标
+     */
+    private void initBarPoint() {
+        if(listRectPoint!=null&&listRectPoint.size()>0){
+            listRectPoint.clear();
+        }
+        if(listFiveDayItemModel!=null&&listFiveDayItemModel.size()>0) {
+            float allWidth = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2;
+            float allHeight = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 2 / STOCK_VIEW_ALL_DEVIDE;
+            if (listFiveDayItemModel != null && listFiveDayItemModel.size() > 0) {
+                for (int i = 0; i < listFiveDayItemModel.size(); i++) {
+                    listVolume.add(listFiveDayItemModel.get(i).getVolume());
+                }
+            }
+            float maxVolume = Float.parseFloat(viewModel.getHighestVolume());
+            float yDisdance = allHeight / maxVolume;
+            float xDistance = allWidth / listFiveDayItemModel.size();
+            float startx = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
+            float starty = realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN  * STOCK_VIEW_MARGIN;
+            for(int i = (listVolume.size()-1);i>=0;i--){
+                float volume = Float.parseFloat(listVolume.get(i));
+                StockRectModel model = new StockRectModel();
+                model.setRight(startx - xDistance * i);
+                model.setTop(starty - volume * yDisdance+STOCK_IDNEX_VIEW_MAIGIN_LINE);
+                model.setLeft(startx - (float) (xDistance * (i + 0.2)));
+                model.setBottom(starty);
+                if((startx - (float) (xDistance * (i + 0.2)))>=STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN){
+                    listRectPoint.add(model);
+                }
+            }
+
+
+        }
     }
 
     /**
@@ -228,28 +274,35 @@ public class StockFiveDayView extends View {
             dayInfo.add(listThirdDay);
             dayInfo.add(listFourDay);
             dayInfo.add(listFiveDay);
-            if(listLinePoint!=null&&listLinePoint.size()>0){
+            if (listLinePoint != null && listLinePoint.size() > 0) {
                 listLinePoint.clear();
             }
-            for (int q = 0;q<dayInfo.size();q++){
+            for (int q = 0; q < dayInfo.size(); q++) {
                 List<StockFiveDayItemModel> info = dayInfo.get(q);
 
                 if (info != null && info.size() > 0) {
-                    littleDis = (realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2)/5;
+                    littleDis = (realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2) / 5;
                     float everyDistance = littleDis / info.size();
                     for (int i = 0; i < info.size(); i++) {
                         StockFiveDayItemModel model = info.get(i);
                         String index = model.getIndex();//获得指数
                         StockPointModel itemModel = new StockPointModel();
-                        float x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN+littleDis*q+everyDistance*i;
+                        float x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN + littleDis * q + everyDistance * i;
                         itemModel.setStartX(x);
                         float hDistance = Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMaxValue()) - Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue());
                         float yD = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE - 2 * STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
                         float distan = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
-                        float stY = distan - yD / hDistance * (Float.parseFloat(index)-Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue()));
+                        float stY = distan - yD / hDistance * (Float.parseFloat(index) - Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue()));
                         itemModel.setStartY(stY);
                         itemModel.setPaint(paint);
                         listLinePoint.add(itemModel);
+                        if (q == (dayInfo.size() - 1) && i == (info.size() - 1)) {
+                            x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN + littleDis * q + everyDistance * (i + 1);
+                            itemModel.setStartX(x);
+                            itemModel.setStartY(stY);
+                            itemModel.setPaint(paint);
+                            listLinePoint.add(itemModel);
+                        }
                     }
                 }
 
@@ -349,6 +402,7 @@ public class StockFiveDayView extends View {
     }
 
     float littleDis = 0f;
+    float timeY = 0f;
 
     /**
      * 添加额外的线
@@ -356,19 +410,19 @@ public class StockFiveDayView extends View {
     private void addExtraLines() {
         Paint paint = new Paint();
         paint.setTextSize(STOCK_INDEX_FONT_SIZE);
-        if(viewModel!=null){
+        if (viewModel != null) {
             paint.setColor(viewModel.getMaxIndexColor());
         }
         Paint paintlow = new Paint();
         paintlow.setTextSize(STOCK_INDEX_FONT_SIZE);
-        if(viewModel!=null){
+        if (viewModel != null) {
             paintlow.setColor(viewModel.getMinIndexColor());
         }
         float allWidth = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2;
         float dis = allWidth / 2;
         float startx = dis + STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
         float starty = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
-        if (listDate != null && listDate.size() > 0 ) {
+        if (listDate != null && listDate.size() > 0) {
             Paint paintDate = new Paint();
             paintDate.setTextSize(STOCK_INDEX_FONT_SIZE);
             float littleDis = allWidth / 5;
@@ -389,7 +443,7 @@ public class StockFiveDayView extends View {
         float highStartY = STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
         addLine(STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, highStartY, realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, highStartY);
         float startY = (realHeight - STOCK_VIEW_LEFT_DISTANCE) - (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * STOCK_VIEW_LEFT_RIGHT_MARGIN / STOCK_VIEW_ALL_DEVIDE * STOCK_VIEW_BOTTOM_LINE_PERCENT;
-
+        timeY = starty;
         if (viewModel != null) {
             listCoordinate.add(new StockTextModel(viewModel.getStockFiveDayModel().getStockIndexMaxValue(), STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
             listCoordinate.add(new StockTextModel(viewModel.getQoteChangeHigh(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 7, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
@@ -399,7 +453,7 @@ public class StockFiveDayView extends View {
             listCoordinate.add(new StockTextModel(viewModel.getQoteChangeLow(), startxx, startyy, paintlow));
             Paint paintVolume = new Paint();
             paintVolume.setTextSize(STOCK_INDEX_FONT_SIZE);
-            listCoordinate.add(new StockTextModel(viewModel.getHighestVolume(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2, startY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paintVolume));
+            listCoordinate.add(new StockTextModel(viewModel.getHighestVolume(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 5, startY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paintVolume));
 
         } else {
             listCoordinate.add(new StockTextModel("0", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
@@ -429,35 +483,69 @@ public class StockFiveDayView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        drawLine(canvas);
         for (int i = 0; i < listLine.size(); i++) {
             StockLineModel point = listLine.get(i);
             canvas.drawLine(point.getStartX(), point.getStartY(), point.getStopX(), point.getStopY(), point.getPaint());
         }
         setRedLine(canvas);
         drawTexts(canvas);
-        drawLine(canvas);
+        drawBarChart(canvas);
+    }
+
+    /**
+     * 画成交量的柱状图
+     * @param canvas
+     */
+    private void drawBarChart(Canvas canvas) {
+        if(listRectPoint!=null&&listRectPoint.size()>0){
+            for (int i = 0;i<listRectPoint.size();i++){
+                StockRectModel model = listRectPoint.get(i);
+                Paint paint =  new Paint();
+                paint.setColor(viewModel.getVolumeColor());
+                canvas.drawRect(model.getLeft(), model.getTop(),model.getRight(),model.getBottom(),paint);
+            }
+        }
     }
 
     /**
      * 画曲线
+     *
      * @param canvas
      */
     private void drawLine(Canvas canvas) {
-
-        Path path = new Path();
-        for (int i = (listLinePoint.size() - 1); i > 0; i--) {
-            StockPointModel modelBehind = listLinePoint.get(i);
-            StockPointModel modelAHead = listLinePoint.get(i - 1);
-            Paint paint = modelAHead.getPaint();
-            paint.setStrokeWidth(3);
-            if (i == (listLinePoint.size() - 1)) {
-                path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
-            } else {
-                path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
-                path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
+        if (listLinePoint != null && listLinePoint.size() > 0) {
+            Path path = new Path();
+            for (int i = (listLinePoint.size() - 1); i > 0; i--) {
+                StockPointModel modelBehind = listLinePoint.get(i);
+                StockPointModel modelAHead = listLinePoint.get(i - 1);
+                Paint paint = modelAHead.getPaint();
+                paint.setStrokeWidth(5);
+                if (i == (listLinePoint.size() - 1)) {
+                    path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
+                } else {
+                    path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
+                    path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
+                }
+                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
             }
-            canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
+            //绘制阴影
+            Paint paint = new Paint();
+            path.lineTo(STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, timeY);
+            path.lineTo(listLinePoint.get(listLinePoint.size() - 1).getStartX(), timeY);
+            path.lineTo(listLinePoint.get(listLinePoint.size() - 1).getStartX(), listLinePoint.get(listLinePoint.size() - 1).getStartY());
+            path.close();
+            Shader mShasder;
+            if (listLinePoint.get(0).getPaint().getColor() == StockMarketIndexViewModel.STOCK_MARKET_IDNEX_VIEW_RED_COLOR) {
+                mShasder = new LinearGradient(listLinePoint.get(listLinePoint.size() - 1).getStartX(), listLinePoint.get(listLinePoint.size() - 1).getStartY(), listLinePoint.get(listLinePoint.size() - 1).getStartX(), timeY, new int[]{viewModel.getShadowColor(), viewModel.getShadowColor()}, null, Shader.TileMode.CLAMP);
+            } else {
+                mShasder = new LinearGradient(listLinePoint.get(listLinePoint.size() - 1).getStartX(), listLinePoint.get(listLinePoint.size() - 1).getStartY(), listLinePoint.get(listLinePoint.size() - 1).getStartX(), timeY, new int[]{viewModel.getShadowColor(), viewModel.getShadowColor()}, null, Shader.TileMode.CLAMP);
+            }
+            paint.setShader(mShasder);
+            canvas.drawPath(path, paint);
         }
+
+
     }
 
     private void drawTexts(Canvas canvas) {

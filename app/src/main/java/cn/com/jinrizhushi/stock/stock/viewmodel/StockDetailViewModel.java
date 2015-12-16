@@ -543,14 +543,16 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
             String date = list.get(i);
             for (int k = 1;k<=12;k++){
                 String high="7.90" ;
-
+                String vlome = "280";
                 if(k%2==0){
                     high=String.valueOf(Float.parseFloat(high)-(k/2)/4);
+                    vlome=String.valueOf(Float.parseFloat(vlome)-(k/2)/4*30);
                 }else if(k%3==0){
                     high=String.valueOf((k/3)*1.5+Float.parseFloat(high));
+                    vlome=String.valueOf((k/3)*1.5*30+Float.parseFloat(vlome));
                 }
 
-                StockFiveDayItemModel itemModel11 = new StockFiveDayItemModel(high,date+"  "+k,"280");
+                StockFiveDayItemModel itemModel11 = new StockFiveDayItemModel(high,date+"  "+k,vlome);
                 listFiveDayItemModel.add(itemModel11);
             }
         }
