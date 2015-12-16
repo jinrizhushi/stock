@@ -148,8 +148,8 @@ public class StockFiveDayViewModel {
         float minValue = Float.parseFloat(stockFiveDayModel.getStockIndexMinValue());
         float centerValue = Tools.getDecimalFormatFloat((maxValue + minValue) / 2);
         float range = Tools.getDecimalFormatFloat((maxValue - minValue) / centerValue);
-        stockFiveDayModel.setStockIndexMaxValue(range + "%");
-        stockFiveDayModel.setStockIndexMinValue("-" + range + "%");
+        setQoteChangeHigh(range + "%");
+        setQoteChangeLow("-" + range + "%");
         setLineColor(STOCK_INDEX_LINE_COLOR);
         setShadowColor(STOCK_INDEX_SHADOW_COLOR);
         setVolumeColor(STOCK_INDEX_VOLUME_COLOR);

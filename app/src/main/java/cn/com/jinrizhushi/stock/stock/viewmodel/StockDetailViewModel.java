@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.SimpleTimeZone;
 
 import cn.com.jinrizhushi.stock.stock.model.StockBaseInfoModel;
+import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
+import cn.com.jinrizhushi.stock.stock.model.StockFiveDayModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 
 /**
@@ -521,6 +523,39 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
             listKline.add(sm9);
         }
         StockKLineViewModel model = new StockKLineViewModel(listKline);
+        return model;
+    }
+    public StockFiveDayViewModel  getStockFiveDay(){
+        StockFiveDayViewModel model = new StockFiveDayViewModel();
+        StockFiveDayModel fiveDayModel = new StockFiveDayModel();
+        fiveDayModel.setStockIndexMaxValue("8.91");
+        fiveDayModel.setStockIndexMinValue("2.35");
+        List<String> list = new ArrayList<>();
+        list.add("12-10");
+        list.add("12-11");
+        list.add("12-14");
+        list.add("12-15");
+        list.add("12-16");
+        fiveDayModel.setListDate(list);
+        fiveDayModel.setStockIndexCurrentValue("6.75");
+        List<StockFiveDayItemModel> listFiveDayItemModel=new ArrayList<>();
+        for(int i= 0;i<list.size();i++){
+            String date = list.get(i);
+            for (int k = 1;k<=12;k++){
+                String high="7.90" ;
+                if(k%3==0){
+                    high=String.valueOf((k/10)+Float.parseFloat(high));
+                }
+                if(k%2==0){
+                    high=String.valueOf(Float.parseFloat(high)-(k/10));
+                }
+
+                StockFiveDayItemModel itemModel11 = new StockFiveDayItemModel("7.90",date+"  "+k,"280");
+                listFiveDayItemModel.add(itemModel11);
+            }
+        }
+
+        model.setStockFiveDayModel(fiveDayModel);
         return model;
     }
 

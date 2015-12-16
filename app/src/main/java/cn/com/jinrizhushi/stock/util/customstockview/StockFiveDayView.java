@@ -3,6 +3,7 @@ package cn.com.jinrizhushi.stock.util.customstockview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -115,6 +116,11 @@ public class StockFiveDayView extends View {
      * 字体长度
      */
     private int STOCK_INDEX_FONT_LENGH = 27;
+    /**
+     * 曲线的点
+     */
+    private static List<StockPointModel> listLinePoint = new ArrayList<>();
+
 
     public StockFiveDayView(Context context) {
         super(context);
@@ -134,6 +140,7 @@ public class StockFiveDayView extends View {
 
     public void setViewModel(StockFiveDayViewModel viewModel) {
         this.viewModel = viewModel;
+        setListDate(viewModel.getStockFiveDayModel().getListDate());
     }
 
     public StockFiveDayModel getStockFiveDayModel() {
@@ -174,6 +181,83 @@ public class StockFiveDayView extends View {
         realWidth = MeasureSpec.getSize(widthMeasureSpec);
         realHeight = MeasureSpec.getSize(heightMeasureSpec);
         initPoint();
+        initLinePoint();
+    }
+
+    /**
+     * 初始化曲线的点坐标
+     */
+    private void initLinePoint() {
+        Paint paint = new Paint();
+        paint.setColor(viewModel.getLineColor());
+        paint.setStrokeWidth(5);
+        stockFiveDayModel = viewModel.getStockFiveDayModel();
+        listDate = stockFiveDayModel.getListDate();
+        listFiveDayItemModel = stockFiveDayModel.getListFiveDayItemModel();
+
+        if (listDate != null && listDate.size() > 0) {
+            List<StockFiveDayItemModel> listOneDay = new ArrayList<>();
+            List<StockFiveDayItemModel> listTwoDay = new ArrayList<>();
+            List<StockFiveDayItemModel> listThirdDay = new ArrayList<>();
+            List<StockFiveDayItemModel> listFourDay = new ArrayList<>();
+            List<StockFiveDayItemModel> listFiveDay = new ArrayList<>();
+            for (int i = 0; i < listDate.size(); i++) {
+                String date = listDate.get(i);
+                for (int k = 0; k < listFiveDayItemModel.size(); k++) {
+                    StockFiveDayItemModel item = listFiveDayItemModel.get(k);
+                    if (item.getTime().contains(date)) {
+                        if (i == 0) {
+                            listOneDay.add(item);
+                        } else if (i == 1) {
+                            listTwoDay.add(item);
+                        } else if (i == 2) {
+                            listThirdDay.add(item);
+                        } else if (i == 3) {
+                            listFourDay.add(item);
+                        } else if (i == 4) {
+                            listFiveDay.add(item);
+                        }
+                    }
+                }
+            }
+
+            /* 根据已分好的数据来计算点 */
+            //        /** 大盘指数 */
+//        private String index;
+//        /** 时间 */
+//        private String time; List<StockPointModel>
+//            listLinePoint.add()
+            List<List<StockFiveDayItemModel>> dayInfo = new ArrayList<>();
+            dayInfo.add(listOneDay);
+            dayInfo.add(listTwoDay);
+            dayInfo.add(listThirdDay);
+            dayInfo.add(listFourDay);
+            dayInfo.add(listFiveDay);
+            for (int q = 0;q<dayInfo.size();q++){
+                List<StockFiveDayItemModel> info = dayInfo.get(q);
+                if (info != null && info.size() > 0) {
+                    float everyDistance = littleDis / info.size();
+                    for (int i = 0; i < info.size(); i++) {
+                        StockFiveDayItemModel model = info.get(i);
+                        String index = model.getIndex();
+                        StockPointModel itemModel = new StockPointModel();
+                        float x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN+STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM+littleDis*i+everyDistance*i;
+                        itemModel.setStartX(x);
+                        float hDistance = Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMaxValue()) - Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue());
+                        float yD = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE - 2 * STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
+                        float distan = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
+                        float stY = distan - yD / hDistance * Float.parseFloat(index);
+                        itemModel.setStartY(stY);
+                        itemModel.setPaint(paint);
+                        listLinePoint.add(itemModel);
+                    }
+                }
+
+            }
+
+
+        }
+
     }
 
     /**
@@ -264,57 +348,69 @@ public class StockFiveDayView extends View {
         addExtraLines();
     }
 
+    float littleDis = 0f;
+
     /**
      * 添加额外的线
      */
     private void addExtraLines() {
         Paint paint = new Paint();
         paint.setTextSize(STOCK_INDEX_FONT_SIZE);
+        if(viewModel!=null){
+            paint.setColor(viewModel.getMaxIndexColor());
+        }
+        Paint paintlow = new Paint();
+        paintlow.setTextSize(STOCK_INDEX_FONT_SIZE);
+        if(viewModel!=null){
+            paintlow.setColor(viewModel.getMinIndexColor());
+        }
         float allWidth = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2;
         float dis = allWidth / 2;
         float startx = dis + STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
         float starty = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE;
-        if (listDate != null && listDate.size() > 0 || !isShowRedLine) {
-            /*测试数据*/
-            listDate.add("12-10");
-            listDate.add("12-11");
-            listDate.add("12-14");
-            listDate.add("12-15");
+        if (listDate != null && listDate.size() > 0 ) {
+            Paint paintDate = new Paint();
+            paintDate.setTextSize(STOCK_INDEX_FONT_SIZE);
             float littleDis = allWidth / 5;
             for (int i = 1; i <= 4; i++) {
                 float startxs = littleDis * i + STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN;
                 addLine(startxs, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, startxs, starty);
-                listCoordinate.add(new StockTextModel(listDate.get(i - 1), startxs - STOCK_INDEX_FONT_LENGH, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paint));
+                listCoordinate.add(new StockTextModel(listDate.get(i), startxs - STOCK_INDEX_FONT_LENGH, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paintDate));
             }
 
         } else {
+            Paint paintDate = new Paint();
+            paintDate.setTextSize(STOCK_INDEX_FONT_SIZE);
             addLine(startx, STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, startx, starty);
-            listCoordinate.add(new StockTextModel("09:30", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paint));
-            listCoordinate.add(new StockTextModel("13:00", startx - STOCK_INDEX_FONT_LENGH, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paint));
-            listCoordinate.add(new StockTextModel("15:00", realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_INDEX_FONT_LENGH * 2, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paint));
+            listCoordinate.add(new StockTextModel("09:30", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paintDate));
+            listCoordinate.add(new StockTextModel("13:00", startx - STOCK_INDEX_FONT_LENGH, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paintDate));
+            listCoordinate.add(new StockTextModel("15:00", realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_INDEX_FONT_LENGH * 2, Tools.getDecimalFormatFloat((float) (starty + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM * 1.8)), paintDate));
         }
         float highStartY = STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
         addLine(STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, highStartY, realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN, highStartY);
         float startY = (realHeight - STOCK_VIEW_LEFT_DISTANCE) - (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * STOCK_VIEW_LEFT_RIGHT_MARGIN / STOCK_VIEW_ALL_DEVIDE * STOCK_VIEW_BOTTOM_LINE_PERCENT;
 
         if (viewModel != null) {
-            paint.setColor(viewModel.getMaxIndexColor());
             listCoordinate.add(new StockTextModel(viewModel.getStockFiveDayModel().getStockIndexMaxValue(), STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
-            listCoordinate.add(new StockTextModel(viewModel.getQoteChangeLow(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
+            listCoordinate.add(new StockTextModel(viewModel.getQoteChangeHigh(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 7, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
             float startyy = starty - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM - STOCK_IDNEX_VIEW_MAIGIN_LINE;
-            listCoordinate.add(new StockTextModel(viewModel.getStockFiveDayModel().getStockIndexMinValue(), STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, startyy, paint));
-            float startxx = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2;
-            listCoordinate.add(new StockTextModel(viewModel.getQoteChangeHigh(), startxx, startyy, paint));
-            listCoordinate.add(new StockTextModel(viewModel.getHighestVolume(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE *2, startY + STOCK_IDNEX_VIEW_MAIGIN_LINE *2+5 , paint));
+            listCoordinate.add(new StockTextModel(viewModel.getStockFiveDayModel().getStockIndexMinValue(), STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, startyy, paintlow));
+            float startxx = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 8;
+            listCoordinate.add(new StockTextModel(viewModel.getQoteChangeLow(), startxx, startyy, paintlow));
+            Paint paintVolume = new Paint();
+            paintVolume.setTextSize(STOCK_INDEX_FONT_SIZE);
+            listCoordinate.add(new StockTextModel(viewModel.getHighestVolume(), realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2, startY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paintVolume));
 
         } else {
             listCoordinate.add(new StockTextModel("0", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
             listCoordinate.add(new StockTextModel("0", realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2, highStartY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paint));
             float startyy = starty - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM - STOCK_IDNEX_VIEW_MAIGIN_LINE;
-            listCoordinate.add(new StockTextModel("0", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, startyy, paint));
+            listCoordinate.add(new StockTextModel("0", STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN + STOCK_IDNEX_VIEW_MAIGIN_LINE, startyy, paintlow));
             float startxx = realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2;
-            listCoordinate.add(new StockTextModel("0", startxx, startyy, paint));
-            listCoordinate.add(new StockTextModel("0", realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE*2 , startY + STOCK_IDNEX_VIEW_MAIGIN_LINE *2+5, paint));
+            listCoordinate.add(new StockTextModel("0", startxx, startyy, paintlow));
+            Paint paintVolume = new Paint();
+            paintVolume.setTextSize(STOCK_INDEX_FONT_SIZE);
+            listCoordinate.add(new StockTextModel("0", realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN - STOCK_IDNEX_VIEW_MAIGIN_LINE * 2, startY + STOCK_IDNEX_VIEW_MAIGIN_LINE * 2 + 5, paintVolume));
         }
 
         highStartY = starty - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
@@ -339,6 +435,26 @@ public class StockFiveDayView extends View {
         }
         setRedLine(canvas);
         drawTexts(canvas);
+        drawLine(canvas);
+    }
+
+    private void drawLine(Canvas canvas) {
+        Path path = new Path();
+        for (int i = (listLinePoint.size() - 1); i > 0; i--) {
+            if (i > 0) {
+                StockPointModel modelBehind = listLinePoint.get(i);
+                StockPointModel modelAHead = listLinePoint.get(i - 1);
+                Paint paint = modelAHead.getPaint();
+                paint.setStrokeWidth(3);
+                if (i == (listLinePoint.size() - 1)) {
+                    path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
+                } else {
+                    path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
+                    path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
+                }
+                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
+            }
+        }
     }
 
     private void drawTexts(Canvas canvas) {
