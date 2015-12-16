@@ -41,12 +41,10 @@ public class StockDetialActivity extends BaseActivity implements CustomScrollVie
     @AfterViews
     void setData() {
         scrollView.setOnScrollListener(this);
-        // 当布局的状态或者控件的可见性发生改变回调的接口
         findViewById(R.id.parent_layout).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 
             @Override
             public void onGlobalLayout() {
-                // 这一步很重要，使得上面的购买布局和下面的购买布局重合
                 onScroll(scrollView.getScrollY());
             }
         });
@@ -61,6 +59,5 @@ public class StockDetialActivity extends BaseActivity implements CustomScrollVie
     public void onScroll(int scrollY) {
         int mBuyLayout2ParentTop = Math.max(scrollY, llMiddle.getTop());
         llTop.layout(0, mBuyLayout2ParentTop, llTop.getWidth(), mBuyLayout2ParentTop + llTop.getHeight());
-
     }
 }

@@ -15,6 +15,7 @@ import java.util.SimpleTimeZone;
 import cn.com.jinrizhushi.stock.stock.model.StockBaseInfoModel;
 import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockFiveDayModel;
+import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
 
 /**
@@ -556,6 +557,34 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
                 listFiveDayItemModel.add(itemModel11);
             }
         }
+        fiveDayModel.setListFiveDayItemModel(listFiveDayItemModel);
+        model.setStockFiveDayModel(fiveDayModel);
+        return model;
+    }
+    public StockFiveDayViewModel  getStockMinute(){
+        StockFiveDayViewModel model = new StockFiveDayViewModel();
+        StockFiveDayModel fiveDayModel = new StockFiveDayModel();
+        fiveDayModel.setStockIndexMaxValue("15.00");
+        fiveDayModel.setStockIndexMinValue("2.35");
+       
+        List<StockFiveDayItemModel> listFiveDayItemModel=new ArrayList<>();
+        
+        StockFiveDayItemModel index0 = new StockFiveDayItemModel("6.00","09:30","298");
+        StockFiveDayItemModel index1 = new StockFiveDayItemModel("9.00","10:00","234");
+        StockFiveDayItemModel index2 = new StockFiveDayItemModel("8.00","10:30","345");
+        StockFiveDayItemModel index3 = new StockFiveDayItemModel("7.00","11:00","332");
+        StockFiveDayItemModel index4 = new StockFiveDayItemModel("10.00","13:30","123");
+        StockFiveDayItemModel index5 = new StockFiveDayItemModel("9.00","14:00","344");
+        StockFiveDayItemModel index6 = new StockFiveDayItemModel("8.00","14:30","323");
+        StockFiveDayItemModel index7 = new StockFiveDayItemModel("6.00","15:00","321");
+        listFiveDayItemModel.add(index0);
+        listFiveDayItemModel.add(index1);
+        listFiveDayItemModel.add(index2);
+        listFiveDayItemModel.add(index3);
+        listFiveDayItemModel.add(index4);
+        listFiveDayItemModel.add(index5);
+        listFiveDayItemModel.add(index6);
+        listFiveDayItemModel.add(index7);
         fiveDayModel.setListFiveDayItemModel(listFiveDayItemModel);
         model.setStockFiveDayModel(fiveDayModel);
         return model;

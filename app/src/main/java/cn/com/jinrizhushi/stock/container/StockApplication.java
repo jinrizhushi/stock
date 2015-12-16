@@ -9,10 +9,12 @@ import org.robobinding.customviewbinding.CustomViewBinding;
 import cn.com.jinrizhushi.stock.util.bind.stockkline.StockKLineBinding;
 import cn.com.jinrizhushi.stock.util.bind.stocktime.StockTimeBinding;
 import cn.com.jinrizhushi.stock.util.customstockview.StockFiveDayView;
+import cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockView;
 import cn.com.jinrizhushi.stock.util.service.volley.RequestManager;
 import cn.com.jinrizhushi.stock.util.bind.stockfiveday.StockFiveDayBinding;
+import cn.com.jinrizhushi.stock.util.bind.stockminute.StockMinuteBinding;
 
 /**
  * 描述: 全局变量类
@@ -31,6 +33,7 @@ public class StockApplication extends Application{
                 .add(CustomViewBinding.forView(StockTimeSharingView.class, new StockTimeBinding()))
                 .add(CustomViewBinding.forView(StockView.class, new StockKLineBinding()))
                 .add(CustomViewBinding.forView(StockFiveDayView.class,new StockFiveDayBinding()))
+                .add(CustomViewBinding.forView(StockMinuteView.class,new StockMinuteBinding()))
                 .build();
         RequestManager.init(this);
     }

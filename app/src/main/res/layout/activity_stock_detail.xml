@@ -672,10 +672,12 @@
                     android:layout_height="match_parent"
                     bind:visibility="{llTimeVisibility}"
                     android:orientation="horizontal">
-                    <TextView
+                    <cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="分时"/>
+                        android:background="@color/white"
+                        bind:stockMinute="{stockMinute}"
+                        />
                 </LinearLayout>
                 <!-- 5日图 -->
                 <LinearLayout
