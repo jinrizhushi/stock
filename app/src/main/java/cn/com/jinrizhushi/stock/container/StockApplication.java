@@ -10,6 +10,7 @@ import org.robobinding.customviewbinding.CustomViewBinding;
 import cn.com.jinrizhushi.stock.util.bind.stockkline.StockKLineBinding;
 import cn.com.jinrizhushi.stock.util.bind.stocktime.StockTimeBinding;
 import cn.com.jinrizhushi.stock.util.bind.textview.TextViewBinding;
+import cn.com.jinrizhushi.stock.util.bind.textview.TextViewTextBinding;
 import cn.com.jinrizhushi.stock.util.customstockview.StockFiveDayView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView;
 import cn.com.jinrizhushi.stock.util.customstockview.StockTimeSharingView;
@@ -34,6 +35,7 @@ public class StockApplication extends Application{
         reusableBinderFactory = new BinderFactoryBuilder()
                 .add(CustomViewBinding.forView(StockTimeSharingView.class, new StockTimeBinding()))
 //                .add(CustomViewBinding.forView(TextView.class, new TextViewBinding()))
+                .add(CustomViewBinding.forView(TextView.class, new TextViewTextBinding()))
                 .add(CustomViewBinding.forView(StockView.class, new StockKLineBinding()))
                 .add(CustomViewBinding.forView(StockFiveDayView.class,new StockFiveDayBinding()))
                 .add(CustomViewBinding.forView(StockMinuteView.class,new StockMinuteBinding()))

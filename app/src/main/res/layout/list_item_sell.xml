@@ -22,7 +22,7 @@
         android:layout_toRightOf="@id/tv_seller_name"
         android:layout_marginLeft="@dimen/margin_top"
         />
-    <!--bind:backgroundColor="{sellColor}"-->
+    <!--bind:textColor="{sellColor}"-->
 
     <!--买卖量-->
     <TextView
