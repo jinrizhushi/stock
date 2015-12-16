@@ -228,8 +228,12 @@ public class StockFiveDayView extends View {
             dayInfo.add(listThirdDay);
             dayInfo.add(listFourDay);
             dayInfo.add(listFiveDay);
+            if(listLinePoint!=null&&listLinePoint.size()>0){
+                listLinePoint.clear();
+            }
             for (int q = 0;q<dayInfo.size();q++){
                 List<StockFiveDayItemModel> info = dayInfo.get(q);
+
                 if (info != null && info.size() > 0) {
                     littleDis = (realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2)/5;
                     float everyDistance = littleDis / info.size();
@@ -453,7 +457,6 @@ public class StockFiveDayView extends View {
                 path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
             }
             canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
-
         }
     }
 
