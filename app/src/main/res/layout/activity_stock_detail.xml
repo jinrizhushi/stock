@@ -678,13 +678,41 @@
                         android:background="@color/white"
                         bind:stockMinute="{stockMinute}"
                         />
-                    <ListView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/black"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        ></ListView>
+                        android:layout_marginTop="13dp"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginRight="14dp"
+                        android:orientation="vertical">
+                        <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
+                            android:id="@+id/xlv_sell"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:divider="#00000000"
+                            android:dividerHeight="0dip"
+                            android:layout_weight="100"
+                            bind:itemLayout="@layout/list_item_sell"
+                            bind:source="{sellOutModels}"
+
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="#F0F0F0"/>
+                        <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
+                            android:id="@+id/xlv_sell"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:divider="#00000000"
+                            android:dividerHeight="0dip"
+                            android:layout_weight="100"
+                            bind:itemLayout="@layout/list_item_sell"
+                            bind:source="{sellInModels}"
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
                 <!-- 5日图 -->
                 <LinearLayout

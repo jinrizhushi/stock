@@ -23,4 +23,8 @@
     <dimen name="stock_detail_middle_heights">17.75dp</dimen>
     <dimen name="stock_detail_kview_height">175dp</dimen>
     <dimen name="stock_detail_news_line">0.5dp</dimen>
+    <dimen name="header_height">60dp</dimen>
+    <dimen name="footer_padding">10dp</dimen>
+    <dimen name="footer_height">90dp</dimen>
+
 </resources>

@@ -24,4 +24,7 @@
 
     <color name="stock_view_point_bg">#DE3A25</color>
     <color name="stock_view_index_line_color">#F6F6F6</color>
+    <color name="title_color">#333333</color>
+    <color name="tv_seller_font_color">#919191</color>
+
 </resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:bind="http://robobinding.org/android"
+    android:layout_height="match_parent">
+    <!-- 买卖家的名称 -->
+    <TextView
+        android:id="@+id/tv_seller_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        bind:text="{sellerName}"
+        android:textSize="@dimen/font_size_little_small"
+        android:textColor="@color/tv_seller_font_color"
+        />
+    <!--卖出或买进的价格-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        bind:text="{sellerPrice}"
+        android:textSize="@dimen/font_size_little_small"
+        android:textColor="@color/tv_seller_font_color"
+        android:layout_toRightOf="@id/tv_seller_name"
+        android:layout_marginLeft="@dimen/margin_top"
+        />
+    <!--bind:backgroundColor="{sellColor}"-->
+
+    <!--买卖量-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        bind:text="{sellNumber}"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/font_size_little_small"
+        android:textColor="@color/tv_seller_font_color"
+        />
+
+</RelativeLayout>

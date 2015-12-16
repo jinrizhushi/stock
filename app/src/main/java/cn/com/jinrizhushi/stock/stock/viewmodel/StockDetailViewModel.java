@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
+import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.annotation.PresentationModel;
 import org.robobinding.presentationmodel.HasPresentationModelChangeSupport;
 import org.robobinding.presentationmodel.PresentationModelChangeSupport;
@@ -17,6 +18,7 @@ import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockFiveDayModel;
 import cn.com.jinrizhushi.stock.stock.model.StockFiveDayItemModel;
 import cn.com.jinrizhushi.stock.stock.model.StockModel;
+import cn.com.jinrizhushi.stock.stock.model.StockSellerModel;
 
 /**
  * 描述: 股票详情的视图模型类
@@ -696,7 +698,26 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
         StockKLineViewModel model = new StockKLineViewModel(listKline);
         return model;
     }
-
+    @ItemPresentationModel(value = StockSellerOutItemViewModel.class)
+    public ArrayList<StockSellerModel> getSellOutModels() {
+        ArrayList<StockSellerModel> list = new ArrayList<>();
+        list.add(new StockSellerModel("卖5","8.65", 0xFFD8000,"1365"));
+        list.add(new StockSellerModel("卖4","8.64", 0xFFD8000,"858"));
+        list.add(new StockSellerModel("卖3","8.63", 0xFF8F8F8F,"499"));
+        list.add(new StockSellerModel("卖2","8.62", 0xFF2BA800,"167"));
+        list.add(new StockSellerModel("卖1","8.61", 0xFF2BA800,"34"));
+        return list;
+    }
+    @ItemPresentationModel(value = StockSellerIntItemViewModel.class)
+    public ArrayList<StockSellerModel> getSellInModels() {
+        ArrayList<StockSellerModel> list = new ArrayList<>();
+        list.add(new StockSellerModel("买1","8.60", 0xFF2BA800,"53"));
+        list.add(new StockSellerModel("买2","8.54", 0xFF2BA800,"111"));
+        list.add(new StockSellerModel("买3","8.53", 0xFF2BA800,"42"));
+        list.add(new StockSellerModel("买4","8.52", 0xFF2BA800,"111"));
+        list.add(new StockSellerModel("买5","8.51", 0xFF2BA800,"143"));
+        return list;
+    }
     public boolean isTimeVisibility() {
         return timeVisibility;
     }

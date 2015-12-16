@@ -106,7 +106,7 @@ public class StockMinuteView extends View {
     /**
      * 是否显示红线
      */
-    private boolean isShowRedLine = false;
+    private boolean isShowRedLine = true;
     /**
      * 坐标值的列表
      */
@@ -168,14 +168,6 @@ public class StockMinuteView extends View {
 
     public void setListFiveDayItemModel(List<StockFiveDayItemModel> listFiveDayItemModel) {
         this.listFiveDayItemModel = listFiveDayItemModel;
-    }
-
-    public boolean isShowRedLine() {
-        return isShowRedLine;
-    }
-
-    public void setIsShowRedLine(boolean isShowRedLine) {
-        this.isShowRedLine = isShowRedLine;
     }
 
     @Override
