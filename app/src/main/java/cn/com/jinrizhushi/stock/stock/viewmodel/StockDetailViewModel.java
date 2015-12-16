@@ -528,7 +528,7 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
     public StockFiveDayViewModel  getStockFiveDay(){
         StockFiveDayViewModel model = new StockFiveDayViewModel();
         StockFiveDayModel fiveDayModel = new StockFiveDayModel();
-        fiveDayModel.setStockIndexMaxValue("8.91");
+        fiveDayModel.setStockIndexMaxValue("15.00");
         fiveDayModel.setStockIndexMinValue("2.35");
         List<String> list = new ArrayList<>();
         list.add("12-10");
@@ -543,18 +543,18 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
             String date = list.get(i);
             for (int k = 1;k<=12;k++){
                 String high="7.90" ;
-                if(k%3==0){
-                    high=String.valueOf((k/10)+Float.parseFloat(high));
-                }
+
                 if(k%2==0){
-                    high=String.valueOf(Float.parseFloat(high)-(k/10));
+                    high=String.valueOf(Float.parseFloat(high)-(k/2)/4);
+                }else if(k%3==0){
+                    high=String.valueOf((k/3)*1.5+Float.parseFloat(high));
                 }
 
-                StockFiveDayItemModel itemModel11 = new StockFiveDayItemModel("7.90",date+"  "+k,"280");
+                StockFiveDayItemModel itemModel11 = new StockFiveDayItemModel(high,date+"  "+k,"280");
                 listFiveDayItemModel.add(itemModel11);
             }
         }
-
+        fiveDayModel.setListFiveDayItemModel(listFiveDayItemModel);
         model.setStockFiveDayModel(fiveDayModel);
         return model;
     }

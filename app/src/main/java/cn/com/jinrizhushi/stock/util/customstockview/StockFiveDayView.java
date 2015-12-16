@@ -141,6 +141,7 @@ public class StockFiveDayView extends View {
     public void setViewModel(StockFiveDayViewModel viewModel) {
         this.viewModel = viewModel;
         setListDate(viewModel.getStockFiveDayModel().getListDate());
+        setListFiveDayItemModel(viewModel.getStockFiveDayModel().getListFiveDayItemModel());
     }
 
     public StockFiveDayModel getStockFiveDayModel() {
@@ -203,8 +204,8 @@ public class StockFiveDayView extends View {
             List<StockFiveDayItemModel> listFiveDay = new ArrayList<>();
             for (int i = 0; i < listDate.size(); i++) {
                 String date = listDate.get(i);
-                for (int k = 0; k < listFiveDayItemModel.size(); k++) {
-                    StockFiveDayItemModel item = listFiveDayItemModel.get(k);
+                for (int k = 0; k < getListFiveDayItemModel().size(); k++) {
+                    StockFiveDayItemModel item = getListFiveDayItemModel().get(k);
                     if (item.getTime().contains(date)) {
                         if (i == 0) {
                             listOneDay.add(item);
@@ -221,12 +222,6 @@ public class StockFiveDayView extends View {
                 }
             }
 
-            /* 根据已分好的数据来计算点 */
-            //        /** 大盘指数 */
-//        private String index;
-//        /** 时间 */
-//        private String time; List<StockPointModel>
-//            listLinePoint.add()
             List<List<StockFiveDayItemModel>> dayInfo = new ArrayList<>();
             dayInfo.add(listOneDay);
             dayInfo.add(listTwoDay);
@@ -236,17 +231,18 @@ public class StockFiveDayView extends View {
             for (int q = 0;q<dayInfo.size();q++){
                 List<StockFiveDayItemModel> info = dayInfo.get(q);
                 if (info != null && info.size() > 0) {
+                    littleDis = (realWidth - STOCK_VIEW_MARGIN * STOCK_VIEW_LEFT_RIGHT_MARGIN * 2)/5;
                     float everyDistance = littleDis / info.size();
                     for (int i = 0; i < info.size(); i++) {
                         StockFiveDayItemModel model = info.get(i);
-                        String index = model.getIndex();
+                        String index = model.getIndex();//获得指数
                         StockPointModel itemModel = new StockPointModel();
-                        float x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN+STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM+littleDis*i+everyDistance*i;
+                        float x = STOCK_VIEW_LEFT_RIGHT_MARGIN * STOCK_VIEW_MARGIN+littleDis*q+everyDistance*i;
                         itemModel.setStartX(x);
                         float hDistance = Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMaxValue()) - Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue());
                         float yD = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE - 2 * STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
                         float distan = (realHeight - STOCK_VIEW_LEFT_RIGHT_MARGIN * 2 * STOCK_VIEW_MARGIN) * 4 / STOCK_VIEW_ALL_DEVIDE + STOCK_VIEW_LEFT_DISTANCE - STOCK_INDEX_VIEW_MARGIN_TOP_BOTTOM;
-                        float stY = distan - yD / hDistance * Float.parseFloat(index);
+                        float stY = distan - yD / hDistance * (Float.parseFloat(index)-Float.parseFloat(viewModel.getStockFiveDayModel().getStockIndexMinValue()));
                         itemModel.setStartY(stY);
                         itemModel.setPaint(paint);
                         listLinePoint.add(itemModel);
@@ -438,22 +434,26 @@ public class StockFiveDayView extends View {
         drawLine(canvas);
     }
 
+    /**
+     * 画曲线
+     * @param canvas
+     */
     private void drawLine(Canvas canvas) {
+
         Path path = new Path();
         for (int i = (listLinePoint.size() - 1); i > 0; i--) {
-            if (i > 0) {
-                StockPointModel modelBehind = listLinePoint.get(i);
-                StockPointModel modelAHead = listLinePoint.get(i - 1);
-                Paint paint = modelAHead.getPaint();
-                paint.setStrokeWidth(3);
-                if (i == (listLinePoint.size() - 1)) {
-                    path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
-                } else {
-                    path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
-                    path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
-                }
-                canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
+            StockPointModel modelBehind = listLinePoint.get(i);
+            StockPointModel modelAHead = listLinePoint.get(i - 1);
+            Paint paint = modelAHead.getPaint();
+            paint.setStrokeWidth(3);
+            if (i == (listLinePoint.size() - 1)) {
+                path.moveTo(modelBehind.getStartX(), modelBehind.getStartY());
+            } else {
+                path.lineTo(modelBehind.getStartX(), modelBehind.getStartY());
+                path.lineTo(modelAHead.getStartX(), modelAHead.getStartY());
             }
+            canvas.drawLine(modelAHead.getStartX(), modelAHead.getStartY(), modelBehind.getStartX(), modelBehind.getStartY(), paint);
+
         }
     }
 
