@@ -55,974 +55,974 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/parent_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
             <LinearLayout
+                android:id="@+id/parent_layout"
                 android:layout_width="match_parent"
-                android:layout_height="227dp"
-                android:layout_marginTop="@dimen/margin_top"
-                android:background="@color/white"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="75dp">
-                    <!-- 市值 -->
-                    <TextView
-                        android:id="@+id/tv_stock_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/margin_left"
-                        android:textColor="@color/font_red_color"
-                        android:textSize="@dimen/font_size_biggest"
-                        android:textStyle="bold"
-                        bind:text="{stockPrice}" />
+                    android:layout_height="227dp"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@color/white"
+                    android:orientation="vertical">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp">
+                        <!-- 市值 -->
+                        <TextView
+                            android:id="@+id/tv_stock_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/margin_left"
+                            android:textColor="@color/font_red_color"
+                            android:textSize="@dimen/font_size_biggest"
+                            android:textStyle="bold"
+                            bind:text="{stockPrice}" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/margin_left_view"
+                            android:layout_toRightOf="@id/tv_stock_price"
+                            android:gravity="center_vertical|left"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/font_red_color"
+                                android:textSize="@dimen/font_size_middle"
+                                android:textStyle="bold"
+                                bind:text="{addPrice}" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/font_red_color"
+                                android:textSize="@dimen/font_size_middle"
+                                android:textStyle="bold"
+                                bind:text="{addRange}" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/horizontal_line_color" />
+                    <!-- 第一个行 -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/margin_left_view"
-                        android:layout_toRightOf="@id/tv_stock_price"
-                        android:gravity="center_vertical|left"
-                        android:orientation="vertical">
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/font_red_color"
-                            android:textSize="@dimen/font_size_middle"
-                            android:textStyle="bold"
-                            bind:text="{addPrice}" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/font_red_color"
-                            android:textSize="@dimen/font_size_middle"
-                            android:textStyle="bold"
-                            bind:text="{addRange}" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/horizontal_line_color" />
-                <!-- 第一个行 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/tv_today_open"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="今开"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_today_open"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{todayOpen}" />
-
-                        <TextView
-                            android:layout_width="1dp"
+                        <RelativeLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_yestoday_close"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="昨收"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_yestoday_close"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{yestodayClose}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_volume"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="成交量"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_volume"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{volume}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_swich"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="换手率"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_swich"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{swich}" />
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/horizontal_line_color" />
-                <!-- 第二个行 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_highest"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="最高"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_highest"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{highest}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_lowest"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="最低"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_lowest"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{lowest}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_volume_price"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="成交额"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_volume_price"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{volumePrice}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_all"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="总市值"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_all"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{allPrice}" />
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/horizontal_line_color" />
-                <!-- 第三个行 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_inside"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="内盘"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_inside"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{inside}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_outside"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="外盘"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_outside"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{outside}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_ratio"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="市盈率"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_ratio"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{ratio}" />
-
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@color/horizontal_line_color" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/tv_rate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_stock_detail_top"
-                            android:gravity="center"
-                            android:text="振幅"
-                            android:textColor="@color/font_gray_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_rate"
-                            android:gravity="center"
-                            android:textColor="@color/font_gray_black_color"
-                            android:textSize="@dimen/font_size_little_small"
-                            android:textStyle="bold"
-                            bind:text="{rate}" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- 股票分时,5日,日k,周k,月k及买入卖出 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/ll_height_of_stock_deltail"
-                android:layout_marginTop="@dimen/margin_top"
-                android:background="@color/stock_deatial_middle_bg"
-                android:orientation="horizontal">
-                <!-- 分时 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_height"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="分时"
-                        android:textColor="@color/stock_detail_middle_font_color"
-                        android:textSize="@dimen/font_size_littles_small"
-                        bind:onClick="onClickTime" />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail"
-                        android:layout_height="2.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        bind:visibility="{timeVisibility}" />
-                </RelativeLayout>
-                <!-- 5日 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_height"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="5日"
-                        android:textColor="@color/stock_detail_middle_font_color"
-                        android:textSize="@dimen/font_size_littles_small"
-                        bind:onClick="onClickFiveDay" />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail"
-                        android:layout_height="2.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        bind:visibility="{fiveDayVisibility}" />
-                </RelativeLayout>
-                <!-- 日K -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_height"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="日K"
-                        android:textColor="@color/stock_detail_middle_font_color"
-                        android:textSize="@dimen/font_size_littles_small"
-                        bind:onClick="onClickDayK" />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail"
-                        android:layout_height="2.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        bind:visibility="{dayKVisibility}" />
-                </RelativeLayout>
-                <!-- 周K -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_height"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="周K"
-                        android:textColor="@color/stock_detail_middle_font_color"
-                        android:textSize="@dimen/font_size_littles_small"
-                        bind:onClick="onClickWeekendK"/>
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail"
-                        android:layout_height="2.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        bind:visibility="{weekendKVisibility}" />
-                </RelativeLayout>
-                <!-- 月K -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_height"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="月K"
-                        android:textColor="@color/stock_detail_middle_font_color"
-                        android:textSize="@dimen/font_size_littles_small"
-                        bind:onClick="onClickMonthK"/>
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail"
-                        android:layout_height="2.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        bind:visibility="{monthKVisibility}" />
-                </RelativeLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/stock_detail_kview_height"
-                android:background="@color/white">
-                <!-- 分时图 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    bind:visibility="{llTimeVisibility}"
-                    android:orientation="horizontal">
-                    <cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView
-                        android:layout_width="250dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        bind:stockMinute="{stockMinute}"
-                        />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginBottom="13dp"
-                        android:layout_marginRight="14dp"
-                        android:orientation="vertical">
-                        <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
-                            android:id="@+id/xlv_sell"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:divider="#00000000"
-                            android:dividerHeight="0dip"
-                            android:layout_weight="100"
-                            bind:itemLayout="@layout/list_item_sell"
-                            bind:source="{sellOutModels}"
-
-                            />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:background="#F0F0F0"/>
-                        <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
-                            android:id="@+id/xlv_sell"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:divider="#00000000"
-                            android:dividerHeight="0dip"
-                            android:layout_weight="100"
-                            bind:itemLayout="@layout/list_item_sell"
-                            bind:source="{sellInModels}"
-                            />
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_today_open"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="今开"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_today_open"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{todayOpen}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_yestoday_close"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="昨收"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_yestoday_close"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{yestodayClose}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_volume"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="成交量"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_volume"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{volume}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_swich"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="换手率"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_swich"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{swich}" />
+                        </RelativeLayout>
+
+
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/horizontal_line_color" />
+                    <!-- 第二个行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_highest"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="最高"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_highest"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{highest}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_lowest"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="最低"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_lowest"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{lowest}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_volume_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="成交额"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_volume_price"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{volumePrice}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_all"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="总市值"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_all"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{allPrice}" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/horizontal_line_color" />
+                    <!-- 第三个行 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_inside"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="内盘"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_inside"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{inside}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_outside"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="外盘"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_outside"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{outside}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_ratio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="市盈率"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_ratio"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{ratio}" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/horizontal_line_color" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_rate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_stock_detail_top"
+                                android:gravity="center"
+                                android:text="振幅"
+                                android:textColor="@color/font_gray_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_rate"
+                                android:gravity="center"
+                                android:textColor="@color/font_gray_black_color"
+                                android:textSize="@dimen/font_size_little_small"
+                                android:textStyle="bold"
+                                bind:text="{rate}" />
+                        </RelativeLayout>
+                    </LinearLayout>
                 </LinearLayout>
-                <!-- 5日图 -->
+
+                <!-- 股票分时,5日,日k,周k,月k及买入卖出 -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    bind:visibility="{llFiveDayVisibility}"
+                    android:layout_height="@dimen/ll_height_of_stock_deltail"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@color/stock_deatial_middle_bg"
                     android:orientation="horizontal">
-                    <cn.com.jinrizhushi.stock.util.customstockview.StockFiveDayView
+                    <!-- 分时 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_height"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="分时"
+                            android:textColor="@color/stock_detail_middle_font_color"
+                            android:textSize="@dimen/font_size_littles_small"
+                            bind:onClick="onClickTime" />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail"
+                            android:layout_height="2.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            bind:visibility="{timeVisibility}" />
+                    </RelativeLayout>
+                    <!-- 5日 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_height"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="5日"
+                            android:textColor="@color/stock_detail_middle_font_color"
+                            android:textSize="@dimen/font_size_littles_small"
+                            bind:onClick="onClickFiveDay" />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail"
+                            android:layout_height="2.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            bind:visibility="{fiveDayVisibility}" />
+                    </RelativeLayout>
+                    <!-- 日K -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_height"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="日K"
+                            android:textColor="@color/stock_detail_middle_font_color"
+                            android:textSize="@dimen/font_size_littles_small"
+                            bind:onClick="onClickDayK" />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail"
+                            android:layout_height="2.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            bind:visibility="{dayKVisibility}" />
+                    </RelativeLayout>
+                    <!-- 周K -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_height"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="周K"
+                            android:textColor="@color/stock_detail_middle_font_color"
+                            android:textSize="@dimen/font_size_littles_small"
+                            bind:onClick="onClickWeekendK"/>
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail"
+                            android:layout_height="2.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            bind:visibility="{weekendKVisibility}" />
+                    </RelativeLayout>
+                    <!-- 月K -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_height"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="月K"
+                            android:textColor="@color/stock_detail_middle_font_color"
+                            android:textSize="@dimen/font_size_littles_small"
+                            bind:onClick="onClickMonthK"/>
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail"
+                            android:layout_height="2.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            bind:visibility="{monthKVisibility}" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stock_detail_kview_height"
+                    android:background="@color/white">
+                    <!-- 分时图 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        bind:visibility="{llTimeVisibility}"
+                        android:orientation="horizontal">
+                        <cn.com.jinrizhushi.stock.util.customstockview.StockMinuteView
+                            android:layout_width="250dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            bind:stockMinute="{stockMinute}"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginBottom="13dp"
+                            android:layout_marginRight="14dp"
+                            android:orientation="vertical">
+                            <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
+                                android:id="@+id/xlv_sell"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:divider="#00000000"
+                                android:dividerHeight="0dip"
+                                android:layout_weight="100"
+                                bind:itemLayout="@layout/list_item_sell"
+                                bind:source="{sellOutModels}"
+
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:background="#F0F0F0"/>
+                            <cn.com.jinrizhushi.stock.util.pulltorefresh.XListView
+                                android:id="@+id/xlv_sell"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:divider="#00000000"
+                                android:dividerHeight="0dip"
+                                android:layout_weight="100"
+                                bind:itemLayout="@layout/list_item_sell"
+                                bind:source="{sellInModels}"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!-- 5日图 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        bind:visibility="{llFiveDayVisibility}"
+                        android:orientation="horizontal">
+                        <cn.com.jinrizhushi.stock.util.customstockview.StockFiveDayView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         bind:stockFiveDay="{stockFiveDay}"
                         />
-                </LinearLayout>
-                <!-- 日K -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    bind:visibility="{llDayKVisibility}"
-                    android:orientation="horizontal">
-                    <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                    </LinearLayout>
+                    <!-- 日K -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        bind:stockkline="{stockKLine}" />
-                </LinearLayout>
-                <!-- 周K -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    bind:visibility="{llWeekendKVisibility}"
-                    android:orientation="horizontal">
-                    <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                        bind:visibility="{llDayKVisibility}"
+                        android:orientation="horizontal">
+                        <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            bind:stockkline="{stockKLine}" />
+                    </LinearLayout>
+                    <!-- 周K -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        bind:stockkline="{stockWeekedKLine}" />
-                </LinearLayout>
-                <!-- 月K -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    bind:visibility="{llMonthKVisibility}"
-                    android:orientation="horizontal">
-                    <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                        bind:visibility="{llWeekendKVisibility}"
+                        android:orientation="horizontal">
+                        <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            bind:stockkline="{stockWeekedKLine}" />
+                    </LinearLayout>
+                    <!-- 月K -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        bind:stockkline="{stockMonthKLine}" />
+                        bind:visibility="{llMonthKVisibility}"
+                        android:orientation="horizontal">
+                        <cn.com.jinrizhushi.stock.util.customstockview.StockView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            bind:stockkline="{stockMonthKLine}" />
+                    </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_news_middle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ll_height_of_stock_deltail"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <!-- 新闻 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="新闻"
+                            bind:onClick="onClickNews"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{newsVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+
+                    <!-- 公告 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="公告"
+                            bind:onClick="onClickNotice"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{noticeVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+                    <!-- 研报 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="研报"
+                            bind:onClick="onClickStudy"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{studyVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+                    <!-- 公司简介 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="公司简介"
+                            bind:onClick="onClickCompany"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{companyVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stock_detail_news_line"
+                    android:layout_gravity="bottom"
+                    android:background="@color/horizontal_line_color"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- 新闻的具体内容 -->
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="1000dp"
+                        android:background="@color/white"/>
+                    <!-- 公告的具体内容 -->
+                    <!-- 研报的具体内容 -->
+                    <!-- 公司简介的具体内容 -->
+                </LinearLayout>
+
             </LinearLayout>
+            <!-- 新闻等标题栏 -->
             <LinearLayout
-                android:id="@+id/ll_news_middle"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/ll_height_of_stock_deltail"
-                android:layout_marginTop="@dimen/margin_top"
-                android:background="@color/white"
-                android:orientation="horizontal">
-                <!-- 新闻 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="新闻"
-                        bind:onClick="onClickNews"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{newsVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-
-                <!-- 公告 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="公告"
-                        bind:onClick="onClickNotice"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{noticeVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-                <!-- 研报 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="研报"
-                        bind:onClick="onClickStudy"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{studyVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-                <!-- 公司简介 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="公司简介"
-                        bind:onClick="onClickCompany"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{companyVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-
-            </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/stock_detail_news_line"
-                android:layout_gravity="bottom"
-                android:background="@color/horizontal_line_color"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/white"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-            <LinearLayout
+                android:id="@+id/ll_news_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <!-- 新闻的具体内容 -->
-                <ListView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1000dp"
-                    android:background="@color/white"/>
-                <!-- 公告的具体内容 -->
-                <!-- 研报的具体内容 -->
-                <!-- 公司简介的具体内容 -->
+                    android:layout_height="@dimen/ll_height_of_stock_deltail"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <!-- 新闻 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="新闻"
+                            bind:onClick="onClickNews"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{newsVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+
+                    <!-- 公告 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="公告"
+                            bind:onClick="onClickNotice"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{noticeVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+                    <!-- 研报 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="研报"
+                            bind:onClick="onClickStudy"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{studyVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+                    <!-- 公司简介 -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/stock_detail_middle_heights"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="公司简介"
+                            bind:onClick="onClickCompany"
+                            android:textColor="@color/stock_detail_bottom_font_color"
+                            android:textSize="@dimen/font_size_bigger_small"
+                            />
+
+                        <TextView
+                            android:layout_width="@dimen/line_width_of_stock_detail_bottom"
+                            android:layout_height="1.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            bind:visibility="{companyVisibility}"
+                            android:background="@color/stock_detail_middle_line_bg"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stock_detail_news_line"
+                    android:background="@color/horizontal_line_color"
+                    android:layout_gravity="bottom"
+                    />
             </LinearLayout>
-
-        </LinearLayout>
-       <!-- 新闻等标题栏 -->
-        <LinearLayout
-            android:id="@+id/ll_news_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/ll_height_of_stock_deltail"
-                android:background="@color/white"
-                android:orientation="horizontal">
-                <!-- 新闻 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="新闻"
-                        bind:onClick="onClickNews"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{newsVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-
-                <!-- 公告 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="公告"
-                        bind:onClick="onClickNotice"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{noticeVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-                <!-- 研报 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="研报"
-                        bind:onClick="onClickStudy"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{studyVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-                <!-- 公司简介 -->
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/stock_detail_middle_heights"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:text="公司简介"
-                        bind:onClick="onClickCompany"
-                        android:textColor="@color/stock_detail_bottom_font_color"
-                        android:textSize="@dimen/font_size_bigger_small"
-                        />
-
-                    <TextView
-                        android:layout_width="@dimen/line_width_of_stock_detail_bottom"
-                        android:layout_height="1.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        bind:visibility="{companyVisibility}"
-                        android:background="@color/stock_detail_middle_line_bg"
-                        />
-                </RelativeLayout>
-
-            </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/stock_detail_news_line"
-                android:background="@color/horizontal_line_color"
-                android:layout_gravity="bottom"
-                />
-        </LinearLayout>
         </FrameLayout>
     </cn.com.jinrizhushi.stock.util.customnormalview.CustomScrollView>
 

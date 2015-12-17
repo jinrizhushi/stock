@@ -701,8 +701,8 @@ public class StockDetailViewModel implements HasPresentationModelChangeSupport {
     @ItemPresentationModel(value = StockSellerOutItemViewModel.class)
     public ArrayList<StockSellerModel> getSellOutModels() {
         ArrayList<StockSellerModel> list = new ArrayList<>();
-        list.add(new StockSellerModel("卖5","8.65", 0xFFD8000,"1365"));
-        list.add(new StockSellerModel("卖4","8.64", 0xFFD8000,"858"));
+        list.add(new StockSellerModel("卖5","8.65", 0xFFD80000,"1365"));
+        list.add(new StockSellerModel("卖4","8.64", 0xFFD80000,"858"));
         list.add(new StockSellerModel("卖3","8.63", 0xFF8F8F8F,"499"));
         list.add(new StockSellerModel("卖2","8.62", 0xFF2BA800,"167"));
         list.add(new StockSellerModel("卖1","8.61", 0xFF2BA800,"34"));
