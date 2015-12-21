@@ -30,7 +30,6 @@ import cn.com.jinrizhushi.stock.util.Tools;
  * 日期: 15/12/4 12:12
  */
 public class StockTimeSharingView extends View {
-
     /**
      * 自定义控件的实际高度
      */
@@ -230,7 +229,7 @@ public class StockTimeSharingView extends View {
         StockTextModel modelQuoteChangeLow = new StockTextModel(rightLow, timeX, tvY + distance * 2 + STOCK_VIEW_FONT_SIZE / 3, paint);
         StockTextModel modelQuoteChangeZero = new StockTextModel(zero, timeX, tvY + STOCK_VIEW_FONT_SIZE / 3 + distance, paint);
         StockTextModel modelQuoteChangeHigh = new StockTextModel(rightHight, timeX, tvY + STOCK_VIEW_FONT_SIZE / 3, paint);
-
+        listText.clear();
         listText.add(modelHight);
         listText.add(modelCenter);
         listText.add(modelLow);
@@ -262,6 +261,7 @@ public class StockTimeSharingView extends View {
         StockLineModel lineOne = new StockLineModel(STOCK_VIEW_STARTX, STOCK_VIEW_FINAL_MARGIN_TOP, stopx, STOCK_VIEW_FINAL_MARGIN_TOP, paint);
         StockLineModel lineSecond = new StockLineModel(STOCK_VIEW_STARTX, STOCK_VIEW_FINAL_MARGIN_TOP + distance, stopx, STOCK_VIEW_FINAL_MARGIN_TOP + distance, paint);
         StockLineModel lineThread = new StockLineModel(STOCK_VIEW_STARTX, STOCK_VIEW_FINAL_MARGIN_TOP + distance * 2, stopx, STOCK_VIEW_FINAL_MARGIN_TOP + distance * 2, paint);
+        listThreeLine.clear();
         listThreeLine.add(lineOne);
         listThreeLine.add(lineSecond);
         listThreeLine.add(lineThread);
