@@ -1,6 +1,9 @@
 package cn.com.jinrizhushi.stock.util;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * 描述: 帮助类
@@ -32,5 +35,12 @@ public class Tools {
         DecimalFormat decimalFormat = new DecimalFormat("");
         return Float.parseFloat(decimalFormat.format(data));
 
+    }
+    /**
+     * 获取时间
+     * @return
+     */
+    public static String getTime() {
+        return new SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(new Date());
     }
 }

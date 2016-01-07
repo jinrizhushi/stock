@@ -12,9 +12,11 @@ import java.util.List;
 
 import cn.com.jinrizhushi.stock.R;
 import cn.com.jinrizhushi.stock.home.view.adapter.AMDragRateAdapter;
+import cn.com.jinrizhushi.stock.util.Tools;
 import cn.com.jinrizhushi.stock.util.customlistview.drag.DragSortListView;
+import cn.com.jinrizhushi.stock.util.pulltorefresh.XListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  implements XListView.IXListViewListener{
     private DragSortListView listView;
     private AMDragRateAdapter adapter;
     private Button btnEdit;
@@ -57,6 +59,11 @@ public class MainActivity extends Activity {
         adapter = new AMDragRateAdapter(MainActivity.this, l);
         listView.setAdapter(adapter);
         listView.setDragEnabled(true); //设置是否可拖动。
+        listView.setPullRefreshEnable(true);
+        listView.setPullLoadEnable(true);
+        listView.setAutoLoadEnable(true);
+        listView.setXListViewListener(this);
+        listView.setRefreshTime(Tools.getTime());
     }
     private void initData() {//初始化
         String[] array = getResources().getStringArray(R.array.module_name);//初始化数据源
@@ -70,6 +77,19 @@ public class MainActivity extends Activity {
         }
         listView = (DragSortListView) findViewById(R.id.dslvList);
     }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
+    public void onLoadMore() {
+        listView.stopRefresh();
+        listView.stopLoadMore();
+        listView.setRefreshTime(Tools.getTime());
+    }
+
     public class body{//放置adapter数据的类
         int src;
         String coin;

@@ -50,6 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import cn.com.jinrizhushi.stock.R;
+import cn.com.jinrizhushi.stock.util.pulltorefresh.XListView;
 
 /**
  * ListView subclass that mediates drag and drop resorting of items.
@@ -58,7 +59,7 @@ import cn.com.jinrizhushi.stock.R;
  * @author heycosmo
  *
  */
-public class DragSortListView extends ListView {
+public class DragSortListView extends XListView {
     
     
     /**
